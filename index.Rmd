@@ -117,7 +117,7 @@ We can help configure RStudio server, Shiny server or notebook server. We know o
 
 ### Plumber
 
-Bruno frequently contributes to open source R packages. He is a contributor to the [plumber](https://github.com/rstudio/plumber) package and maintains [plumberDeploy](https://github.com/meztez/plumberDeploy), [redoc](https://github.com/meztez/redoc), and [rapidoc](https://github.com/meztez/rapidoc) available on CRAN.
+Contributor to the [plumber](https://github.com/rstudio/plumber) package and maintains [plumberDeploy](https://github.com/meztez/plumberDeploy), [redoc](https://github.com/meztez/redoc), and [rapidoc](https://github.com/meztez/rapidoc) available on CRAN.
 
 ### BQS
 
