@@ -33,9 +33,13 @@ output:
       dark: "#F5F5F5"
       light: "#1C1C1C"
       base_font:
-        google: Noto Sans
+        google:
+          family: Noto Sans
+          local: false
       code_font:
-        google: JetBrains Mono
+        google:
+          family: JetBrains Mono
+          local: false
     template: template/default.html
     
     includes:
