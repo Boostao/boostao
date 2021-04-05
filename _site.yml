@@ -1,0 +1,44 @@
+name: "Boostao"                                
+output_dir: "."
+navbar:
+  title: '<img src="./www/boostao.svg" height="40px" alt="Boostao logo" />'
+  right:
+    - text: Services
+      href: "#services"
+    - text: Projects
+      href: "#projects"
+    - text: People
+      href: "#people"
+    - text: Contact
+      href: "#contact"
+    - text: Social
+      menu:
+      - text: LinkedIn
+        icon: ion-social-linkedin
+        href: https://www.linkedin.com/company/boostao 
+      - text: GitHub
+        icon: ion-social-github
+        href: https://github.com/Boostao
+      - text: Twitter
+        icon: ion-social-twitter
+        href: https://twitter.com/boostao1
+output: 
+  html_document:
+    anchor_sections: true
+    theme:
+      bg: "#1C1C1C"
+      fg: "#F5F5F5"
+      primary: "#11AEED"
+      danger: "#FE4A49"
+      dark: "#F5F5F5"
+      light: "#1C1C1C"
+      base_font:
+        google: Noto Sans
+      code_font:
+        google: JetBrains Mono
+    template: template/default.html
+    
+    includes:
+      in_header: favicon.html
+      before_body: splash.html
+    highlight: breezedark

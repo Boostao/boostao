@@ -1,0 +1,51 @@
+<style type="text/css">
+  #navbar li {
+    font-size: 1.15rem;
+  }
+  .navbar, #splash {
+    border-bottom: 3px solid;
+    border-image-source: linear-gradient(90deg, #11AEED, #FF5A5F 33%, #11AEED 66%, #FF5A5F);
+    border-image-slice: 1;
+  }
+  #splash {
+    background-image: url("www/rcode.svg");
+    background-repeat: repeat-y;
+    background-position: 0px 6px;
+    background-size: 100%;
+    height: calc(100vh - 65px);
+    text-align: center;
+    padding-top: 20vh;
+  }
+  .splash-title, .splash-tagline {
+    font-family: JetBrains Mono;
+    padding: 0 0.25rem 0 0.25rem;
+    background-color: #1C1C1C;
+    background-clip: padding-box;
+  }
+  .splash-title {
+    font-size: 6vw;
+  }
+  .splash-tagline {
+    font-size: 3.5vw;
+  }
+  .splash-button {
+    font-size: 4vw;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  }
+  .splash-tao {
+    position: absolute;
+    bottom: 1.5vh;
+    right: 1.5vh;
+    height: 6vh
+  }
+</style>
+<div id="splash">
+  <span class="splash-title">R Data science</span>
+  <br>
+  <span class="splash-title">Cloud consultant</span>
+  <br>
+  <span  class="splash-tagline">AUGMENT YOUR TECH SOLUTIONS</span>
+  <br><br>
+  <button type="button" class="btn btn-primary splash-button" onclick="window.location.href='#contact'"><span class="ion ion-chatbubbles"></span> Get in touch</button>
+  <img src="www/tao.svg" alt="tao" class="splash-tao"/>
+</div>

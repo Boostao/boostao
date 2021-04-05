@@ -1,0 +1,144 @@
+```{r setup, include=FALSE}
+if (requireNamespace("thematic")) 
+  thematic::thematic_rmd(font = "auto")
+```
+
+<style>
+  .section-head h2, h6 {
+     text-align:center;
+     margin-top:0;
+  }
+</style>
+
+## <span class="ion ion-forward" style="transform: scale(1, -1);"></span>Services {.tabset .tabset-fade .tabset-pills .section-head}
+
+We aim to provide value by having a very practical approach. Define a target, draft steps to get there, start to work. Each technological decision has to be justified based on the context of the solution such as schedule constraints, performance requirements and maintenance costs.
+
+### R
+
+:::: {style="display: flex;"}
+::: {style="flex:0.5;padding-right:2vw"}
+**Shiny apps** <span class="ion ion-star"></span>
+
+Need something interactive for users to work with data? Dashboards, visualizations, database backend. We write snappy, scalable and well documented app. Shiny is a great way to democratize information you already have. 
+:::
+::: {style="flex:0.5;padding-left:2vw"}
+**Plumber APIs** <span class="ion ion-wrench"></span>
+
+Looking to expose R computations to the rest of your organization? Plumber is a pretty simple way to do that. We can facilitate its use within your team by helping you exploit its maximum potential.
+:::
+::::
+:::: {style="display: flex;"}
+::: {style="flex:0.5;padding-right:2vw"}
+**Code optimization** <span class="ion ion-code-working"></span>
+
+Have some long-running piece of script? Need it to go faster? We can definitely handle that. We are borderline obsessed with performance, within budget. Sometimes you just need 80% improvement, and it is ok. If you need to go all the way, you might "C" a bit of C++.
+:::
+::: {style="flex:0.5;padding-left:2vw"}
+**Package development** <span class="ion ion-pull-request"></span>
+
+Be it contributing to existing open source packages or setting up an internal minicran with your own packages, we are always up for a pull request. Packages are the best way to share code between collaborators.
+:::
+::::
+:::: {style="display: flex;"}
+::: {style="flex:0.5;padding-right:2vw"}
+**Emergency debugging** <span class="ion ion-bug"></span>
+
+We get it, sometimes stuff in production break. A Docker image is not building properly. Maybe you experience performance regression. It needs to work yesterday, and it puts a lot of pressure on the organization. We have been in these shoes and found solutions where most would have surrendered.
+:::
+::: {style="flex:0.5;padding-left:2vw"}
+**R as a GIS** <span class="ion ion-map"></span>
+
+Working with geographical information in R is not that complicated. It can do all the heavy lifting that other GIS do. You should empower your internal cartographers. We can also build maps and custom map tiles to fit your need.
+:::
+::::
+
+### Data science
+
+:::: {style="display: flex;"}
+::: {style="flex:0.5;padding-right:2vw"}
+**Data engineering** <span class="ion ion-social-buffer"></span>
+
+Every data scientist knows 90% of the job is massaging data. We build data ingestion pipelines to feed modelling needs. Once the science part is done, we can support deployment to production.
+:::
+::: {style="flex:0.5;padding-left:2vw"}
+**Proof of concept** <span class="ion ion-flash"></span>
+
+Quick prototyping if you can extract value from the data you have. We can also peer review existing models. The best models are built by domain experts. We merely provide them with the tools and process to deliver value.
+:::
+::::
+:::: {style="display: flex;"}
+::: {style="flex:0.5;padding-right:2vw"}
+**Linear regression** <span class="ion ion-ios-pulse-strong"></span>
+
+Who said proven techniques could not still solve business problems. Not everything has to be deep learning. Choose the right tool for the job.
+:::
+::: {style="flex:0.5;padding-left:2vw"}
+**Gradient boosting** <span class="ion ion-android-options"></span>
+
+Gradient boosting is a great tool when fine-tuned. Let us guide you on how to be a successful user. We can help with feature engineering and hyper parameters tuning.
+:::
+::::
+### Cloud
+
+We work with most cloud providers that have a data centre in Canada. Cloud infrastructure is great for surge workload and on-demand computing.
+
+ - **Google**
+ - **DigitalOcean**
+ - **Azure**
+ - **AWS**
+
+### DevOps
+:::: {style="display: flex;"}
+::: {style="flex:0.5;padding-right:2vw"}
+**CI/CD** <span class="ion ion-loop"></span>
+
+Use GitHub actions and similar tools to automate most repetitive tasks around code management. Setup tests, validate commits or deploy to production all in one go. Harness the power of app containerization when it makes sense.
+:::
+::: {style="flex:0.5;padding-left:2vw"}
+**Data science server** <span class="ion ion-monitor"></span>
+
+We can help configure RStudio server, Shiny server or notebook server. We know our way around security integration, nginx and notebook kernels installation. Furthermore, we have experience compiling GPU backed machine learning libraries, so you will not have to dig through CUDA documentation.
+:::
+::::
+
+## Projects<span class="ion ion-forward" style="transform: scale(-1, -1);"></span> {.tabset .tabset-fade .tabset-pills .section-head}
+
+### Plumber
+
+Bruno frequently contributes to open source R packages. He is a contributor to the [plumber](https://github.com/rstudio/plumber) package and maintains [plumberDeploy](https://github.com/meztez/plumberDeploy), [redoc](https://github.com/meztez/redoc), and [rapidoc](https://github.com/meztez/rapidoc) available on CRAN.
+
+### BQS
+
+`bigrquerystorage` is an R client for the [BigQuery Storage API](https://cloud.google.com/bigquery/docs/reference/storage/). The main motivation is to replace `bigrquery::bq_table_download` in some workloads to avoid quotas and limits.
+
+The client is built in C++, leveraging gRPC and Google protocol buffer compiler. On the R side, it overloads `bigrquery` methods. It uses the `arrow` R library and format.
+
+[meztez/bigrquerystorage](https://github.com/meztez/bigrquerystorage)
+
+### CCISS
+
+Shiny app for climate change informed tree species selection.
+This was built for a [Code with us BC Gov opportunity](https://digital.gov.bc.ca/marketplace/opportunities/code-with-us/f9b73f32-ca0d-4009-97b7-6bb04cb91394).
+
+[Demo](https://neoxone.shinyapps.io/BCGOV_CCISS/)
+
+Highlights:
+
+ - Building custom tiles and serving them
+ - Using VectorGrid with leaflet
+ - Build an elevation API from raw raster tiles
+ - Custom SVG factory
+ - Downloadable html and pdf reports
+
+## <span class="ion ion-forward" style="transform: scale(1, -1);"></span>People {.section-head}
+
+**Bruno Tremblay** <a href="https://www.linkedin.com/in/bruno-tremblay-508ba9201/"><span class="ion-social-linkedin"></span></a> <a href="https://github.com/meztez"><span class="ion ion-social-github"></span></a> <a href="https://twitter.com/meztez2"><span class="ion ion-social-twitter"></span></a>
+
+Formally credentialed casualty actuary, doing mostly DevOps and solution engineering in data science.
+
+## Contact<span class="ion ion-forward" style="transform: scale(-1, -1);"></span> {.section-head}
+
+Email [info@boostao.ca](mailto:info@boostao.ca) with your contact information, a project description and a time we can meet online.
+
+Boostao `r format(Sys.Date(), "%Y")`. Based in Levis, Quebec, Canada
