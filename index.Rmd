@@ -1,3 +1,7 @@
+---
+title: Boostao.ca
+---
+
 ```{r setup, include=FALSE}
 if (requireNamespace("thematic")) 
   thematic::thematic_rmd(font = "auto")
@@ -7,10 +11,14 @@ if (requireNamespace("thematic"))
   .section-head h2, h6 {
      text-align:center;
      margin-top:0;
+     padding-bottom:25px;
+  }
+  .nav-tabs {
+    justify-content: center !important;
   }
 </style>
 
-## <span class="ion ion-forward" style="transform: scale(1, -1);"></span>Services {.tabset .tabset-fade .tabset-pills .section-head}
+## <span class="ion ion-forward" style="transform: scale(1, -1);"></span> SERVICES {.tabset .tabset-fade .section-head}
 
 We aim to provide value by having a very practical approach. Define a target, draft steps to get there, start to work. Each technological decision has to be justified based on the context of the solution such as schedule constraints, performance requirements and maintenance costs.
 
@@ -102,7 +110,7 @@ We can help configure RStudio server, Shiny server or notebook server. We know o
 :::
 ::::
 
-## Projects<span class="ion ion-forward" style="transform: scale(-1, -1);"></span> {.tabset .tabset-fade .tabset-pills .section-head}
+## PROJECTS <span class="ion ion-forward" style="transform: scale(-1, -1);"></span> {.tabset .tabset-fade .section-head}
 
 ### Plumber
 
@@ -110,7 +118,7 @@ Bruno frequently contributes to open source R packages. He is a contributor to t
 
 ### BQS
 
-`bigrquerystorage` is an R client for the [BigQuery Storage API](https://cloud.google.com/bigquery/docs/reference/storage/). The main motivation is to replace `bigrquery::bq_table_download` in some workloads to avoid quotas and limits.
+`bigrquerystorage` is a [BigQuery Storage API](https://cloud.google.com/bigquery/docs/reference/storage/) client for R. The main motivation is to replace `bigrquery::bq_table_download` in some workloads to avoid quotas and limits.
 
 The client is built in C++, leveraging gRPC and Google protocol buffer compiler. On the R side, it overloads `bigrquery` methods. It uses the `arrow` R library and format.
 
@@ -131,13 +139,13 @@ Highlights:
  - Custom SVG factory
  - Downloadable html and pdf reports
 
-## <span class="ion ion-forward" style="transform: scale(1, -1);"></span>People {.section-head}
+## <span class="ion ion-forward" style="transform: scale(1, -1);"></span> PEOPLE {.section-head}
 
 **Bruno Tremblay** <a href="https://www.linkedin.com/in/bruno-tremblay-508ba9201/"><span class="ion-social-linkedin"></span></a> <a href="https://github.com/meztez"><span class="ion ion-social-github"></span></a> <a href="https://twitter.com/meztez2"><span class="ion ion-social-twitter"></span></a>
 
 Formally credentialed casualty actuary, doing mostly DevOps and solution engineering in data science.
 
-## Contact<span class="ion ion-forward" style="transform: scale(-1, -1);"></span> {.section-head}
+## CONTACT <span class="ion ion-forward" style="transform: scale(-1, -1);"></span> {.section-head}
 
 Email [info@boostao.ca](mailto:info@boostao.ca) with your contact information, a project description and a time we can meet online.
 
