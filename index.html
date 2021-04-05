@@ -352,6 +352,9 @@ $(document).ready(function () {
   .nav-tabs {
     justify-content: center !important;
   }
+  body {
+    padding-bottom: 5px !important
+  }
 </style>
 <div id="services" class="section level2 tabset tabset-fade section-head">
 <h2 class="tabset tabset-fade section-head"><span class="ion ion-forward" style="transform: scale(1, -1);"></span> SERVICES</h2>
@@ -469,8 +472,24 @@ $(document).ready(function () {
 </div>
 <div id="contact" class="section level2 section-head">
 <h2 class="section-head">CONTACT <span class="ion ion-forward" style="transform: scale(-1, -1);"></span></h2>
-<p>Email <a href="mailto:info@boostao.ca">info@boostao.ca</a> with your contact information, a project description and a time we can meet online.</p>
-<p>Boostao 2021. Based in Levis, Quebec, Canada</p>
+<p>Email <a href="mailto:info@boostao.ca">info@boostao.ca</a> with your contact information, a project description and a time we can meet online. You can also use the form below.</p>
+<form method="POST" action="https://formspree.io/f/mpzkzdov">
+<fieldset>
+<div class="form-group">
+<label for="inputEmail">Email address</label><input type="email" class="form-control" id="inputEmail" name="clientEmail" aria-describedby="emailClient" placeholder="Enter email">
+</div>
+<div class="form-group">
+<label for="clientmessage">Message</label>
+<textarea class="form-control" id="clientmessage" name="clientmessage" rows="5"></textarea>
+</div>
+<button type="submit" class="btn btn-primary">
+Get in touch
+</button>
+</fieldset>
+</form>
+<div style="text-align:center; padding-top:40px;">
+<small>Boostao 2021. Levis, Quebec, Canada.</small>
+</div>
 </div>
 
 
