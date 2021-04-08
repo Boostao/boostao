@@ -1,0 +1,157 @@
+---
+title: Boostao.ca
+---
+
+```{r setup, include=FALSE}
+if (requireNamespace("thematic")) 
+  thematic::thematic_rmd(font = "auto")
+```
+
+<style>
+  .section-head h2, h6 {
+     text-align:center;
+     margin-top:0;
+     padding-bottom:25px;
+  }
+  .nav-tabs {
+    justify-content: center !important;
+  }
+  body {
+    padding-bottom: 5px !important
+  }
+</style>
+
+## <span class="ion ion-forward" style="transform: scale(1, -1);"></span> SERVICES {.tabset .tabset-fade .section-head}
+
+Nous apportons de la valeur avec une approche très pratique. Définir un but, identifier les étapes pour s'y rendre, commencer le travail. Toute décision technologique doit être justifiée selon le contexte de la solution comme les contraintes de temps, la performance cible et les coûts de maintien.
+
+### R
+
+:::: {style="display: flex;"}
+::: {style="flex:0.5;padding-right:2vw"}
+**Applications Shiny** <span class="ion ion-star"></span>
+
+Vos utilisateurs veulent interagir avec vos données? Tableau de bord, visualisations, alimenter par une base de données. Nous écrivons des applications rapides, extensible et bien documentée. Shiny est une belle approche pour démocratiser l'information qui réside chez vous. 
+:::
+::: {style="flex:0.5;padding-left:2vw"}
+**Interfaces Plumber** <span class="ion ion-wrench"></span>
+
+Vous désirez rendre disponible des calculs R au reste de votre organisation? Une façon simple d'y arriver est d'utiliser Plumber. Nous facilitons son utilisation par vos équipes pour les aider à l'exploiter à son plein potentiel.
+:::
+::::
+:::: {style="display: flex;"}
+::: {style="flex:0.5;padding-right:2vw"}
+**Optimisation de code** <span class="ion ion-code-working"></span>
+
+Un programme utilise trop de ressources? Besoin qu'il s'exécute plus vite? Nous pouvons définitivement vous aider. Nous sommes passionnés de performance, avec jugement. Parfois, une amélioration de 80% va suffire et c'est correct. On peut aussi pousser plus loin en transférant en C++.
+:::
+::: {style="flex:0.5;padding-left:2vw"}
+**Développement de package** <span class="ion ion-pull-request"></span>
+
+Soit pour collaborer sur des packages publics ou pour mettre en place un minicran interne avec vos packages, nous sommes toujours prêts à contribuer. Les packages sont la meilleure façon de partager du code.
+:::
+::::
+:::: {style="display: flex;"}
+::: {style="flex:0.5;padding-right:2vw"}
+**Urgence technique** <span class="ion ion-bug"></span>
+
+C'est inévitable, un problème en production est si vite arrivé. Une image Docker refuse de coopérer. Les performances régressent suite à un nouveau déploiement. Vous en avez besoin hier et il y a énormément de pression sur vos équipes. Nous avons été dans cette situation et avons trouvé des solutions alors qui plusieurs auraient abandonné.
+:::
+::: {style="flex:0.5;padding-left:2vw"}
+**R comme SIG** <span class="ion ion-map"></span>
+
+R a une panoplie de packages pour travailler avec les données géographiques. Ils peuvent remplacer un outil dédié dans plusieurs cas. Vos géographes pourraient en bénéficier. Nous pouvons aussi créer des cartes et des mosaïques vectorielles personnalisées pour vos besoins.
+:::
+::::
+
+### Science des données
+
+:::: {style="display: flex;"}
+::: {style="flex:0.5;padding-right:2vw"}
+**Ingénierie des données** <span class="ion ion-social-buffer"></span>
+
+90% du temps est passé à convertir et traiter les données. Nous définissons des flux de transformation des données pour alimenter l'entraînement des modèles. Lorsque les modèles sont prêts, on prend le relais pour déployer en production.
+:::
+::: {style="flex:0.5;padding-left:2vw"}
+**Preuve de concept** <span class="ion ion-flash"></span>
+
+Déterminer rapidement si vous pouvez extraire de la valeur de vos données. De plus, nous pouvons réviser vos modèles existants. Les meilleurs modèles proviennent d'experts en la matière. Nous les assistons avec les outils et les processus pour livrer de la valeur.
+:::
+::::
+:::: {style="display: flex;"}
+::: {style="flex:0.5;padding-right:2vw"}
+**Régression linéaire** <span class="ion ion-ios-pulse-strong"></span>
+
+Qui a dit que des techniques simplifiées ne pouvaient pas résoudre des problèmes concrets. L'apprentissage profond n'est pas la solution à tout. Choisir le bon outil selon le contexte.
+:::
+::: {style="flex:0.5;padding-left:2vw"}
+**Amélioration du gradient** <span class="ion ion-android-options"></span>
+
+L'amélioration ("boosting") du gradient est une technique pratique. Cependant, ça peut être embêtant de configurer les hyperparamètres. On peut vous aider à vous y retrouvez.
+:::
+::::
+### Infonuagique
+
+Nous travaillons avec la plupart des fournisseurs qui offrent de l'infrastructure au Canada. L'infonuagique est parfaite pour les besoins extrêmes sporadiques et la puissance à la demande.
+
+ - **Google**
+ - **DigitalOcean**
+ - **Azure**
+ - **AWS**
+
+### DevOps
+:::: {style="display: flex;"}
+::: {style="flex:0.5;padding-right:2vw"}
+**Intégration et déploiement en continu** <span class="ion ion-loop"></span>
+
+Utilisez les actions avec GitHub ou des outils similaires pour automatiser les tâches répétitives liées à la gestion du code. Tester, valider et mettre en production tout en un. Profitez de la conteneurisation des applications quand c'est favorable.
+:::
+::: {style="flex:0.5;padding-left:2vw"}
+**Environnement de travail** <span class="ion ion-monitor"></span>
+
+Nous pouvons configurer des serveurs RStudio, Shiny ou Jupyter Notebook. On prend en charge la sécurisation, nginx et l'installation des moteurs d'exécution pour les notebooks. On peut également compiler les librairies GPU nécessaires à l'apprentissage machine. Comme ça, vous n'aurez pas à creuser dans la documentation de CUDA.
+:::
+::::
+
+## PROJETS <span class="ion ion-forward" style="transform: scale(-1, -1);"></span> {.tabset .tabset-fade .section-head}
+
+### Plumber
+
+Contribue au package [plumber](https://github.com/rstudio/plumber) et responsable de [plumberDeploy](https://github.com/meztez/plumberDeploy), [redoc](https://github.com/meztez/redoc), et [rapidoc](https://github.com/meztez/rapidoc) distribués par le CRAN.
+
+### BQS
+
+`bigrquerystorage` est un client de l'[API BigQuery Storage](https://cloud.google.com/bigquery/docs/reference/storage/) pour R. La motivation principale est de remplacer `bigrquery::bq_table_download` pour certaines tâches afin d'éviter les limites et les quotas.
+
+Le client en C++, utilise gRPC et le compilateur de protocol buffer de Google. Il inclus aussi du code R pour remplacter les méthodes de `bigrquery`. Le format d'échange est `arrow`.
+
+[meztez/bigrquerystorage](https://github.com/meztez/bigrquerystorage)
+
+### CCISS
+
+Application Shiny pour la sélection des espèces d'arbres en fonction des changements climatiques.
+Développer lors d'une [opportunité Code with us du Governement du BC](https://digital.gov.bc.ca/marketplace/opportunities/code-with-us/f9b73f32-ca0d-4009-97b7-6bb04cb91394).
+
+[Demo](https://neoxone.shinyapps.io/BCGOV_CCISS/)
+
+Résumé:
+
+ - Générer et servir une mosaïque sur mesure
+ - Tuiles vectorielles avec leaflet
+ - API de calcul de l'élévation à partir de sources tiff
+ - Générateur d'images SVG
+ - Rapports html et pdf en téléchargement
+
+## <span class="ion ion-forward" style="transform: scale(1, -1);"></span> PEOPLE {.section-head}
+
+**Bruno Tremblay** <a href="https://www.linkedin.com/in/bruno-tremblay-508ba9201/"><span class="ion-social-linkedin"></span></a> <a href="https://github.com/meztez"><span class="ion ion-social-github"></span></a> <a href="https://twitter.com/meztez2"><span class="ion ion-social-twitter"></span></a>
+
+Actuaire de formation, ancien fellow. Au quotidien, DevOps et développement de solutions en science des données.
+
+## CONTACT <span class="ion ion-forward" style="transform: scale(-1, -1);"></span> {.section-head}
+
+Envoyez un courriel à [info@boostao.ca](mailto:info@boostao.ca) avec vos coordonnées, une description du projet et un moment pour se rencontrer. Vous pouvez aussi utiliser ce formulaire.
+
+<form method="POST" action="https://formspree.io/f/mpzkzdov"><fieldset><div class="form-group"><label for="inputEmail">Courriel</label><input type="email" class="form-control" id="inputEmail" name="clientEmail" aria-describedby="emailClient" placeholder="Entrez le courriel"></div><div class="form-group"> <label for="clientmessage">Message</label><textarea class="form-control" id="clientmessage" name="clientmessage" rows="5"></textarea></div><button type="submit" class="btn btn-primary">Prendre contact</button></fieldset></form>
+  
+<div style="text-align:center; padding-top:40px;"><small>Boostao `r format(Sys.Date(), "%Y")`. Levis, Quebec, Canada.</small></div>
