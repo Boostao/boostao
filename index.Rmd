@@ -92,7 +92,7 @@ Gradient boosting is a great tool when fine-tuned. Let us guide you on how to be
 ::::
 ### Cloud
 
-We work with most cloud providers that have a data centre in Canada. Cloud infrastructure is great for surge workload and on-demand computing.
+We work with most cloud providers that have a data center in Canada. Cloud infrastructure is great for surge workload and on-demand computing.
 
  - **Google**
  - **DigitalOcean**
