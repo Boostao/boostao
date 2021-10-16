@@ -150,7 +150,11 @@ Actuaire de formation, ancien fellow. Au quotidien, DevOps et développement de 
 
 ## CONTACT <span class="ion ion-forward" style="transform: scale(-1, -1);"></span> {.section-head}
 
-Envoyez un courriel à [info@boostao.ca](mailto:info@boostao.ca) avec vos coordonnées, une description du projet et un moment pour se rencontrer. Vous pouvez aussi utiliser ce formulaire.
+Planifier une [rencontre d'introduction de 30 minutes](https://calendly.com/boostao/intro).  
+
+Envoyez un courriel à [info@boostao.ca](mailto:info@boostao.ca) avec vos coordonnées, une description du projet et un moment pour se rencontrer.
+
+Vous pouvez aussi utiliser ce formulaire.  
 
 <form method="POST" action="https://formspree.io/f/mpzkzdov"><fieldset><div class="form-group"><label for="inputEmail">Courriel</label><input type="email" class="form-control" id="inputEmail" name="clientEmail" aria-describedby="emailClient" placeholder="Entrez le courriel"></div><div class="form-group"> <label for="clientmessage">Message</label><textarea class="form-control" id="clientmessage" name="clientmessage" rows="5"></textarea></div><button type="submit" class="btn btn-primary">Prendre contact</button></fieldset></form>
   

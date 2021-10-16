@@ -150,7 +150,11 @@ Formally credentialed casualty actuary, doing mostly DevOps and solution enginee
 
 ## CONTACT <span class="ion ion-forward" style="transform: scale(-1, -1);"></span> {.section-head}
 
-Email [info@boostao.ca](mailto:info@boostao.ca) with your contact information, a project description and a time we can meet online. You can also use the form below.
+Schedule a [30 introduction meeting](https://calendly.com/boostao/intro).  
+
+Email [info@boostao.ca](mailto:info@boostao.ca) with your contact information, a project description and a time we can meet online. 
+
+You can also use the form below.  
 
 <form method="POST" action="https://formspree.io/f/mpzkzdov"><fieldset><div class="form-group"><label for="inputEmail">Email address</label><input type="email" class="form-control" id="inputEmail" name="clientEmail" aria-describedby="emailClient" placeholder="Enter email"></div><div class="form-group"> <label for="clientmessage">Message</label><textarea class="form-control" id="clientmessage" name="clientmessage" rows="5"></textarea></div><button type="submit" class="btn btn-primary">Get in touch</button></fieldset></form>
   
