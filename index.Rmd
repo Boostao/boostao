@@ -150,12 +150,10 @@ Formally credentialed casualty actuary, doing mostly DevOps and solution enginee
 
 ## CONTACT <span class="ion ion-forward" style="transform: scale(-1, -1);"></span> {.section-head}
 
-Schedule a [30 introduction meeting](https://calendly.com/boostao/intro).  
+Use one of the three methods below.
 
-Email [info@boostao.ca](mailto:info@boostao.ca) with your contact information, a project description and a time we can meet online. 
+ - Schedule a 30 minutes introduction meeting with [calendly](https://calendly.com/boostao/intro).  
+ - Send an email to [info@boostao.ca](mailto:info@boostao.ca) with your contact information, a project description and a time we can meet online. 
+ - Fill the form.<br /><br /><form method="POST" action="https://formspree.io/f/mpzkzdov"><fieldset><div class="form-group"><label for="inputEmail">Email address</label><input type="email" class="form-control" id="inputEmail" name="clientEmail" aria-describedby="emailClient" placeholder="Enter email"></div><div class="form-group"> <label for="clientmessage">Message</label><textarea class="form-control" id="clientmessage" name="clientmessage" rows="5"></textarea></div><button type="submit" class="btn btn-primary">Get in touch</button></fieldset></form>
 
-You can also use the form below.  
-
-<form method="POST" action="https://formspree.io/f/mpzkzdov"><fieldset><div class="form-group"><label for="inputEmail">Email address</label><input type="email" class="form-control" id="inputEmail" name="clientEmail" aria-describedby="emailClient" placeholder="Enter email"></div><div class="form-group"> <label for="clientmessage">Message</label><textarea class="form-control" id="clientmessage" name="clientmessage" rows="5"></textarea></div><button type="submit" class="btn btn-primary">Get in touch</button></fieldset></form>
-  
 <div style="text-align:center; padding-top:40px;"><small>Boostao `r format(Sys.Date(), "%Y")`. Levis, Quebec, Canada.</small></div>

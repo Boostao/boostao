@@ -150,12 +150,10 @@ Actuaire de formation, ancien fellow. Au quotidien, DevOps et développement de 
 
 ## CONTACT <span class="ion ion-forward" style="transform: scale(-1, -1);"></span> {.section-head}
 
-Planifier une [rencontre d'introduction de 30 minutes](https://calendly.com/boostao/intro).  
+Utilisez une des trois options suivantes.
 
-Envoyez un courriel à [info@boostao.ca](mailto:info@boostao.ca) avec vos coordonnées, une description du projet et un moment pour se rencontrer.
-
-Vous pouvez aussi utiliser ce formulaire.  
-
-<form method="POST" action="https://formspree.io/f/mpzkzdov"><fieldset><div class="form-group"><label for="inputEmail">Courriel</label><input type="email" class="form-control" id="inputEmail" name="clientEmail" aria-describedby="emailClient" placeholder="Entrez le courriel"></div><div class="form-group"> <label for="clientmessage">Message</label><textarea class="form-control" id="clientmessage" name="clientmessage" rows="5"></textarea></div><button type="submit" class="btn btn-primary">Prendre contact</button></fieldset></form>
+ - Planifier une rencontre d'introduction de 30 minutes avec [calendly](https://calendly.com/boostao/intro).  
+ - Envoyez un courriel à [info@boostao.ca](mailto:info@boostao.ca) avec vos coordonnées, une description du projet et un moment pour se rencontrer.
+ - Remplissez le formulaire.<br /><br /><form method="POST" action="https://formspree.io/f/mpzkzdov"><fieldset><div class="form-group"><label for="inputEmail">Courriel</label><input type="email" class="form-control" id="inputEmail" name="clientEmail" aria-describedby="emailClient" placeholder="Entrez le courriel"></div><div class="form-group"> <label for="clientmessage">Message</label><textarea class="form-control" id="clientmessage" name="clientmessage" rows="5"></textarea></div><button type="submit" class="btn btn-primary">Prendre contact</button></fieldset></form>
   
 <div style="text-align:center; padding-top:40px;"><small>Boostao `r format(Sys.Date(), "%Y")`. Levis, Quebec, Canada.</small></div>
