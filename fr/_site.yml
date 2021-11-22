@@ -22,7 +22,7 @@ navbar:
       - text: Twitter
         icon: ion-social-twitter
         href: https://twitter.com/boostao1
-    - text: En
+    - text: English
       href: "../index.html"
 output: 
   html_document:

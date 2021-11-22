@@ -277,7 +277,7 @@ $(document).ready(function () {
   </ul>
 </li>
 <li>
-  <a href="fr/index.html">Fr</a>
+  <a href="fr/index.html">French</a>
 </li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -288,30 +288,30 @@ $(document).ready(function () {
     font-size: 1.15rem;
   }
   .navbar, #splash {
-    border-bottom: 3px solid;
-    border-image-source: linear-gradient(90deg, #11AEED, #FF5A5F 33%, #11AEED 66%, #FF5A5F);
-    border-image-slice: 1;
+    border-bottom: 2px solid;
   }
   #splash {
-    background-image: url("www/rcode2.svg");
-    background-repeat: repeat;
-    background-position: 0px 6px;
-    background-size: min(1651px, 100%);
+    background:
+     url("www/hexgrid.svg") repeat center,
+     radial-gradient(circle, #1c1c1c, #11AEED 60%, #FF5A5F 80%, #1c1c1c);
     height: calc(100vh - 65px);
+    display: grid;
+    place-items: center;
     text-align: center;
-    padding-top: 20vh;
   }
   .splash-title, .splash-tagline {
-    font-family: JetBrains Mono;
-    padding: 0 0.25rem 0 0.25rem;
-    background-color: #1C1C1C;
-    background-clip: padding-box;
+    font-family: "JetBrains Mono";
   }
   .splash-title {
     font-size: 6vw;
+    text-shadow: 0.18vw 0.18vw #11AEED;
+    font-style: italic;
+    line-height: 7vw;
   }
   .splash-tagline {
     font-size: 3.5vw;
+    text-shadow: 0.105vw 0.105vw #11AEED;
+    line-height: 12vw;
   }
   .splash-button {
     font-size: 4vw;
@@ -325,13 +325,13 @@ $(document).ready(function () {
   }
 </style>
 <div id="splash">
-  <span class="splash-title">R, Data science</span>
-  <br>
-  <span class="splash-title">Cloud consultant</span>
-  <br>
-  <span  class="splash-tagline">AUGMENT YOUR TECH SOLUTIONS</span>
-  <br><br>
-  <button type="button" class="btn btn-primary splash-button" onclick="window.location.href='#contact'"><span class="ion ion-chatbubbles"></span> Get in touch</button>
+  <div>
+    <span class="splash-title">Code + Data + Viz<br>Bespoke Solutions</span>
+    <br>
+    <span class="splash-tagline">⚡ TECH MADE WITH CARE 💙</span>
+    <br>
+    <button type="button" class="btn btn-primary splash-button" onclick="window.location.href='#contact'"><span class="ion ion-chatbubbles"></span> Contact Us</button>
+  </div>
   <img src="www/tao.svg" alt="tao" class="splash-tao"/>
 </div>
 
