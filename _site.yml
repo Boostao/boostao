@@ -11,18 +11,13 @@ navbar:
       href: "#people"
     - text: Contact
       href: "#contact"
-    - text: Social
-      menu:
-      - text: LinkedIn
-        icon: ion-social-linkedin
-        href: https://www.linkedin.com/company/boostao 
-      - text: GitHub
-        icon: ion-social-github
-        href: https://github.com/Boostao
-      - text: Twitter
-        icon: ion-social-twitter
-        href: https://twitter.com/boostao1
-    - text: French
+    - icon: ion-social-linkedin
+      href: https://www.linkedin.com/company/boostao 
+    - icon: ion-social-github
+      href: https://github.com/Boostao
+    - icon: ion-social-twitter
+      href: https://twitter.com/boostao1
+    - text: Fr
       href: "fr/index.html"
 output: 
   html_document:
@@ -42,9 +37,10 @@ output:
         google:
           family: JetBrains Mono
           local: false
+      version: "5"
     template: template/default.html
-    
+    mathjax: null
+    highlight: null
     includes:
       in_header: favicon.html
       before_body: splash.html
-    highlight: breezedark

@@ -255,36 +255,6 @@ $if(navbar)$
 }
 </style>
 
-<script type="text/javascript">
-// manage active state of menu based on current page
-$$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $$('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-
-  // Navbar adjustments
-  var navHeight = $$(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
-});
-</script>
 $endif$
 
 <!-- tabsets -->
@@ -614,6 +584,9 @@ $endif$
 $if(toc_float)$
 <script>
 $$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $$('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $$('div.section.toc-ignore')
