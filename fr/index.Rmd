@@ -240,10 +240,10 @@ HTML('
   </div>
   <div class="col">
     <div class="card h-100" style="width: 18rem;">
-      <img src="www/nic.svg" class="card-img-top" alt="Nicolas Gauthier">
+      <img src="www/nic.png" class="card-img-top" alt="Nicolas Gauthier">
       <div class="card-body">
         <h5 class="card-title">Nicolas Gauthier</h5>
-        <p class="card-text">Propriétaire · Actuaire · Programmeur · Opérateur de tracteur</p>
+        <p class="card-text">Propriétaire · Actuaire · Programmeur</p>
         <div class="display-5">
           <a href="https://www.linkedin.com/in/nicolas-gauthier-2542a0138/"     title="LinkedIn"><span class="ion-social-linkedin"></span></a> <a     href="https://github.com/nicgauthier" title="GitHub"><span class="ion     ion-social-github"></span></a>
         </div>
