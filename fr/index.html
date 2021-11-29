@@ -13,20 +13,20 @@
 
 <title>Boostao.ca</title>
 
-<script src="../site_libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="../site_libss/header-attrs-2.11/header-attrs.js"></script>
+<script src="../site_libss/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<link href="../site_libs/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet" />
-<script src="../site_libs/bootstrap-5.1.0/bootstrap.bundle.min.js"></script>
+<link href="../site_libss/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet" />
+<script src="../site_libss/bootstrap-5.1.0/bootstrap.bundle.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto%20Sans&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains%20Mono&amp;display=swap" rel="stylesheet"/>
-<script src="../site_libs/bs3compat-0.3.1/transition.js"></script>
-<script src="../site_libs/bs3compat-0.3.1/tabs.js"></script>
-<script src="../site_libs/bs3compat-0.3.1/bs3compat.js"></script>
-<script src="../site_libs/navigation-1.1/tabsets.js"></script>
-<link href="../site_libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="../site_libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<link href="../site_libs/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet" />
+<script src="../site_libss/bs3compat-0.3.1/transition.js"></script>
+<script src="../site_libss/bs3compat-0.3.1/tabs.js"></script>
+<script src="../site_libss/bs3compat-0.3.1/bs3compat.js"></script>
+<script src="../site_libss/navigation-1.1/tabsets.js"></script>
+<link href="../site_libss/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="../site_libss/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="../site_libss/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -321,230 +321,154 @@ pre code {
     padding-bottom: 5px !important;
     background: linear-gradient(180deg, #1c1c1c 25%, #11AEED 150%) fixed;
   }
+  .bd-services>.btn {
+    margin: 1rem 0.5rem;
+  }
 </style>
 <div id="services" class="section level2 section-head">
 <h2 class="section-head"><span class="ion ion-forward" style="transform: scale(1, -1);"></span> SERVICES</h2>
-<p>Nous apportons de la valeur avec une approche très pratique. Définir un but, identifier les étapes pour s’y rendre, commencer le travail. Toute décision technologique doit être justifiée selon le contexte de la solution comme les contraintes de temps, la performance cible et les coûts de maintien.</p>
-<div class="row row-cols-1 row-cols-md-4 g-4">
-<div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseApplications_Shiny" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="bd-services">
+<button type="button" class="btn btn-warning fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseApplications_Shiny" aria-expanded="false" aria-controls="collapseApplications_Shiny">
+<span>
 <span class="ion ion-star"></span>
-</div>
+Applications Shiny
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Applications Shiny</h3>
-<div class="collapse" id="collapseApplications_Shiny">
-<p class="card-text">Vos utilisateurs veulent interagir avec vos données? Tableaux de bord, visualisations, alimenter par une base de données. Nous écrivons des applications rapides, extensibles et bien documentées. Shiny est une belle approche pour démocratiser l'information qui réside chez vous.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseApplications_Shiny">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseInterfaces_Plumber" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Vos utilisateurs veulent interagir avec vos données? Tableaux de bord, visualisations, alimenter par une base de données. Nous écrivons des applications rapides, extensibles et bien documentées. Shiny est une belle approche pour démocratiser l'information qui réside chez vous.</div>
+</div>
+</div>
+<button type="button" class="btn btn-info fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseInterfaces_Plumber" aria-expanded="false" aria-controls="collapseInterfaces_Plumber">
+<span>
 <span class="ion ion-wrench"></span>
-</div>
+Interfaces Plumber
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Interfaces Plumber</h3>
-<div class="collapse" id="collapseInterfaces_Plumber">
-<p class="card-text">Vous désirez rendre disponible des calculs R au reste de votre organisation? Une façon simple d'y arriver est d'utiliser Plumber. Nous facilitons son utilisation par vos équipes pour les aider à l'exploiter à son plein potentiel.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseInterfaces_Plumber">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseOptimisation_de_code" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Vous désirez rendre disponible des calculs R au reste de votre organisation? Une façon simple d'y arriver est d'utiliser Plumber. Nous facilitons son utilisation par vos équipes pour les aider à l'exploiter à son plein potentiel.</div>
+</div>
+</div>
+<button type="button" class="btn btn-primary fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseOptimisation_de_code" aria-expanded="false" aria-controls="collapseOptimisation_de_code">
+<span>
 <span class="ion ion-code-working"></span>
-</div>
+Optimisation de code
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Optimisation de code</h3>
-<div class="collapse" id="collapseOptimisation_de_code">
-<p class="card-text">Un programme utilise trop de ressources? Besoin qu'il s'exécute plus vite? Nous pouvons définitivement vous aider. Nous sommes passionnés de performance, avec jugement. Parfois, une amélioration de 80% va suffire et c'est correct. On peut aussi pousser plus loin en transférant en C++.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseOptimisation_de_code">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseDéveloppement_de_package" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Un programme utilise trop de ressources? Besoin qu'il s'exécute plus vite? Nous pouvons définitivement vous aider. Nous sommes passionnés de performance, avec jugement. Parfois, une amélioration de 80% va suffire et c'est correct. On peut aussi pousser plus loin en transférant en C++.</div>
+</div>
+</div>
+<button type="button" class="btn btn-dark fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseDéveloppement_de_package" aria-expanded="false" aria-controls="collapseDéveloppement_de_package">
+<span>
 <span class="ion ion-pull-request"></span>
-</div>
+Développement de package
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Développement de package</h3>
-<div class="collapse" id="collapseDéveloppement_de_package">
-<p class="card-text">Soit pour collaborer sur des packages publics ou pour mettre en place un minicran interne avec vos packages, nous sommes toujours prêts à contribuer. Les packages sont la meilleure façon de partager du code.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseDéveloppement_de_package">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseUrgence_technique" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Soit pour collaborer sur des packages publics ou pour mettre en place un minicran interne avec vos packages, nous sommes toujours prêts à contribuer. Les packages sont la meilleure façon de partager du code.</div>
+</div>
+</div>
+<button type="button" class="btn btn-danger fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseUrgence_technique" aria-expanded="false" aria-controls="collapseUrgence_technique">
+<span>
 <span class="ion ion-bug"></span>
-</div>
+Urgence technique
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Urgence technique</h3>
-<div class="collapse" id="collapseUrgence_technique">
-<p class="card-text">C'est inévitable, un problème en production est si vite arrivé. Une image Docker refuse de coopérer. Les performances régressent suite à un nouveau déploiement. Vous en avez besoin hier et il y a énormément de pression sur vos équipes. Nous avons été dans cette situation et avons trouvé des solutions alors que plusieurs auraient abandonné.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseUrgence_technique">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseR_comme_SIG" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">C'est inévitable, un problème en production est si vite arrivé. Une image Docker refuse de coopérer. Les performances régressent suite à un nouveau déploiement. Vous en avez besoin hier et il y a énormément de pression sur vos équipes. Nous avons été dans cette situation et avons trouvé des solutions alors que plusieurs auraient abandonné.</div>
+</div>
+</div>
+<button type="button" class="btn btn-warning fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseR_comme_SIG" aria-expanded="false" aria-controls="collapseR_comme_SIG">
+<span>
 <span class="ion ion-map"></span>
-</div>
+R comme SIG
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">R comme SIG</h3>
-<div class="collapse" id="collapseR_comme_SIG">
-<p class="card-text">R a une panoplie de packages pour travailler avec les données géographiques. Ils peuvent remplacer un outil dédié dans plusieurs cas. Vos géographes pourraient en bénéficier. Nous pouvons aussi créer des cartes et des mosaïques vectorielles personnalisées pour vos besoins.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseR_comme_SIG">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseIngénierie_des_données" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">R a une panoplie de packages pour travailler avec les données géographiques. Ils peuvent remplacer un outil dédié dans plusieurs cas. Vos géographes pourraient en bénéficier. Nous pouvons aussi créer des cartes et des mosaïques vectorielles personnalisées pour vos besoins.</div>
+</div>
+</div>
+<button type="button" class="btn btn-info fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseIngénierie_des_données" aria-expanded="false" aria-controls="collapseIngénierie_des_données">
+<span>
 <span class="ion ion-social-buffer"></span>
-</div>
+Ingénierie des données
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Ingénierie des données</h3>
-<div class="collapse" id="collapseIngénierie_des_données">
-<p class="card-text">90% du temps est passé à convertir et traiter les données. Nous définissons des flux de transformation des données pour alimenter l'entraînement des modèles. Lorsque les modèles sont prêts, on prend le relais pour déployer en production.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseIngénierie_des_données">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapsePreuve_de_concept" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">90% du temps est passé à convertir et traiter les données. Nous définissons des flux de transformation des données pour alimenter l'entraînement des modèles. Lorsque les modèles sont prêts, on prend le relais pour déployer en production.</div>
+</div>
+</div>
+<button type="button" class="btn btn-primary fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapsePreuve_de_concept" aria-expanded="false" aria-controls="collapsePreuve_de_concept">
+<span>
 <span class="ion ion-flash"></span>
-</div>
+Preuve de concept
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Preuve de concept</h3>
-<div class="collapse" id="collapsePreuve_de_concept">
-<p class="card-text">Déterminer rapidement si vous pouvez extraire de la valeur de vos données. De plus, nous pouvons réviser vos modèles existants. Les meilleurs modèles proviennent d'experts en la matière. Nous les assistons avec les outils et les processus pour livrer de la valeur.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapsePreuve_de_concept">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseRégression_linéaire" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Déterminer rapidement si vous pouvez extraire de la valeur de vos données. De plus, nous pouvons réviser vos modèles existants. Les meilleurs modèles proviennent d'experts en la matière. Nous les assistons avec les outils et les processus pour livrer de la valeur.</div>
+</div>
+</div>
+<button type="button" class="btn btn-dark fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseRégression_linéaire" aria-expanded="false" aria-controls="collapseRégression_linéaire">
+<span>
 <span class="ion ion-ios-pulse-strong"></span>
-</div>
+Régression linéaire
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Régression linéaire</h3>
-<div class="collapse" id="collapseRégression_linéaire">
-<p class="card-text">Qui a dit que des techniques simplifiées ne pouvaient pas résoudre des problèmes concrets. L'apprentissage profond n'est pas la solution à tout. Choisir le bon outil selon le contexte.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseRégression_linéaire">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseAmélioration_du_gradient" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Qui a dit que des techniques simplifiées ne pouvaient pas résoudre des problèmes concrets. L'apprentissage profond n'est pas la solution à tout. Choisir le bon outil selon le contexte.</div>
+</div>
+</div>
+<button type="button" class="btn btn-danger fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseAmélioration_du_gradient" aria-expanded="false" aria-controls="collapseAmélioration_du_gradient">
+<span>
 <span class="ion ion-android-options"></span>
-</div>
+Amélioration du gradient
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Amélioration du gradient</h3>
-<div class="collapse" id="collapseAmélioration_du_gradient">
-<p class="card-text">L'amélioration ("boosting") du gradient est une technique pratique. Cependant, ça peut être embêtant de configurer les hyperparamètres. On peut vous aider à vous y retrouvez.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseAmélioration_du_gradient">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseInfonuagique" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">L'amélioration ("boosting") du gradient est une technique pratique. Cependant, ça peut être embêtant de configurer les hyperparamètres. On peut vous aider à vous y retrouvez.</div>
+</div>
+</div>
+<button type="button" class="btn btn-warning fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseInfonuagique" aria-expanded="false" aria-controls="collapseInfonuagique">
+<span>
 <span class="ion ion-android-cloud"></span>
-</div>
+Infonuagique
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Infonuagique</h3>
-<div class="collapse" id="collapseInfonuagique">
-<p class="card-text">Nous travaillons avec la plupart des fournisseurs qui offrent de l'infrastructure au Canada. L'infonuagique est parfaite pour les besoins extrêmes sporadiques et la puissance à la demande.<ul><li>Google</li><li>DigitalOcean</li><li>Azure</li><li>AWS</li></ul></p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseInfonuagique">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseIntégration_et_déploiement_en_continu" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Nous travaillons avec la plupart des fournisseurs qui offrent de l'infrastructure au Canada. L'infonuagique est parfaite pour les besoins extrêmes sporadiques et la puissance à la demande.<ul><li>Google</li><li>DigitalOcean</li><li>Azure</li><li>AWS</li></ul></div>
+</div>
+</div>
+<button type="button" class="btn btn-info fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseIntégration_et_déploiement_en_continu" aria-expanded="false" aria-controls="collapseIntégration_et_déploiement_en_continu">
+<span>
 <span class="ion ion-loop"></span>
-</div>
+Intégration et déploiement en continu
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Intégration et déploiement en continu</h3>
-<div class="collapse" id="collapseIntégration_et_déploiement_en_continu">
-<p class="card-text">Utilisez les actions avec GitHub ou des outils similaires pour automatiser les tâches répétitives liées à la gestion du code. Tester, valider et mettre en production tout en un. Profitez de la conteneurisation des applications quand c'est favorable.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseIntégration_et_déploiement_en_continu">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseEnvironnement_de_travail" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Utilisez les actions avec GitHub ou des outils similaires pour automatiser les tâches répétitives liées à la gestion du code. Tester, valider et mettre en production tout en un. Profitez de la conteneurisation des applications quand c'est favorable.</div>
+</div>
+</div>
+<button type="button" class="btn btn-primary fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseEnvironnement_de_travail" aria-expanded="false" aria-controls="collapseEnvironnement_de_travail">
+<span>
 <span class="ion ion-monitor"></span>
-</div>
+Environnement de travail
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Environnement de travail</h3>
-<div class="collapse" id="collapseEnvironnement_de_travail">
-<p class="card-text">Nous pouvons configurer des serveurs RStudio, Shiny ou Jupyter Notebook. On prend en charge la sécurisation, nginx et l'installation des moteurs d'exécution pour les notebooks. On peut également compiler les librairies GPU nécessaires à l'apprentissage machine. Comme ça, vous n'aurez pas à creuser dans la documentation de CUDA.</p>
-</div>
-</div>
+<div class="row collapse" id="collapseEnvironnement_de_travail">
+<div class="col">
+<div class="card card-body">Nous pouvons configurer des serveurs RStudio, Shiny ou Jupyter Notebook. On prend en charge la sécurisation, nginx et l'installation des moteurs d'exécution pour les notebooks. On peut également compiler les librairies GPU nécessaires à l'apprentissage machine. Comme ça, vous n'aurez pas à creuser dans la documentation de CUDA.</div>
 </div>
 </div>
 </div>
@@ -596,9 +520,15 @@ pre code {
     <span class="visually-hidden">Suivant</span>
   </button>
 </div>
-<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px"><a href="https://github.com/bcgov/CCISS_ShinyApp" class="btn btn-primary btn-lg">Explorer sur GitHub <span class="ion ion-social-github"></span></a></div>
 
-<p>Application Shiny pour la sélection des espèces d’arbres en fonction des changements climatiques.</p>
+<div class="card card-body">
+<p>
+Application Shiny pour la sélection des espèces d’arbres en fonction des changements climatiques.
+</p>
+<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px">
+<a href="https://github.com/bcgov/CCISS_ShinyApp" class="btn btn-primary btn-lg">Explorer sur GitHub <span class="ion ion-social-github"></span></a>
+</div>
+</div>
 </div>
 <div id="plumber" class="section level3">
 <h3>Plumber</h3>
@@ -621,12 +551,18 @@ pre code {
     <span class="visually-hidden">Suivant</span>
   </button>
 </div>
-<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px"><a href="https://github.com/rstudio/plumber" class="btn btn-primary btn-lg">Explorer sur GitHub <span class="ion ion-social-github"></span></a></div>
 
-<p>Contributeur du package <a href="https://github.com/rstudio/plumber">plumber</a> et responsable de <a href="https://github.com/meztez/plumberDeploy">plumberDeploy</a>, <a href="https://github.com/meztez/redoc">redoc</a>, et <a href="https://github.com/meztez/rapidoc">rapidoc</a> distribués par le CRAN.</p>
+<div class="card card-body">
+<p>
+Contributeur du package <a href="https://github.com/rstudio/plumber">plumber</a> et responsable de <a href="https://github.com/meztez/plumberDeploy">plumberDeploy</a>, <a href="https://github.com/meztez/redoc">redoc</a>, et <a href="https://github.com/meztez/rapidoc">rapidoc</a> distribués par le CRAN.
+</p>
+<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px">
+<a href="https://github.com/rstudio/plumber" class="btn btn-primary btn-lg">Explorer sur GitHub <span class="ion ion-social-github"></span></a>
 </div>
-<div id="bqs" class="section level3">
-<h3>BQS</h3>
+</div>
+</div>
+<div id="big-query-storage" class="section level3">
+<h3>Big Query Storage</h3>
 
 <div id="carouselBQS" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
@@ -646,22 +582,55 @@ pre code {
     <span class="visually-hidden">Suivant</span>
   </button>
 </div>
-<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px"><a href="https://github.com/meztez/bigrquerystorage" class="btn btn-primary btn-lg">Explorer sur GitHub <span class="ion ion-social-github"></span></a></div>
 
-<p><code>bigrquerystorage</code> est un package R pour BigQuery Storage API. La motivation principale est de remplacer <code>bigrquery::bq_table_download</code>.</p>
-<p>Le package est un mixte de C++ et R.</p>
+<div class="card card-body">
+<p>
+<code>bigrquerystorage</code> est un package R pour BigQuery Storage API. La motivation principale est de remplacer <code>bigrquery::bq_table_download</code>.<br><br>Le package est un mixte de C++ et R.
+</p>
+<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px">
+<a href="https://github.com/meztez/bigrquerystorage" class="btn btn-primary btn-lg">Explorer sur GitHub <span class="ion ion-social-github"></span></a>
 </div>
 </div>
+</div>
+<div>
 <div id="people" class="section level2 section-head">
 <h2 class="section-head"><span class="ion ion-forward" style="transform: scale(1, -1);"></span> PEOPLE</h2>
 
-<div class="card" style="width: 18rem;">
-  <img src="../www/face.jpg" class="card-img-top" alt="Bruno Tremblay">
-  <div class="card-body">
-    <h5 class="card-title">Bruno Tremblay</h5>
-    <p class="card-text">Propriétaire · Actuaire · Programmeur</p>
-    <div class="display-5">
-      <a href="https://www.linkedin.com/in/bruno-tremblay-508ba9201/" title="LinkedIn"><span class="ion-social-linkedin"></span></a> <a href="https://github.com/meztez" title="GitHub"><span class="ion ion-social-github"></span></a> <a href="https://twitter.com/meztez2" title="Twitter"><span class="ion ion-social-twitter"></span></a>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100" style="width: 18rem;">
+      <img src="www/face.jpg" class="card-img-top" alt="Bruno Tremblay">
+      <div class="card-body">
+        <h5 class="card-title">Bruno Tremblay</h5>
+        <p class="card-text">Propriétaire · Actuaire · Programmeur</p>
+        <div class="display-5">
+          <a href="https://www.linkedin.com/in/bruno-tremblay-508ba9201/" title="LinkedIn"><span     class="ion-social-linkedin"></span></a> <a href="https://github.com/meztez"     title="GitHub"><span class="ion ion-social-github"></span></a> <a     href="https://twitter.com/meztez2" title="Twitter"><span class="ion     ion-social-twitter"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" style="width: 18rem;">
+      <img src="www/born.svg" class="card-img-top" alt="François Bornais">
+      <div class="card-body">
+        <h5 class="card-title">François Bornais</h5>
+        <p class="card-text">Propriétaire · Actuaire · Programmeur</p>
+        <div class="display-5">
+          <a href="https://www.linkedin.com/in/fran%C3%A7ois-bornais-fcas-67877736/"     title="LinkedIn"><span class="ion-social-linkedin"></span></a> <a     href="https://github.com/FrankBornais" title="GitHub"><span class="ion     ion-social-github"></span></a> <a href="https://twitter.com/BornaisFrancois"     title="Twitter"><span class="ion ion-social-twitter"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" style="width: 18rem;">
+      <img src="www/nic.svg" class="card-img-top" alt="Nicolas Gauthier">
+      <div class="card-body">
+        <h5 class="card-title">Nicolas Gauthier</h5>
+        <p class="card-text">Propriétaire · Actuaire · Programmeur · Opérateur de tracteur</p>
+        <div class="display-5">
+          <a href="https://www.linkedin.com/in/nicolas-gauthier-2542a0138/"     title="LinkedIn"><span class="ion-social-linkedin"></span></a> <a     href="https://github.com/nicgauthier" title="GitHub"><span class="ion     ion-social-github"></span></a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -699,13 +668,12 @@ pre code {
 </form>
 <p><br>Pour toute demande directe, envoyez-nous un courriel à <a href="mailto:info@boostao.ca">info@boostao.ca</a>.</p>
 </div>
+</div>
 <div style="text-align:center; padding-top:40px;">
 <small>Boostao 2021. Levis, Quebec, Canada.</small>
 </div>
 <div>
 
-
-</div>
 
 
 

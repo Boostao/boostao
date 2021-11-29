@@ -8,27 +8,48 @@ library(htmltools)
 if (requireNamespace("thematic")) 
   thematic::thematic_rmd(font = "auto")
 
-card_deck <- function(...) {
-  div(class = "row row-cols-1 row-cols-md-4 g-4", ...)
+colors <- function() {
+  
+  colors <- c(
+    "btn-warning",
+    "btn-info",
+    "btn-primary",
+    "btn-dark",
+    "btn-danger"
+  )
+  i <- 1
+ 
+  return(
+    list(color = function() {
+      on.exit({
+        colors <<- c(colors[-1], colors[1]) 
+      })
+      colors[1L]
+    })
+  )
 }
-card_columns <- function(...) {
-  div(..., class = "card-columns ")
+
+col <- colors()
+
+card_deck <- function(...) {
+  div(class = "bd-services", ...)
 }
 
 card <- function(title, text, icon) {
-  div(class = "col",
-    div(
-      class = "card border-primary",
-      div(class = "d-grid gap-1 col-12 mx-auto",
-        tag("button", list(type = "button", `data-bs-target`=paste0("#collapse", gsub(".", "_", make.names(title), fixed = TRUE)), class = "btn btn-primary btn-lg", `data-bs-toggle`="collapse", 
-          div(class = "display-5", span(class = paste0("ion ion-", icon)))
-        ))
-      ),
-      div(
-        class = "card-body",
-        h3(title, class = "card-title"),
-        div(class = "collapse", id = paste0("collapse", gsub(".", "_", make.names(title), fixed = TRUE)),
-          p(text, class = "card-text")
+  list(
+    tags$button(
+      type = "button",
+      class = paste("btn", col$color(), "fs-2 btn-lg"),
+      `data-bs-toggle` = "collapse",
+      `data-bs-target` = paste0("#collapse", gsub(".", "_", make.names(title), fixed = TRUE)),
+      `aria-expanded` = "false",
+      `aria-controls` = paste0("collapse", gsub(".", "_", make.names(title), fixed = TRUE)),
+      span(span(class = paste0("ion ion-", icon)), title)
+    ),
+    div(class="row collapse", id = paste0("collapse", gsub(".", "_", make.names(title), fixed = TRUE)),
+      div(class = "col",
+        div(class = "card card-body",
+          text
         )
       )
     )
@@ -52,11 +73,12 @@ card <- function(title, text, icon) {
     padding-bottom: 5px !important;
     background: linear-gradient(180deg, #1c1c1c 25%, #11AEED 150%) fixed;
   }
+  .bd-services>.btn {
+    margin: 1rem 0.5rem;
+  }
 </style>
 
 ## <span class="ion ion-forward" style="transform: scale(1, -1);"></span> SERVICES {.section-head}
-
-Nous apportons de la valeur avec une approche très pratique. Définir un but, identifier les étapes pour s'y rendre, commencer le travail. Toute décision technologique doit être justifiée selon le contexte de la solution comme les contraintes de temps, la performance cible et les coûts de maintien.
 
 ```{r echo=FALSE}
 card_deck(
@@ -124,11 +146,12 @@ HTML('
     <span class="visually-hidden">Suivant</span>
   </button>
 </div>
-<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px"><a href="https://github.com/bcgov/CCISS_ShinyApp" class="btn btn-primary btn-lg">Explorer sur GitHub <span class="ion ion-social-github"></span></a></div>
 ')
 ```
 
+<div class="card card-body"><p>
 Application Shiny pour la sélection des espèces d'arbres en fonction des changements climatiques.
+</p><div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px"><a href="https://github.com/bcgov/CCISS_ShinyApp" class="btn btn-primary btn-lg">Explorer sur GitHub <span class="ion ion-social-github"></span></a></div></div>
 
 ### Plumber
 
@@ -152,13 +175,14 @@ HTML('
     <span class="visually-hidden">Suivant</span>
   </button>
 </div>
-<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px"><a href="https://github.com/rstudio/plumber" class="btn btn-primary btn-lg">Explorer sur GitHub <span class="ion ion-social-github"></span></a></div>
 ')
 ```
 
+<div class="card card-body"><p>
 Contributeur du package [plumber](https://github.com/rstudio/plumber) et responsable de [plumberDeploy](https://github.com/meztez/plumberDeploy), [redoc](https://github.com/meztez/redoc), et [rapidoc](https://github.com/meztez/rapidoc) distribués par le CRAN.
+</p><div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px"><a href="https://github.com/rstudio/plumber" class="btn btn-primary btn-lg">Explorer sur GitHub <span class="ion ion-social-github"></span></a></div></div>
 
-### BQS
+### Big Query Storage
 
 ```{r echo=FALSE}
 HTML('
@@ -180,25 +204,50 @@ HTML('
     <span class="visually-hidden">Suivant</span>
   </button>
 </div>
-<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px"><a href="https://github.com/meztez/bigrquerystorage" class="btn btn-primary btn-lg">Explorer sur GitHub <span class="ion ion-social-github"></span></a></div>
 ')
 ```
 
-`bigrquerystorage` est un package R pour BigQuery Storage API. La motivation principale est de remplacer `bigrquery::bq_table_download`.
-
-Le package est un mixte de C++ et R.
+<div class="card card-body"><p><code>bigrquerystorage</code> est un package R pour BigQuery Storage API. La motivation principale est de remplacer <code>bigrquery::bq_table_download</code>.<br><br>Le package est un mixte de C++ et R.</p><div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px"><a href="https://github.com/meztez/bigrquerystorage" class="btn btn-primary btn-lg">Explorer sur GitHub <span class="ion ion-social-github"></span></a></div><div>
 
 ## <span class="ion ion-forward" style="transform: scale(1, -1);"></span> PEOPLE {.section-head}
 
 ```{r echo=FALSE}
 HTML('
-<div class="card" style="width: 18rem;">
-  <img src="../www/face.jpg" class="card-img-top" alt="Bruno Tremblay">
-  <div class="card-body">
-    <h5 class="card-title">Bruno Tremblay</h5>
-    <p class="card-text">Propriétaire · Actuaire · Programmeur</p>
-    <div class="display-5">
-      <a href="https://www.linkedin.com/in/bruno-tremblay-508ba9201/" title="LinkedIn"><span class="ion-social-linkedin"></span></a> <a href="https://github.com/meztez" title="GitHub"><span class="ion ion-social-github"></span></a> <a href="https://twitter.com/meztez2" title="Twitter"><span class="ion ion-social-twitter"></span></a>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100" style="width: 18rem;">
+      <img src="www/face.jpg" class="card-img-top" alt="Bruno Tremblay">
+      <div class="card-body">
+        <h5 class="card-title">Bruno Tremblay</h5>
+        <p class="card-text">Propriétaire · Actuaire · Programmeur</p>
+        <div class="display-5">
+          <a href="https://www.linkedin.com/in/bruno-tremblay-508ba9201/" title="LinkedIn"><span     class="ion-social-linkedin"></span></a> <a href="https://github.com/meztez"     title="GitHub"><span class="ion ion-social-github"></span></a> <a     href="https://twitter.com/meztez2" title="Twitter"><span class="ion     ion-social-twitter"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" style="width: 18rem;">
+      <img src="www/born.svg" class="card-img-top" alt="François Bornais">
+      <div class="card-body">
+        <h5 class="card-title">François Bornais</h5>
+        <p class="card-text">Propriétaire · Actuaire · Programmeur</p>
+        <div class="display-5">
+          <a href="https://www.linkedin.com/in/fran%C3%A7ois-bornais-fcas-67877736/"     title="LinkedIn"><span class="ion-social-linkedin"></span></a> <a     href="https://github.com/FrankBornais" title="GitHub"><span class="ion     ion-social-github"></span></a> <a href="https://twitter.com/BornaisFrancois"     title="Twitter"><span class="ion ion-social-twitter"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" style="width: 18rem;">
+      <img src="www/nic.svg" class="card-img-top" alt="Nicolas Gauthier">
+      <div class="card-body">
+        <h5 class="card-title">Nicolas Gauthier</h5>
+        <p class="card-text">Propriétaire · Actuaire · Programmeur · Opérateur de tracteur</p>
+        <div class="display-5">
+          <a href="https://www.linkedin.com/in/nicolas-gauthier-2542a0138/"     title="LinkedIn"><span class="ion-social-linkedin"></span></a> <a     href="https://github.com/nicgauthier" title="GitHub"><span class="ion     ion-social-github"></span></a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

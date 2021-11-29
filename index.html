@@ -321,230 +321,154 @@ pre code {
     padding-bottom: 5px !important;
     background: linear-gradient(180deg, #1c1c1c 25%, #11AEED 150%) fixed;
   }
+  .bd-services>.btn {
+    margin: 1rem 0.5rem;
+  }
 </style>
 <div id="services" class="section level2 section-head">
 <h2 class="section-head"><span class="ion ion-forward" style="transform: scale(1, -1);"></span> SERVICES</h2>
-<p>We aim to provide value by having a very practical approach. Define a target, draft steps to get there, start to work. Each technological decision has to be justified based on the context of the solution such as schedule constraints, performance requirements and maintenance costs.</p>
-<div class="row row-cols-1 row-cols-md-4 g-4">
-<div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseShiny_apps" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="bd-services">
+<button type="button" class="btn btn-warning fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseShiny_apps" aria-expanded="false" aria-controls="collapseShiny_apps">
+<span>
 <span class="ion ion-star"></span>
-</div>
+Shiny apps
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Shiny apps</h3>
-<div class="collapse" id="collapseShiny_apps">
-<p class="card-text">Need something interactive for users to work with data? Dashboards, visualizations, database backend. We write snappy, scalable and well documented app. Shiny is a great way to democratize information you already have.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseShiny_apps">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapsePlumber_API" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Need something interactive for users to work with data? Dashboards, visualizations, database backend. We write snappy, scalable and well documented app. Shiny is a great way to democratize information you already have.</div>
+</div>
+</div>
+<button type="button" class="btn btn-info fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapsePlumber_API" aria-expanded="false" aria-controls="collapsePlumber_API">
+<span>
 <span class="ion ion-wrench"></span>
-</div>
+Plumber API
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Plumber API</h3>
-<div class="collapse" id="collapsePlumber_API">
-<p class="card-text">Looking to expose R computations to the rest of your organization? Plumber is a pretty simple way to do that. We can facilitate its use within your team by helping you exploit its maximum potential.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapsePlumber_API">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseCode_optimization" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Looking to expose R computations to the rest of your organization? Plumber is a pretty simple way to do that. We can facilitate its use within your team by helping you exploit its maximum potential.</div>
+</div>
+</div>
+<button type="button" class="btn btn-primary fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseCode_optimization" aria-expanded="false" aria-controls="collapseCode_optimization">
+<span>
 <span class="ion ion-code-working"></span>
-</div>
+Code optimization
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Code optimization</h3>
-<div class="collapse" id="collapseCode_optimization">
-<p class="card-text">Have some long-running piece of script? Need it to go faster? We can definitely handle that. We are borderline obsessed with performance, within budget. Sometimes you just need 80% improvement, and it is ok. If you need to go all the way, you might "C" a bit of C++.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseCode_optimization">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapsePackage_development" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Have some long-running piece of script? Need it to go faster? We can definitely handle that. We are borderline obsessed with performance, within budget. Sometimes you just need 80% improvement, and it is ok. If you need to go all the way, you might "C" a bit of C++.</div>
+</div>
+</div>
+<button type="button" class="btn btn-dark fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapsePackage_development" aria-expanded="false" aria-controls="collapsePackage_development">
+<span>
 <span class="ion ion-pull-request"></span>
-</div>
+Package development
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Package development</h3>
-<div class="collapse" id="collapsePackage_development">
-<p class="card-text">Be it contributing to existing open source packages or setting up an internal minicran with your own packages, we are always up for a pull request. Packages are the best way to share code between collaborators.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapsePackage_development">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseEmergency_debugging" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Be it contributing to existing open source packages or setting up an internal minicran with your own packages, we are always up for a pull request. Packages are the best way to share code between collaborators.</div>
+</div>
+</div>
+<button type="button" class="btn btn-danger fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseEmergency_debugging" aria-expanded="false" aria-controls="collapseEmergency_debugging">
+<span>
 <span class="ion ion-bug"></span>
-</div>
+Emergency debugging
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Emergency debugging</h3>
-<div class="collapse" id="collapseEmergency_debugging">
-<p class="card-text">We get it, sometimes stuff in production break. A Docker image is not building properly. Maybe you experience performance regression. It needs to work yesterday, and it puts a lot of pressure on the organization. We have been in these shoes and found solutions where most would have surrendered.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseEmergency_debugging">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseR_as_a_GIS" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">We get it, sometimes stuff in production break. A Docker image is not building properly. Maybe you experience performance regression. It needs to work yesterday, and it puts a lot of pressure on the organization. We have been in these shoes and found solutions where most would have surrendered.</div>
+</div>
+</div>
+<button type="button" class="btn btn-warning fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseR_as_a_GIS" aria-expanded="false" aria-controls="collapseR_as_a_GIS">
+<span>
 <span class="ion ion-map"></span>
-</div>
+R as a GIS
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">R as a GIS</h3>
-<div class="collapse" id="collapseR_as_a_GIS">
-<p class="card-text">Working with geographical information in R is not that complicated. It can do all the heavy lifting that other GIS do. You should empower your internal cartographers. We can also build maps and custom map tiles to fit your need.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseR_as_a_GIS">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseData_engineering" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Working with geographical information in R is not that complicated. It can do all the heavy lifting that other GIS do. You should empower your internal cartographers. We can also build maps and custom map tiles to fit your need.</div>
+</div>
+</div>
+<button type="button" class="btn btn-info fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseData_engineering" aria-expanded="false" aria-controls="collapseData_engineering">
+<span>
 <span class="ion ion-social-buffer"></span>
-</div>
+Data engineering
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Data engineering</h3>
-<div class="collapse" id="collapseData_engineering">
-<p class="card-text">Every data scientist knows 90% of the job is massaging data. We build data ingestion pipelines to feed modelling needs. Once the science part is done, we can support deployment to production.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseData_engineering">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseProof_of_concept" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Every data scientist knows 90% of the job is massaging data. We build data ingestion pipelines to feed modelling needs. Once the science part is done, we can support deployment to production.</div>
+</div>
+</div>
+<button type="button" class="btn btn-primary fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseProof_of_concept" aria-expanded="false" aria-controls="collapseProof_of_concept">
+<span>
 <span class="ion ion-flash"></span>
-</div>
+Proof of concept
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Proof of concept</h3>
-<div class="collapse" id="collapseProof_of_concept">
-<p class="card-text">Quick prototyping if you can extract value from the data you have. We can also peer review existing models. The best models are built by domain experts. We merely provide them with the tools and process to deliver value.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseProof_of_concept">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseLinear_regression" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Quick prototyping if you can extract value from the data you have. We can also peer review existing models. The best models are built by domain experts. We merely provide them with the tools and process to deliver value.</div>
+</div>
+</div>
+<button type="button" class="btn btn-dark fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseLinear_regression" aria-expanded="false" aria-controls="collapseLinear_regression">
+<span>
 <span class="ion ion-ios-pulse-strong"></span>
-</div>
+Linear regression
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Linear regression</h3>
-<div class="collapse" id="collapseLinear_regression">
-<p class="card-text">Who said proven techniques could not still solve business problems. Not everything has to be deep learning. Choose the right tool for the job.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseLinear_regression">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseGradient_boosting" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Who said proven techniques could not still solve business problems. Not everything has to be deep learning. Choose the right tool for the job.</div>
+</div>
+</div>
+<button type="button" class="btn btn-danger fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseGradient_boosting" aria-expanded="false" aria-controls="collapseGradient_boosting">
+<span>
 <span class="ion ion-android-options"></span>
-</div>
+Gradient boosting
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Gradient boosting</h3>
-<div class="collapse" id="collapseGradient_boosting">
-<p class="card-text">Gradient boosting is a great tool when fine-tuned. Let us guide you on how to be a successful user. We can help with feature engineering and hyper parameters tuning.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseGradient_boosting">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseCloud_providers" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Gradient boosting is a great tool when fine-tuned. Let us guide you on how to be a successful user. We can help with feature engineering and hyper parameters tuning.</div>
+</div>
+</div>
+<button type="button" class="btn btn-warning fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseCloud_providers" aria-expanded="false" aria-controls="collapseCloud_providers">
+<span>
 <span class="ion ion-android-cloud"></span>
-</div>
+Cloud providers
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Cloud providers</h3>
-<div class="collapse" id="collapseCloud_providers">
-<p class="card-text">We work with most cloud providers that have a data center in Canada. Cloud infrastructure is great for surge workload and on-demand computing.<ul><li>Google</li><li>DigitalOcean</li><li>Azure</li><li>AWS</li></ul></p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseCloud_providers">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseCI_CD" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">We work with most cloud providers that have a data center in Canada. Cloud infrastructure is great for surge workload and on-demand computing.<ul><li>Google</li><li>DigitalOcean</li><li>Azure</li><li>AWS</li></ul></div>
+</div>
+</div>
+<button type="button" class="btn btn-info fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseCI_CD" aria-expanded="false" aria-controls="collapseCI_CD">
+<span>
 <span class="ion ion-loop"></span>
-</div>
+CI/CD
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">CI/CD</h3>
-<div class="collapse" id="collapseCI_CD">
-<p class="card-text">Use GitHub actions and similar tools to automate most repetitive tasks around code management. Setup tests, validate commits or deploy to production all in one go. Harness the power of app containerization when it makes sense.</p>
-</div>
-</div>
-</div>
-</div>
+<div class="row collapse" id="collapseCI_CD">
 <div class="col">
-<div class="card border-primary">
-<div class="d-grid gap-1 col-12 mx-auto">
-<button type="button" data-bs-target="#collapseData_science_server" class="btn btn-primary btn-lg" data-bs-toggle="collapse">
-<div class="display-5">
+<div class="card card-body">Use GitHub actions and similar tools to automate most repetitive tasks around code management. Setup tests, validate commits or deploy to production all in one go. Harness the power of app containerization when it makes sense.</div>
+</div>
+</div>
+<button type="button" class="btn btn-primary fs-2 btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseData_science_server" aria-expanded="false" aria-controls="collapseData_science_server">
+<span>
 <span class="ion ion-monitor"></span>
-</div>
+Data science server
+</span>
 </button>
-</div>
-<div class="card-body">
-<h3 class="card-title">Data science server</h3>
-<div class="collapse" id="collapseData_science_server">
-<p class="card-text">We can help configure RStudio server, Shiny server or notebook server. We know our way around security integration, nginx and notebook kernels installation. Furthermore, we have experience compiling GPU backed machine learning libraries, so you will not have to dig through CUDA documentation.</p>
-</div>
-</div>
+<div class="row collapse" id="collapseData_science_server">
+<div class="col">
+<div class="card card-body">We can help configure RStudio server, Shiny server or notebook server. We know our way around security integration, nginx and notebook kernels installation. Furthermore, we have experience compiling GPU backed machine learning libraries, so you will not have to dig through CUDA documentation.</div>
 </div>
 </div>
 </div>
@@ -596,9 +520,15 @@ pre code {
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px"><a href="https://github.com/bcgov/CCISS_ShinyApp" class="btn btn-primary btn-lg">Explore on GitHub <span class="ion ion-social-github"></span></a></div>
 
-<p>Shiny app for climate change informed tree species selection.</p>
+<div class="card card-body">
+<p>
+Shiny app for climate change informed tree species selection.
+</p>
+<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px">
+<a href="https://github.com/bcgov/CCISS_ShinyApp" class="btn btn-primary btn-lg">Explore on GitHub <span class="ion ion-social-github"></span></a>
+</div>
+</div>
 </div>
 <div id="plumber" class="section level3">
 <h3>Plumber</h3>
@@ -621,12 +551,18 @@ pre code {
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px"><a href="https://github.com/rstudio/plumber" class="btn btn-primary btn-lg">Explore on GitHub <span class="ion ion-social-github"></span></a></div>
 
-<p>Contributor to the <a href="https://github.com/rstudio/plumber">plumber</a> package and maintains <a href="https://github.com/meztez/plumberDeploy">plumberDeploy</a>, <a href="https://github.com/meztez/redoc">redoc</a>, and <a href="https://github.com/meztez/rapidoc">rapidoc</a> available on CRAN.</p>
+<div class="card card-body">
+<p>
+Contributor to the <a href="https://github.com/rstudio/plumber">plumber</a> package and maintains <a href="https://github.com/meztez/plumberDeploy">plumberDeploy</a>, <a href="https://github.com/meztez/redoc">redoc</a>, and <a href="https://github.com/meztez/rapidoc">rapidoc</a> available on CRAN.
+</p>
+<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px">
+<a href="https://github.com/rstudio/plumber" class="btn btn-primary btn-lg">Explore on GitHub <span class="ion ion-social-github"></span></a>
 </div>
-<div id="bqs" class="section level3">
-<h3>BQS</h3>
+</div>
+</div>
+<div id="big-query-storage" class="section level3">
+<h3>Big Query Storage</h3>
 
 <div id="carouselBQS" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
@@ -646,22 +582,55 @@ pre code {
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px"><a href="https://github.com/meztez/bigrquerystorage" class="btn btn-primary btn-lg">Explore on GitHub <span class="ion ion-social-github"></span></a></div>
 
-<p><code>bigrquerystorage</code> is a BigQuery Storage API package for R. The main motivation is to replace <code>bigrquery::bq_table_download</code>.</p>
-<p>The package is built in C++ and R.</p>
+<div class="card card-body">
+<p>
+<code>bigrquerystorage</code> is a BigQuery Storage API package for R. The main motivation is to replace <code>bigrquery::bq_table_download</code>.<br><br>The package is built in C++ and R.
+</p>
+<div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px">
+<a href="https://github.com/meztez/bigrquerystorage" class="btn btn-primary btn-lg">Explore on GitHub <span class="ion ion-social-github"></span></a>
 </div>
 </div>
+</div>
+<div>
 <div id="people" class="section level2 section-head">
 <h2 class="section-head"><span class="ion ion-forward" style="transform: scale(1, -1);"></span> PEOPLE</h2>
 
-<div class="card" style="width: 18rem;">
-  <img src="www/face.jpg" class="card-img-top" alt="Bruno Tremblay">
-  <div class="card-body">
-    <h5 class="card-title">Bruno Tremblay</h5>
-    <p class="card-text">Owner · Actuary · Coder</p>
-    <div class="display-5">
-      <a href="https://www.linkedin.com/in/bruno-tremblay-508ba9201/" title="LinkedIn"><span class="ion-social-linkedin"></span></a> <a href="https://github.com/meztez" title="GitHub"><span class="ion ion-social-github"></span></a> <a href="https://twitter.com/meztez2" title="Twitter"><span class="ion ion-social-twitter"></span></a>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100" style="width: 18rem;">
+      <img src="www/face.jpg" class="card-img-top" alt="Bruno Tremblay">
+      <div class="card-body">
+        <h5 class="card-title">Bruno Tremblay</h5>
+        <p class="card-text">Owner · Actuary · Coder</p>
+        <div class="display-5">
+          <a href="https://www.linkedin.com/in/bruno-tremblay-508ba9201/" title="LinkedIn"><span     class="ion-social-linkedin"></span></a> <a href="https://github.com/meztez"     title="GitHub"><span class="ion ion-social-github"></span></a> <a     href="https://twitter.com/meztez2" title="Twitter"><span class="ion     ion-social-twitter"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" style="width: 18rem;">
+      <img src="www/born.svg" class="card-img-top" alt="François Bornais">
+      <div class="card-body">
+        <h5 class="card-title">François Bornais</h5>
+        <p class="card-text">Owner · Actuary · Coder</p>
+        <div class="display-5">
+          <a href="https://www.linkedin.com/in/fran%C3%A7ois-bornais-fcas-67877736/"     title="LinkedIn"><span class="ion-social-linkedin"></span></a> <a     href="https://github.com/FrankBornais" title="GitHub"><span class="ion     ion-social-github"></span></a> <a href="https://twitter.com/BornaisFrancois"     title="Twitter"><span class="ion ion-social-twitter"></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" style="width: 18rem;">
+      <img src="www/nic.svg" class="card-img-top" alt="Nicolas Gauthier">
+      <div class="card-body">
+        <h5 class="card-title">Nicolas Gauthier</h5>
+        <p class="card-text">Owner · Actuary · Coder · Tractor Operator</p>
+        <div class="display-5">
+          <a href="https://www.linkedin.com/in/nicolas-gauthier-2542a0138/"     title="LinkedIn"><span class="ion-social-linkedin"></span></a> <a     href="https://github.com/nicgauthier" title="GitHub"><span class="ion     ion-social-github"></span></a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -699,13 +668,12 @@ pre code {
 </form>
 <p><br>For any direct inquiries, email us at <a href="mailto:info@boostao.ca">info@boostao.ca</a>.</p>
 </div>
+</div>
 <div style="text-align:center; padding-top:40px;">
 <small>Boostao 2021. Levis, Quebec, Canada.</small>
 </div>
 <div>
 
-
-</div>
 
 
 
