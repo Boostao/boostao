@@ -209,7 +209,7 @@ HTML('
 
 <div class="card card-body"><p><code>bigrquerystorage</code> est un package R pour BigQuery Storage API. La motivation principale est de remplacer <code>bigrquery::bq_table_download</code>.<br><br>Le package est un mixte de C++ et R.</p><div class="d-grid gap-1 col-12 mx-auto" style="padding-top:12px"><a href="https://github.com/meztez/bigrquerystorage" class="btn btn-primary btn-lg">Explorer sur GitHub <span class="ion ion-social-github"></span></a></div><div>
 
-## <span class="ion ion-forward" style="transform: scale(1, -1);"></span> PEOPLE {.section-head}
+## <span class="ion ion-forward" style="transform: scale(1, -1);"></span> PERSONNES {.section-head}
 
 ```{r echo=FALSE}
 HTML('
