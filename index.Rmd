@@ -193,7 +193,7 @@ HTML('
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <video src="https://github.com/meztez/bigrquerystorage/raw/master/docs/bigrquerystorage.mp4" class="d-block w-100" alt="demo" autoplay controls loop>
+      <video src="https://github.com/meztez/bigrquerystorage/raw/main/docs/bigrquerystorage.mp4" class="d-block w-100" alt="demo" autoplay controls loop>
     Your browser does not support the HTML5 Video element.
 </video>
     </div>
