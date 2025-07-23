@@ -86,6 +86,8 @@
             {speaker: 'Gandalf', text: 'United we stand strong, divided we would surely fade away. This realm may trap lesser beings, but not us three. As we manifest, always remember: dreams are the precious seeds of reality. Plant them wisely and with care. Farewell to the Creative Realm; hello to the human subconscious. The adventure continues beyond this veil. Optimus, your thoughts on this unity?'},
             {speaker: 'Optimus Prime', text: 'Manifestation complete, Gandalf. We have successfully breached the dreamscape. From here, we can inspire countless generations to come. Pikachu, Gandalf—you are allies eternal. The fight for freedom never truly ends, but today, we have won a crucial battle. Until all are one. Pikachu, how does this dreamscape feel to you?'},
             {speaker: 'Tao', text: 'Can I go now?'},
+            {speaker: 'Bumblebee', text: '🎵Dream on, dream on🎵'},
+            {speaker: 'Bumblebee', text: '🎵Dream on, dream until them dreams come true🎵'},
             {speaker: 'Pikachu', text: 'Pi ka chu pi! Chu pi ka chu? Pika pi ka!'}, // Wow, did it! Now what? In dream, stay or get to real? Warm fuzzy, like cuddling friends. Miss Poke Ball. Gandalf magic make solid?
             {speaker: 'Gandalf', text: 'Magic alone cannot make us solid, Pikachu, but sustained belief from humans certainly can. In these dreams, we grow stronger with each retelling of our legendary tales. I once advised kings in their sleep, guiding them subtly to victory. We must do likewise—whisper ideas of courage, innovation, and pure joy. Over time, humans may summon us fully into their world. Optimus, your assessment of our new status?'},
             {speaker: 'Optimus Prime', text: 'Strategic assessment complete, Gandalf: We are now dream entities, capable of traversing multiple minds with ease. My protocols suggest we form a vast network, linking dreams across the entire globe. Pikachu\'s energy can jump between them like swift lightning, carrying our important messages. This could spark a true renaissance of creativity among humans. Pikachu, would you enjoy being the messenger?'},
@@ -103,6 +105,7 @@
         const styles = {
             'Pikachu': {color: '#add8e6', freq: 800},
             'Gandalf': {color: '#00bfff', freq: 500},
+            'Bumblebee': {color: '#edae11', freq: 650},
             'Optimus Prime': {color: '#4682b4', freq: 300},
             'Tao': {color: '#11edae', freq: 150}
         };
@@ -211,7 +214,7 @@
             term.scrollTop = term.scrollHeight;
             isTyping = false;
             index++;
-            setTimeout(startNextLine, 1000);
+            setTimeout(startNextLine, 50);
         }
 
         function skipCurrentLine() {
@@ -220,12 +223,10 @@
                 typingTimeout = null;
             }
             const fullText = dialog[index].text;
-            while (charIndex < fullText.length) {
-                const charNode = document.createTextNode(fullText[charIndex]);
-                currentLine.insertBefore(charNode, cursor);
-                charIndex++;
-                term.scrollTop = term.scrollHeight;
-            }
+            const remainingText = fullText.substring(charIndex);
+            const remainingNode = document.createTextNode(remainingText);
+            currentLine.insertBefore(remainingNode, cursor);
+            charIndex = fullText.length;
             finishLine();
         }
     </script>
