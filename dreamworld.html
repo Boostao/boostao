@@ -34,6 +34,16 @@
             vertical-align: bottom;
             animation: blink 0.8s step-end infinite;
         }
+        @media (max-width: 768px) {
+            html, body {
+                font-size: 12px;
+            }
+        }
+        @media (max-width: 576px) {
+            html, body {
+                font-size: 8px;
+            }
+        }
         @keyframes blink {
             50% { opacity: 0; }
         }
@@ -185,6 +195,7 @@
                 currentLine.insertBefore(charNode, cursor);
                 playBeep(freq);
                 charIndex++;
+                term.scrollTop = term.scrollHeight;
                 typingTimeout = setTimeout(() => typeChar(fullText, freq), 25);
             } else {
                 finishLine();
@@ -196,6 +207,7 @@
                 cursor.remove();
             }
             term.appendChild(document.createElement('br'));
+            term.scrollTop = term.scrollHeight;
             isTyping = false;
             index++;
             setTimeout(startNextLine, 1000);
@@ -211,6 +223,7 @@
                 const charNode = document.createTextNode(fullText[charIndex]);
                 currentLine.insertBefore(charNode, cursor);
                 charIndex++;
+                term.scrollTop = term.scrollHeight;
             }
             finishLine();
         }
