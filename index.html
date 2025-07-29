@@ -32,10 +32,10 @@
         }
         canvas {
             position: absolute;
-            top: 30vh;
+            top: 35vh;
             left: 0;
             width: 100vw;
-            height: 40vh;
+            height: 30vh;
             background: transparent;
             z-index: 0;
         }
@@ -169,6 +169,10 @@
                 font-size: 12px;
                 height: 100dvh;
             }
+            canvas {
+                top: 35dvh;
+                height: 30dvh;
+            }
             .content-container {
                 height: 100dvh;
             }
@@ -272,11 +276,12 @@
         // Canvas Animation
         const canvas = document.getElementById('waveCanvas');
         const ctx = canvas.getContext('2d');
+        const dynamicViewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
 
         function resizeCanvas() {
             canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight * 0.4; // 50% of screen height
-            canvas.style.top = `${window.innerHeight * 0.3}px`; // Center vertically
+            canvas.height = dynamicViewportHeight * 0.3; // 50% of screen height
+            canvas.style.top = `${dynamicViewportHeight * 0.35}px`; // Center vertically
         }
 
         resizeCanvas();
