@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave Lines Animation</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #container {
+            width: 100vw;
+            height: 50vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvas" style="display: block; width: 100%; height: 100%;"></canvas>
+    </div>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+        }
+
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        let startTime = null;
+        let nextTriggerTime = null;
+        let activeCollapses = [];
+
+        const period = 7500; // Increased speed for more flow
+        const collapseDuration = 7500; // Slowed down by increasing duration (original 2000 * 2.5)
+        const avgCycles = 1;
+        const varCycles = 1; // Variation +/- 0.5 cycles
+        const compression = 0.85; // Compression factor for bringing lines closer without overlapping
+        const minDelay = 500;
+        const maxLag = 1000;
+
+        function draw(time) {
+            if (!startTime) {
+                startTime = time;
+                nextTriggerTime = startTime + period * (avgCycles + (Math.random() - 0.5) * varCycles) + 500 + Math.random() * 1000; // At least 0.5s + random lag
+            }
+
+            const elapsed = time - startTime;
+
+            if (time > nextTriggerTime) {
+                activeCollapses.push({
+                    startTime: time,
+                    numOscillations: (1 + Math.random() * 3) / 2,
+                    oscPhase: Math.random() * 2 * Math.PI,
+                    triggeredNext: false
+                });
+                nextTriggerTime = Infinity;
+            }
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 3;
+
+            const w = canvas.width;
+            const h = canvas.height;
+            const numLines = 12;
+            const spacing = h / (numLines + 1);
+            const amplitude = spacing / 3; // Small to prevent crossing
+            const waves = 1; // Wide waves
+            const speed = 2 * Math.PI / period;
+            const shift = -speed * elapsed; // Continuous movement to the right
+            const oscAmplitude = h / 12; // Halved for 50% reduced amplitude
+            const sigma = w * 0.15; // Tripled for horizontal propagation
+            const extra = w * 0.5;
+            const triggerThreshold = w - 2 * sigma; // Approaching the right border
+
+            // Process active collapses
+            for (let i = activeCollapses.length - 1; i >= 0; i--) {
+                const c = activeCollapses[i];
+                const time_since = time - c.startTime;
+                if (time_since < 0) continue; // If delayed, skip until started
+                const x0 = -extra + (time_since / collapseDuration) * (w + 2 * extra);
+                if (x0 > w + extra) {
+                    activeCollapses.splice(i, 1);
+                    continue;
+                }
+                if (!c.triggeredNext && x0 > triggerThreshold) {
+                    c.triggeredNext = true;
+                    const delay = minDelay + Math.random() * maxLag;
+                    activeCollapses.push({
+                        startTime: time + delay,
+                        numOscillations: (1 + Math.random() * 3) / 2,
+                        oscPhase: Math.random() * 2 * Math.PI,
+                        triggeredNext: false
+                    });
+                }
+                c.x0 = x0; // Store for later use
+            }
+
+            const compressedSpacing = spacing * compression;
+
+            for (let i = 1; i <= numLines; i++) {
+                const offset = i * spacing;
+                const phase = i * (2 * Math.PI / numLines);
+
+                ctx.beginPath();
+                for (let x = 0; x <= w; x += 1) {
+                    const angle = (x / w) * 2 * Math.PI * waves + shift + phase;
+                    const normalY = offset + amplitude * Math.sin(angle);
+
+                    // Find max blend and corresponding targetY
+                    let maxBlend = 0;
+                    let targetY = normalY;
+                    for (const c of activeCollapses) {
+                        const time_since_c = time - c.startTime;
+                        if (time_since_c < 0) continue;
+                        const gaussian = Math.exp( - ( ((x - c.x0) / sigma) ** 2 ) );
+                        if (gaussian > maxBlend) {
+                            maxBlend = gaussian;
+                            const centerY = h / 2 + oscAmplitude * Math.sin(2 * Math.PI * (time_since_c / collapseDuration) * c.numOscillations + c.oscPhase);
+                            targetY = centerY + (i - (numLines / 2 + 0.5)) * compressedSpacing;
+                        }
+                    }
+
+                    const y = (1 - maxBlend) * normalY + maxBlend * targetY;
+                    if (x === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.stroke();
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        requestAnimationFrame(draw);
+    </script>
+</body>
+</html>
