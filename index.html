@@ -1,408 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Boostao</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
-    <link rel="manifest" href="./site.webmanifest">
-    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="apple-mobile-web-app-title" content="boostao">
-    <meta name="application-name" content="boostao">
-    <meta name="msapplication-TileColor" content="#1c1c1c">
-    <meta name="theme-color" content="#1c1c1c">
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta name="description" content="On met en service le système qui fait travailler vos informations. Un humain valide. Vous gardez la responsabilité.">
+    <link rel="icon" href="data:,">
     <style>
-        html, body {
-            height: 100vh;
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        html {
+            background-color: #f7f6f2;
+            color: #181816;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 100%;
+            line-height: 1.65;
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
             margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background: url("www/hexgrid.svg") repeat center, conic-gradient(from 15deg at 50% 50%,  #11aeed 0deg, #11edae 360deg);
-            color: #DFDFDF;
-            font-family: 'Poppins', sans-serif;
+            padding: 4.5rem 1.5rem 6rem;
         }
-        canvas {
-            position: absolute;
-            top: 35vh;
-            left: 0;
-            width: 100vw;
-            height: 30vh;
-            background: transparent;
-            z-index: 0;
+        main {
+            max-width: 40rem;
+            margin: 0 auto;
         }
-        .content-container {
-            position: relative;
-            height: 100vh;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        header {
+            margin-bottom: 3.5rem;
         }
-        .top-left, .top-right, .bottom-left, .bottom-right {
-            position: absolute;
-            z-index: 10;
-        }
-        .top-left {
-            top: 2rem;
-            left: 2rem;
-        }
-        .top-right {
-            top: 2rem;
-            right: 2rem;
-            display: flex;
-            gap: 1rem;
-        }
-        .bottom-left {
-            bottom: 2rem;
-            left: 2rem;
-            display: flex;
-            gap: 1rem;
-        }
-        .bottom-right {
-            bottom: 2rem;
-            right: 2rem;
-            display: flex;
-            gap: 1rem;
-        }
-        .center-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            max-width: calc(100vw - 4rem);
-            padding: 2rem;
-            background: linear-gradient(rgba(28, 28, 28, 0.8) 33%, rgba(28, 28, 28, 0.2));
-            border-radius: 3rem;
-            box-shadow: 0 0 2.5rem rgba(17, 174, 237, 0.5);
-            animation: fadeIn 1s ease-in-out;
-            z-index: 5;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translate(-50%, -55%); }
-            to { opacity: 1; transform: translate(-50%, -50%); }
-        }
-        .center-content h1 {
-            font-size: 4rem;
+        h1 {
+            font-size: 1.125rem;
             font-weight: 600;
-            text-shadow: 0.2rem 0.2rem #11aeed;
-            margin-bottom: 2rem;
+            letter-spacing: -0.01em;
+            margin: 0;
         }
-        .center-content .hook {
-            font-size: 2.5rem;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-            text-shadow: 0.125rem 0.125rem #1C1C1C;
+        section p {
+            margin: 0 0 1.75rem;
+            font-size: 1.0625rem;
         }
-        .services-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
+        .lead {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            margin-bottom: 2.25rem;
         }
-        .services-list li {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .steps {
+            margin: 2.25rem 0;
         }
-        .lang-switch {
-            width: 6rem;
-            height: 6rem;
-            border-radius: 50%;
-            background-color: #DFDFDF;
-            color: #1C1C1C;
-            font-weight: bold;
-            font-size: 3rem;
+        .steps p {
+            margin: 0 0 1rem;
         }
-        .ui-btn {
-            width: 6rem;
-            height: 6rem;
-            border-radius: 50%;
-            background-color: #DFDFDF;
-            background-size: cover;
-            color: #1C1C1C;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            transition: transform 0.3s, background-color 0.3s;
-        }        
-        .face-btn:hover {
-            transform: scale(1.1);
-            background-color: #ffffff;
+        .steps strong {
+            font-weight: 600;
         }
-        .ui-tao {
-            transition: transform 0.3s, background-color 0.3s;
+        .meta {
+            margin-top: 2.5rem;
+            margin-bottom: 0;
+            color: #383834;
+            font-size: 0.9375rem;
+            line-height: 1.6;
         }
-        .ui-tao:hover {
-            transform: scale(1.1);
+        .meta a {
+            color: inherit;
+            text-decoration: underline;
+            text-underline-offset: 0.18em;
         }
-        #content-en, #content-fr {
-            display: none;
+        hr {
+            border: 0;
+            border-top: 1px solid #dddbd4;
+            margin: 4rem 0;
         }
-        .cta-btn {
-            font-size: 2rem;
-            padding: 1rem 2rem;
-            border-radius: 2rem;
-            background-color: #11aeed;
-            border: none;
-            color: #1C1C1C;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .cta-btn:hover {
-            background-color: #0d8bcb;
-            transform: scale(1.05);
-        }
-        @media (max-width: 768px) {
-            html, body {
-                font-size: 12px;
-                height: 100dvh;
+        @media (max-width: 600px) {
+            body {
+                padding: 3rem 1.25rem 4.5rem;
             }
-            canvas {
-                top: 35dvh;
-                height: 30dvh;
+            header {
+                margin-bottom: 2.5rem;
             }
-            .content-container {
-                height: 100dvh;
+            .lead {
+                font-size: 1.125rem;
             }
-            .center-content {
-                width: 100dvw;
-            }
-        }
-        @media (max-width: 576px) {
-            html, body {
-                font-size: 8px;
+            hr {
+                margin: 3rem 0;
             }
         }
     </style>
 </head>
 <body>
-    <canvas id="waveCanvas" style="display: block;"></canvas>
-    <div class="content-container">
-        <!-- Top Left: Logo -->
-        <div class="top-left">
-            <img src="./www/boostao.svg" style="height: 6rem;" alt="Boostao Logo">
-        </div>
-        
-        <!-- Top Right: People Placeholders -->
-        <div class="top-right">
-            <a href="https://github.com/meztez" class="ui-btn face-btn" style="background-image: url('./www/bru.png');" target="_blank" rel="noopener noreferrer"></a>
-            <a href="https://github.com/FrankBornais" class="ui-btn face-btn" style="background-image: url('./www/born.png');" target="_blank" rel="noopener noreferrer"></a>
-            <a href="https://github.com/nic-gauthier" class="ui-btn face-btn" style="background-image: url('./www/nic.png');" target="_blank" rel="noopener noreferrer"></a>
-        </div>
+    <main>
+        <header>
+            <h1>Boostao</h1>
+        </header>
 
-        <!-- Bottom Left: Social Buttons -->
-        <div class="bottom-left">
-            <a href="mailto:info@boostao.ca" class="btn ui-btn"><i class="bi bi-envelope"></i></a>
-            <a href="https://github.com/Boostao" class="btn ui-btn" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i></a>
-            <button id="lang-btn" class="btn lang-switch">FR</button>
-            <button class="btn ui-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Awards">
-                <i class="bi bi-trophy"></i>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="./award-2024.html">2024 — Boostao Top Insurance Prospect</a></li>
-                <li><a class="dropdown-item" href="./award-2025.html">2025 — Bold Outstanding Operator</a></li>
-            </ul>
-        </div>
+        <section lang="fr">
+            <p class="lead">
+                Vos informations sont déjà là.<br>
+                On met en service le système qui les fait travailler.<br>
+                Quelqu'un de votre organisation valide. Vous gardez la responsabilité.
+            </p>
 
-        <!-- Bottom Right: Tao -->
-        <div class="bottom-right">
-            <a href="./dreamworld.html" class="ui-tao"><img src="./www/tao.svg" style="height: 6rem;" alt="Tao"></a>
-        </div>
+            <p>Boostao relie les sources que vous avez déjà et donne à un agent une liste d'actions précise. Rien d'important ne sort sans validation. On construit le système, puis on l'exploite avec vous.</p>
 
-        <!-- Center Content: English -->
-        <div id="content-en" class="center-content">
-            <h1>FRESH IDEAS<br />JUICY SOLUTIONS</h1>
-            <ul class="services-list">
-                <li>🍎 Shiny Mapping and Visualization Tools</li>
-                <li>🍇 Bundled Geospatial Data Processing</li>
-                <li>🍊 Bright Technology Integration</li>
-                <li>🍋 Clean Project Management</li>
-                <li>🍋‍🟩 Zestful Team of Developers</li>
-            </ul>
-            <p class="hook">Bespoke Code To Energize<br />Real World Intelligence</p>
-            <a href="mailto:info@boostao.ca" class="btn cta-btn">Get in Touch</a>
-        </div>
+            <div class="steps">
+                <p><strong>Relier.</strong> Une seule façon de travailler, et les systèmes qui la nourrissent déjà.</p>
+                <p><strong>Agir.</strong> L'agent reçoit une liste d'actions. Pas un mandat ouvert.</p>
+                <p><strong>Valider.</strong> Une personne de chez vous approuve ce qui sort. Le registre reste. La responsabilité aussi.</p>
+            </div>
 
-        <!-- Center Content: French -->
-        <div id="content-fr" class="center-content">
-            <h1>IDÉES FRAÎCHES<br>SOLUTIONS PUNCHÉES</h1>
-            <ul class="services-list">
-                <li>🍎 Outils de Cartographie et de Visualisation</li>
-                <li>🍇 Traitement de Données Géospatiales</li>
-                <li>🍊 Intégration Technologique Éclatante</li>
-                <li>🍋 Gestion de Projet Simplifiée</li>
-                <li>🍋‍🟩 Équipe de Développeurs Pleine de Zeste</li>
-            </ul>
-            <p class="hook">Code Sur Mesure Pour Dynamiser<br />l'Intelligence Du Monde Réel</p>
-            <a href="mailto:info@boostao.ca" class="btn cta-btn">Contactez-nous</a>
-        </div>
-    </div>
+            <p>On ne fait pas de diagnostic. On ne livre pas un pilote. On ne part pas une fois le dépôt rendu.</p>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-        // Language Detection and Switch
-        const langBtn = document.getElementById('lang-btn');
-        const contentEn = document.getElementById('content-en');
-        const contentFr = document.getElementById('content-fr');
+            <p class="meta">
+                Québec<br>
+                Bruno Tremblay, François Bornais, Nicolas Gauthier<br>
+                <a href="mailto:info@boostao.ca">info@boostao.ca</a>
+            </p>
+        </section>
 
-        let currentLang = navigator.language.startsWith('fr') ? 'fr' : 'en';
+        <hr>
 
-        function setLanguage(lang) {
-            if (lang === 'en') {
-                contentEn.style.display = 'block';
-                contentFr.style.display = 'none';
-                langBtn.textContent = 'FR';
-                currentLang = 'en';
-            } else {
-                contentEn.style.display = 'none';
-                contentFr.style.display = 'block';
-                langBtn.textContent = 'EN';
-                currentLang = 'fr';
-            }
-        }
+        <section lang="en">
+            <p class="lead">
+                Your information is already there.<br>
+                We put into service the system that puts it to work.<br>
+                Someone in your organization validates. You keep the responsibility.
+            </p>
 
-        setLanguage(currentLang);
+            <p>Boostao connects the sources you already have and gives an agent a precise list of actions. Nothing that matters leaves without validation. We build the system, then we operate it with you.</p>
 
-        langBtn.addEventListener('click', () => {
-            setLanguage(currentLang === 'en' ? 'fr' : 'en');
-        });
+            <div class="steps">
+                <p><strong>Connect.</strong> One way of working, and the systems that already feed it.</p>
+                <p><strong>Act.</strong> The agent gets a list of actions. Not a blank mandate.</p>
+                <p><strong>Validate.</strong> Someone in your organization approves what leaves. The record stays. So does the responsibility.</p>
+            </div>
 
-        // Canvas Animation
-        const canvas = document.getElementById('waveCanvas');
-        const ctx = canvas.getContext('2d');
-        const dynamicViewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+            <p>We do not sell a diagnosis. We do not ship a pilot. We do not leave when the repository is handed over.</p>
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = dynamicViewportHeight * 0.3; // 50% of screen height
-            canvas.style.top = `${dynamicViewportHeight * 0.35}px`; // Center vertically
-        }
-
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        let startTime = null;
-        let nextTriggerTime = null;
-        let activeCollapses = [];
-
-        const period = 7500; // Increased speed for more flow
-        const collapseDuration = 7500; // Slowed down by increasing duration
-        const avgCycles = 1;
-        const varCycles = 1; // Variation +/- 0.5 cycles
-        const compression = 0.85; // Compression factor for bringing lines closer without overlapping
-        const minDelay = 500;
-        const maxLag = 1000;
-
-        function draw(time) {
-            if (!startTime) {
-                startTime = time;
-                nextTriggerTime = startTime + period * (avgCycles + (Math.random() - 0.5) * varCycles) + 500 + Math.random() * 1000; // At least 0.5s + random lag
-            }
-
-            const elapsed = time - startTime;
-
-            if (time > nextTriggerTime) {
-                activeCollapses.push({
-                    startTime: time,
-                    numOscillations: (1 + Math.random() * 3) / 2,
-                    oscPhase: Math.random() * 2 * Math.PI,
-                    triggeredNext: false
-                });
-                nextTriggerTime = Infinity;
-            }
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.strokeStyle = 'rgba(223, 223, 223, 0.15)'; // #DFDFDF with 50% transparency
-            ctx.lineWidth = 10;
-
-            const w = canvas.width;
-            const h = canvas.height;
-            const numLines = 12;
-            const spacing = h / (numLines + 1);
-            const amplitude = spacing / 3; // Small to prevent crossing
-            const waves = 1; // Wide waves
-            const speed = 2 * Math.PI / period;
-            const shift = -speed * elapsed; // Continuous movement to the right
-            const oscAmplitude = h / 12; // Halved for 50% reduced amplitude
-            const sigma = w * 0.15; // Tripled for horizontal propagation
-            const extra = w * 0.5;
-            const triggerThreshold = w - 2 * sigma; // Approaching the right border
-
-            // Process active collapses
-            for (let i = activeCollapses.length - 1; i >= 0; i--) {
-                const c = activeCollapses[i];
-                const time_since = time - c.startTime;
-                if (time_since < 0) continue; // If delayed, skip until started
-                const x0 = -extra + (time_since / collapseDuration) * (w + 2 * extra);
-                if (x0 > w + extra) {
-                    activeCollapses.splice(i, 1);
-                    continue;
-                }
-                if (!c.triggeredNext && x0 > triggerThreshold) {
-                    c.triggeredNext = true;
-                    const delay = minDelay + Math.random() * maxLag;
-                    activeCollapses.push({
-                        startTime: time + delay,
-                        numOscillations: (1 + Math.random() * 3) / 2,
-                        oscPhase: Math.random() * 2 * Math.PI,
-                        triggeredNext: false
-                    });
-                }
-                c.x0 = x0; // Store for later use
-            }
-
-            const compressedSpacing = spacing * compression;
-
-            for (let i = 1; i <= numLines; i++) {
-                const offset = i * spacing;
-                const phase = i * (2 * Math.PI / numLines);
-
-                ctx.beginPath();
-                for (let x = 0; x <= w; x += 1) {
-                    const angle = (x / w) * 2 * Math.PI * waves + shift + phase;
-                    const normalY = offset + amplitude * Math.sin(angle);
-
-                    // Find max blend and corresponding targetY
-                    let maxBlend = 0;
-                    let targetY = normalY;
-                    for (const c of activeCollapses) {
-                        const time_since_c = time - c.startTime;
-                        if (time_since_c < 0) continue;
-                        const gaussian = Math.exp( - ( ((x - c.x0) / sigma) ** 2 ) );
-                        if (gaussian > maxBlend) {
-                            maxBlend = gaussian;
-                            const centerY = h / 2 + oscAmplitude * Math.sin(2 * Math.PI * (time_since_c / collapseDuration) * c.numOscillations + c.oscPhase);
-                            targetY = centerY + (i - (numLines / 2 + 0.5)) * compressedSpacing;
-                        }
-                    }
-
-                    const y = (1 - maxBlend) * normalY + maxBlend * targetY;
-                    if (x === 0) {
-                        ctx.moveTo(x, y);
-                    } else {
-                        ctx.lineTo(x, y);
-                    }
-                }
-                ctx.stroke();
-            }
-
-            requestAnimationFrame(draw);
-        }
-
-        requestAnimationFrame(draw);
-    </script>
+            <p class="meta">
+                Québec<br>
+                Bruno Tremblay, François Bornais, Nicolas Gauthier<br>
+                <a href="mailto:info@boostao.ca">info@boostao.ca</a>
+            </p>
+        </section>
+    </main>
 </body>
 </html>
