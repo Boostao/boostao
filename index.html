@@ -385,16 +385,16 @@
   }
 
   /* =========================================================
-     SCROLL TRACK (940vh), STICKY VIEWPORT & 4-PHASE CAMERA RIG
-     Phase 1 (p: 0.000 -> 0.120): Sky Overture vertical descent
-     Phase 2 (p: 0.120 -> 0.720): 5-Stop Zero-Repeat Workshop Walk
-     Phase 3 (p: 0.720 -> 0.865): Room 05 Dwell + Tao Finale Walk
-     Phase 4 (p: 0.865 -> 1.000): Signal Briefing Coda descent!
+     SCROLL TRACK (860vh), STICKY VIEWPORT & 4-PHASE CAMERA RIG
+     Phase 1 (p: 0.000 -> 0.130): Sky Overture vertical descent
+     Phase 2 (p: 0.130 -> 0.785): 5-Stop Zero-Repeat Workshop Walk
+     Phase 3 (p: 0.785 -> 0.855): Slight Room 05 Dwell (~60vh)
+     Phase 4 (p: 0.855 -> 1.000): Signal Briefing Coda descent!
      ========================================================= */
   .scroll-track {
     position: relative;
     width: 100%;
-    height: 940vh;
+    height: 860vh;
   }
 
   .viewport {
@@ -1435,91 +1435,6 @@
     font-weight: 700;
   }
 
-  /* Room 05 Right-Floor Signal Lift / Briefing Hatch Threshold Pad */
-  .signal-lift-pad {
-    position: absolute;
-    right: 6vw;
-    bottom: 12.6vh;
-    width: 216px;
-    z-index: 14;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    padding: 7px 12px 8px;
-    border-radius: 6px;
-    background-color: #F2EFE9;
-    border: 2px solid var(--charcoal);
-    box-shadow: 0 3px 0 #121110;
-    cursor: pointer;
-    pointer-events: auto;
-    transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
-  }
-
-  .signal-lift-pad:hover {
-    background-color: #FFFFFF;
-    border-color: var(--tao-blue);
-    transform: translateY(-1px);
-  }
-
-  .signal-lift-pad:focus-visible {
-    outline: 2px solid var(--tao-blue);
-    outline-offset: 3px;
-  }
-
-  .signal-lift-pad__bar {
-    width: 100%;
-    height: 5px;
-    border-radius: 3px;
-    background-color: #CBD4DC;
-    border: 1px solid var(--charcoal);
-    overflow: hidden;
-    position: relative;
-  }
-
-  .signal-lift-pad__fill {
-    width: 100%;
-    height: 100%;
-    background-color: var(--tao-blue);
-    transform-origin: 0 50%;
-    transform: scaleX(0.22);
-    transition: transform 180ms ease, background-color 180ms ease;
-  }
-
-  .signal-lift-pad.is-armed {
-    background-color: #FFFFFF;
-    border-color: var(--charcoal);
-  }
-
-  .signal-lift-pad.is-armed .signal-lift-pad__fill {
-    transform: scaleX(1);
-    background-color: var(--tao-blue);
-  }
-
-  .signal-lift-pad__label {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-family: var(--mono);
-    font-size: 10.5px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--charcoal);
-  }
-
-  .signal-lift-pad__arrow {
-    color: var(--tao-blue-ink);
-    font-weight: 700;
-    display: inline-block;
-    transition: transform 200ms ease, color 200ms ease;
-  }
-
-  .signal-lift-pad.is-armed .signal-lift-pad__arrow {
-    color: var(--tao-blue);
-    transform: translateY(2px);
-  }
-
   /* =========================================================
      CLOSING BRIEFING CODA (#briefing-vault at p = 1.0)
      Pairing 04 · Signal — Full-Voltage Electric Tao Blue (#11AEED)
@@ -1856,7 +1771,7 @@
     height: 20px;
     transform: translate3d(-50%, 0, 0);
     border-radius: 50%;
-    background-color: #B9D2E2;
+    background-color: #C9C4BA;
     transition: background-color 180ms ease;
     will-change: transform;
   }
@@ -2005,11 +1920,6 @@
   .tao-status.is-visible {
     opacity: 1;
     transform: translate3d(0, 0, 0);
-  }
-
-  .tao-stage.is-right-side .tao-status {
-    left: auto;
-    right: 4px;
   }
 
   @keyframes steam-curl {
@@ -2979,24 +2889,6 @@
       height: calc(10 * var(--u));
     }
 
-    .signal-lift-pad {
-      right: calc(var(--stage-pad-x) + (30 * var(--u)));
-      bottom: 12.6vh;
-      width: calc(216 * var(--u));
-      padding: calc(7 * var(--u)) calc(12 * var(--u)) calc(8 * var(--u));
-      gap: calc(5 * var(--u));
-      border-radius: calc(6 * var(--u));
-    }
-
-    .signal-lift-pad__bar {
-      height: calc(5 * var(--u));
-    }
-
-    .signal-lift-pad__label {
-      font-size: calc(10.5 * var(--u));
-      gap: calc(6 * var(--u));
-    }
-
     .room-nav {
       right: max(24px, calc(var(--stage-pad-x) * 0.55));
       bottom: calc(15 * var(--u));
@@ -3419,24 +3311,6 @@
       height: 8px;
     }
 
-    .signal-lift-pad {
-      right: 12px;
-      bottom: 8.6vh;
-      width: 122px;
-      padding: 4px 8px 5px;
-      gap: 3px;
-    }
-
-    .signal-lift-pad__bar {
-      height: 4px;
-    }
-
-    .signal-lift-pad__label {
-      font-size: 8.8px;
-      gap: 4px;
-      letter-spacing: 0.05em;
-    }
-
     .fg-partitions {
       top: 54px;
       height: calc(100vh - 54px);
@@ -3672,7 +3546,7 @@
              studio porch glowing with cozy Golden-Amber workshop light!
              =================================================== -->
         <section class="room room--1" aria-labelledby="room-title-1">
-          <!-- Crisp Québec Daylight Sky (#E2F2FD + mathematically continuous #EDF7FE sunbeams) & Quiet Snow/Mist/Slate Laurentian Mountains -->
+          <!-- Crisp Québec Daylight Sky (#E2F2FD + continuous #EDF7FE sunbeams) & 100% In-Brand Laurentian Mountains (#DFEAF3, #092338, #0974A3, #F2EFE9, #121110 — 0% grey, 0% electric cyan!) -->
           <div class="outdoor-sky" aria-hidden="true">
             <svg class="outdoor-sky-backdrop" viewBox="0 0 1000 820" preserveAspectRatio="none">
               <rect x="0" y="0" width="1000" height="820" fill="#E2F2FD"/>
@@ -3681,48 +3555,56 @@
             </svg>
 
             <svg id="prop-outdoor-sun" class="outdoor-sun" viewBox="0 0 88 88" role="button" tabindex="0" aria-label="Pulse crisp Québec winter sun">
-              <circle cx="44" cy="44" r="36" fill="#FFFFFF" fill-opacity="0.82"/>
+              <circle cx="44" cy="44" r="36" fill="#FFFFFF" fill-opacity="0.84"/>
               <circle cx="44" cy="44" r="24" fill="#FFFFFF" stroke="#121110" stroke-width="2"/>
-              <circle cx="44" cy="44" r="14" fill="none" stroke="#CBD4DC" stroke-width="2"/>
+              <circle cx="44" cy="44" r="14" fill="none" stroke="#0974A3" stroke-opacity="0.35" stroke-width="2"/>
             </svg>
 
             <div class="outdoor-mountains" id="outdoor-mountains">
               <svg viewBox="0 0 1800 360" preserveAspectRatio="none">
-                <!-- Far snow-mist Laurentian peaks (#DFEAF3 + #9AA4B0 stroke + #FFFFFF snow caps — 0% electric blue!) -->
-                <polygon points="0,360 0,224 190,118 390,232 620,88 850,226 1090,104 1320,222 1550,124 1800,236 1800,360" fill="#DFEAF3" stroke="#9AA4B0" stroke-width="1.6"/>
-                <polygon points="190,118 145,143 176,150 198,139 232,148" fill="#FFFFFF"/>
-                <polygon points="620,88 564,121 598,131 626,114 668,128" fill="#FFFFFF"/>
-                <polygon points="1090,104 1040,133 1074,142 1102,126 1138,136" fill="#FFFFFF"/>
+                <!-- Far Laurentian range: gentle low left horizon behind Tao, taller peaks center-right (#DFEAF3 + #092338 linework + #FFFFFF/#F2EFE9 sunlit snow facets) -->
+                <polygon points="0,360 0,276 210,236 440,282 690,94 930,224 1180,82 1430,218 1640,122 1800,228 1800,360" fill="#DFEAF3" stroke="#092338" stroke-width="1.8" stroke-linejoin="round"/>
+                <polygon points="210,236 276,252 226,262" fill="#FFFFFF"/>
+                <polygon points="690,94 794,148 712,162" fill="#FFFFFF"/>
+                <polygon points="690,94 638,128 676,138" fill="#F2EFE9"/>
+                <polygon points="1180,82 1292,142 1204,158" fill="#FFFFFF"/>
+                <polygon points="1180,82 1126,118 1164,129" fill="#F2EFE9"/>
+                <polygon points="1640,122 1724,174 1658,184" fill="#FFFFFF"/>
 
-                <!-- Mid slate-snow ridge (#CBD4DC + #4A515B stroke + #FFFFFF snow caps + #F2EFE9/#121110 Summit Flag) -->
-                <polygon points="0,360 0,278 260,162 510,276 790,148 1060,272 1340,166 1610,276 1800,214 1800,360" fill="#CBD4DC" stroke="#4A515B" stroke-width="1.8"/>
-                <polygon points="260,162 218,184 248,192 272,180 298,187" fill="#FFFFFF"/>
+                <!-- Mid Laurentian ridge: Deep Blueprint (#092338) mass + restrained Tao Ink (#0974A3) sunlit facets strictly center-right (x >= 840, away from Tao) -->
+                <polygon points="0,360 0,322 280,306 540,324 840,144 1110,274 1370,158 1630,278 1800,226 1800,360" fill="#092338" stroke="#121110" stroke-width="2" stroke-linejoin="round"/>
+                <polygon points="840,144 982,212 908,278 840,246" fill="#0974A3"/>
+                <polygon points="1370,158 1504,220 1434,278 1370,248" fill="#0974A3"/>
+
                 <g id="prop-summit-peak" class="interactive-prop" role="button" tabindex="0" aria-label="Plant Boostao summit flag on Laurentian peak">
-                  <polygon points="790,148 742,175 776,184 802,169 834,179" fill="#FFFFFF"/>
+                  <polygon points="840,144 786,178 824,188 852,171 896,184" fill="#FFFFFF" stroke="#121110" stroke-width="1.5" stroke-linejoin="round"/>
+                  <polygon points="786,178 824,188 840,144" fill="#F2EFE9"/>
                   <g id="summit-flag" class="summit-flag">
-                    <line x1="790" y1="148" x2="790" y2="108" stroke="#121110" stroke-width="3" stroke-linecap="round"/>
-                    <polygon class="summit-flag__pennant" points="790,110 828,118 790,127" fill="#F2EFE9" stroke="#121110" stroke-width="1.8" stroke-linejoin="round"/>
+                    <line x1="840" y1="144" x2="840" y2="104" stroke="#121110" stroke-width="3" stroke-linecap="round"/>
+                    <polygon class="summit-flag__pennant" points="840,106 880,115 840,124" fill="#11AEED" stroke="#121110" stroke-width="1.8" stroke-linejoin="round"/>
+                    <circle cx="851" cy="115" r="2.3" fill="#FFFFFF"/>
                   </g>
                 </g>
-                <polygon points="1340,166 1296,191 1326,198 1352,185 1380,194" fill="#FFFFFF"/>
+                <polygon points="1370,158 1320,188 1354,197 1382,182 1420,194" fill="#FFFFFF" stroke="#121110" stroke-width="1.5" stroke-linejoin="round"/>
+                <polygon points="1320,188 1354,197 1370,158" fill="#F2EFE9"/>
 
-                <!-- Near snow-slate foothills & crisp snowdrift behind Tao (#DFEAF3 / #CBD4DC + #FFFFFF / #F2EFE9 snowbank) -->
-                <polygon points="0,360 0,312 160,282 350,318 560,274 780,316 1010,276 1230,316 1460,284 1800,318 1800,360" fill="#DFEAF3" stroke="#7B8591" stroke-width="1.6"/>
-                <polygon points="0,360 0,334 260,322 560,336 880,320 1200,336 1520,324 1800,336 1800,360" fill="#FFFFFF" stroke="#7B8591" stroke-width="1.3"/>
-                <polygon points="0,360 0,346 340,340 720,348 1120,340 1500,348 1800,344 1800,360" fill="#F2EFE9"/>
+                <!-- Near Blueprint (#092338) right foothills + full-width warm Sunlit Cream (#F2EFE9) & #FFFFFF snowdrifts behind Tao -->
+                <polygon points="600,360 760,288 980,322 1210,280 1460,320 1680,290 1800,318 1800,360" fill="#092338" stroke="#121110" stroke-width="1.8" stroke-linejoin="round"/>
+                <polygon points="0,360 0,298 240,288 520,308 820,314 1140,304 1480,318 1800,308 1800,360" fill="#FFFFFF" stroke="#092338" stroke-width="1.8" stroke-linejoin="round"/>
+                <polygon points="0,360 0,322 290,314 620,330 980,322 1340,334 1660,324 1800,332 1800,360" fill="#F2EFE9" stroke="#121110" stroke-width="1.5" stroke-linejoin="round"/>
 
-                <!-- Quiet Slate & Snow Québec Winter Pines (#2E333A & #4A515B + #FFFFFF/#DFEAF3 snow caps, #121110 strokes — 0% green, 0% electric blue!) -->
-                <g stroke="#121110" stroke-width="1.5" stroke-linejoin="round">
-                  <polygon points="148,290 162,248 176,290" fill="#2E333A"/>
-                  <polygon points="153,266 162,248 171,266" fill="#FFFFFF"/>
-                  <polygon points="178,296 190,260 202,296" fill="#4A515B"/>
-                  <polygon points="183,274 190,260 197,274" fill="#DFEAF3"/>
-                  <polygon points="542,284 558,238 574,284" fill="#2E333A"/>
-                  <polygon points="548,258 558,238 568,258" fill="#FFFFFF"/>
-                  <polygon points="574,290 586,256 598,290" fill="#4A515B"/>
-                  <polygon points="579,269 586,256 593,269" fill="#DFEAF3"/>
-                  <polygon points="992,286 1008,242 1024,286" fill="#2E333A"/>
-                  <polygon points="998,260 1008,242 1018,260" fill="#FFFFFF"/>
+                <!-- In-Brand Blueprint (#092338) & Cream/Snow (#FFFFFF / #F2EFE9) Québec Winter Pines (0% grey, 0% green, 0% electric cyan!) -->
+                <g stroke="#121110" stroke-width="1.6" stroke-linejoin="round">
+                  <polygon points="502,310 515,270 528,310" fill="#092338"/>
+                  <polygon points="507,286 515,270 523,286" fill="#FFFFFF"/>
+                  <polygon points="652,306 668,258 684,306" fill="#092338"/>
+                  <polygon points="658,278 668,258 678,278" fill="#FFFFFF"/>
+                  <polygon points="684,312 696,274 708,312" fill="#092338"/>
+                  <polygon points="689,290 696,274 703,290" fill="#F2EFE9"/>
+                  <polygon points="1054,306 1070,256 1086,306" fill="#092338"/>
+                  <polygon points="1060,278 1070,256 1080,278" fill="#FFFFFF"/>
+                  <polygon points="1086,312 1098,276 1110,312" fill="#092338"/>
+                  <polygon points="1091,291 1098,276 1105,291" fill="#F2EFE9"/>
                 </g>
               </svg>
             </div>
@@ -3747,9 +3629,9 @@
               <rect x="82" y="106" width="408" height="494" fill="#F2EFE9" stroke="#121110" stroke-width="2.2"/>
               <rect x="82" y="106" width="20" height="494" fill="#DFEAF3" stroke="#121110" stroke-width="2"/>
               <!-- Crisp architectural cladding reveal lines -->
-              <line x1="102" y1="220" x2="490" y2="220" stroke="#CBD4DC" stroke-width="1.6"/>
-              <line x1="102" y1="348" x2="490" y2="348" stroke="#CBD4DC" stroke-width="1.6"/>
-              <line x1="102" y1="476" x2="490" y2="476" stroke="#CBD4DC" stroke-width="1.6"/>
+              <line x1="102" y1="220" x2="490" y2="220" stroke="#EAE4D8" stroke-width="1.8"/>
+              <line x1="102" y1="348" x2="490" y2="348" stroke="#EAE4D8" stroke-width="1.8"/>
+              <line x1="102" y1="476" x2="490" y2="476" stroke="#EAE4D8" stroke-width="1.8"/>
               <!-- Modest cantilevered architectural canopy (#FFFFFF + #11AEED crisp fascia line) -->
               <rect x="58" y="90" width="432" height="16" fill="#FFFFFF" stroke="#121110" stroke-width="2.2"/>
               <rect x="58" y="102" width="432" height="4" fill="#11AEED"/>
@@ -3777,8 +3659,8 @@
                 <polygon id="door-glint" class="living-glint" points="152,216 242,216 194,382 152,382" fill="#FFFFFF" fill-opacity="0.72"/>
                 <!-- Lower Architectural Glazed Transom Pane (#0974A3 / #5ED0FA) -->
                 <polygon id="door-panel" points="148,418 312,418 312,552 148,552" fill="#5ED0FA" fill-opacity="0.28" stroke="#11AEED" stroke-width="2" stroke-linejoin="round"/>
-                <!-- Brushed Steel Escutcheon Plate & Lever (#CBD4DC / #FFFFFF — zero brass!) -->
-                <polygon id="door-plate" points="318,384 330,384 330,426 318,426" fill="#CBD4DC" stroke="#121110" stroke-width="1.8" stroke-linejoin="round"/>
+                <!-- Architectural Cream/White Escutcheon Plate & Lever (#F2EFE9 / #FFFFFF — zero brass, zero grey!) -->
+                <polygon id="door-plate" points="318,384 330,384 330,426 318,426" fill="#F2EFE9" stroke="#121110" stroke-width="1.8" stroke-linejoin="round"/>
                 <polygon id="door-lever" points="292,396 324,396 324,405 292,405" fill="#FFFFFF" stroke="#121110" stroke-width="1.8" stroke-linejoin="round"/>
               </g>
 
@@ -3790,11 +3672,11 @@
             </svg>
           </div>
 
-          <!-- Crisp Snow-Slate Ground (#DFEAF3 / #CBD4DC + #11AEED threshold line) -->
+          <!-- Warm Sunlit Cream Stoop Ground (#F2EFE9 curb + #EAE4D8 stoop + #11AEED threshold line + 2px #121110 — 0% grey!) -->
           <div class="room-floor" aria-hidden="true">
             <svg viewBox="0 0 1440 160" preserveAspectRatio="none">
-              <rect x="0" y="0" width="1440" height="24" fill="#DFEAF3" stroke="#121110" stroke-width="2.4"/>
-              <rect x="0" y="24" width="1440" height="136" fill="#CBD4DC" stroke="#121110" stroke-width="2"/>
+              <rect x="0" y="0" width="1440" height="24" fill="#F2EFE9" stroke="#121110" stroke-width="2.4"/>
+              <rect x="0" y="24" width="1440" height="136" fill="#EAE4D8" stroke="#121110" stroke-width="2"/>
               <rect x="0" y="24" width="1440" height="4" fill="#11AEED"/>
               <line x1="220" y1="68" x2="540" y2="68" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"/>
               <line x1="780" y1="98" x2="1140" y2="98" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
@@ -4542,17 +4424,6 @@
             </svg>
           </div>
 
-          <!-- Right-Floor Signal Lift / Briefing Hatch Threshold Plate where Tao arrives at finaleP -> 1 -->
-          <button class="signal-lift-pad" id="signal-lift-pad" type="button" aria-label="Descend to Briefing Vault">
-            <span class="signal-lift-pad__bar" aria-hidden="true">
-              <span class="signal-lift-pad__fill" id="signal-lift-fill"></span>
-            </span>
-            <span class="signal-lift-pad__label">
-              <span class="signal-lift-pad__arrow" aria-hidden="true">↓</span>
-              <span>Briefing Vault</span>
-            </span>
-          </button>
-
           <!-- Cool Steel-Slate Floor (#CBD4DC / #22252A — zero wood, zero brown!) -->
           <div class="room-floor" aria-hidden="true">
             <svg viewBox="0 0 1440 160" preserveAspectRatio="none">
@@ -4731,9 +4602,9 @@
             <rect x="0" y="102" width="122" height="4" fill="#11AEED"/>
             <path d="M0 84 Q58 88 122 82 L122 90 L0 90 Z" fill="#FFFFFF" stroke="#121110" stroke-width="1.8"/>
             <rect x="14" y="106" width="108" height="494" fill="#F2EFE9" stroke="#121110" stroke-width="2.2"/>
-            <line x1="14" y1="220" x2="122" y2="220" stroke="#CBD4DC" stroke-width="1.6"/>
-            <line x1="14" y1="348" x2="122" y2="348" stroke="#CBD4DC" stroke-width="1.6"/>
-            <line x1="14" y1="476" x2="122" y2="476" stroke="#CBD4DC" stroke-width="1.6"/>
+            <line x1="14" y1="220" x2="122" y2="220" stroke="#EAE4D8" stroke-width="1.8"/>
+            <line x1="14" y1="348" x2="122" y2="348" stroke="#EAE4D8" stroke-width="1.8"/>
+            <line x1="14" y1="476" x2="122" y2="476" stroke="#EAE4D8" stroke-width="1.8"/>
             <rect x="0" y="170" width="22" height="430" fill="#22252A" stroke="#121110" stroke-width="2.2"/>
             <rect x="18" y="170" width="4" height="430" fill="#11AEED"/>
           </svg>
@@ -4783,7 +4654,7 @@
            ZERO wood outside Room 03!)
            ===================================================== -->
       <div class="fg-floor-props" id="fg-floor-props" aria-hidden="true">
-        <!-- 1. 01 -> 02: #22252A / #121110 architectural studio wayfinding post + #2E333A / #4A515B / #DFEAF3 slate winter pine -->
+        <!-- 1. 01 -> 02: #22252A / #121110 architectural studio wayfinding post + #092338 / #F2EFE9 / #FFFFFF Blueprint winter pine -->
         <div class="fg-floor-prop fg-floor-prop--tall" style="left: 117%;">
           <svg viewBox="0 0 280 390">
             <g stroke="#121110" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
@@ -4793,17 +4664,17 @@
               <rect x="178" y="148" width="56" height="10" rx="2" fill="#FFFFFF"/>
               <rect x="184" y="182" width="44" height="8" fill="#11AEED"/>
               <circle cx="200" cy="208" r="5" fill="#DFEAF3"/>
-              <!-- Slate & Snow Québec Winter Pine (#2E333A & #4A515B + #FFFFFF / #DFEAF3 snow caps — ZERO green, ZERO electric blue!) -->
+              <!-- In-Brand Blueprint & Snow Québec Winter Pine (#092338 + #FFFFFF / #F2EFE9 snow caps — ZERO grey, ZERO green, ZERO electric cyan!) -->
               <rect x="98" y="236" width="26" height="154" fill="#121110"/>
-              <polygon points="22,268 111,158 202,268" fill="#2E333A"/>
-              <polygon points="111,158 202,268 158,268" fill="#22252A"/>
-              <path d="M46 238 Q82 224 111 196 Q142 224 176 238 L156 220 L111 158 L66 220 Z" fill="#DFEAF3"/>
-              <polygon points="38,194 111,94 184,194" fill="#4A515B"/>
-              <polygon points="111,94 184,194 148,194" fill="#2E333A"/>
+              <polygon points="22,268 111,158 202,268" fill="#092338"/>
+              <polygon points="111,158 202,268 158,268" fill="#081C2B"/>
+              <path d="M46 238 Q82 224 111 196 Q142 224 176 238 L156 220 L111 158 L66 220 Z" fill="#F2EFE9"/>
+              <polygon points="38,194 111,94 184,194" fill="#092338"/>
+              <polygon points="111,94 184,194 148,194" fill="#081C2B"/>
               <path d="M58 166 Q88 152 111 126 Q136 152 164 166 L146 144 L111 94 L76 144 Z" fill="#FFFFFF"/>
-              <polygon points="58,122 111,34 164,122" fill="#4A515B"/>
+              <polygon points="58,122 111,34 164,122" fill="#092338"/>
               <path d="M74 96 Q94 86 111 66 Q128 86 148 96 L111 34 Z" fill="#FFFFFF"/>
-              <path d="M4 390 C28 354 96 352 146 364 C194 374 242 356 276 390 Z" fill="#DFEAF3"/>
+              <path d="M4 390 C28 354 96 352 146 364 C194 374 242 356 276 390 Z" fill="#F2EFE9"/>
             </g>
           </svg>
         </div>
@@ -4972,14 +4843,12 @@
   const taoGlasses = document.getElementById('tao-glasses');
   const skyTaoCallout = document.getElementById('sky-tao-callout');
   const taoIntroBadge = document.getElementById('tao-intro-badge');
-  const signalLiftPad = document.getElementById('signal-lift-pad');
-  const signalLiftFill = document.getElementById('signal-lift-fill');
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  const SKY_SPLIT = 0.12;   // p in [0.000, 0.120] = Sky Overture vertical descent
-  const WALK_END = 0.72;    // p in [0.120, 0.720] = 5-stop zero-repeat horizontal walk (0.15 per room transition)
-  const FINALE_END = 0.865; // p in [0.720, 0.865] = Room 05 dwell + Tao walks across floor to Signal Lift; p in [0.865, 1.000] = Briefing Coda!
+  const SKY_SPLIT = 0.13;   // p in [0.000, 0.130] = Sky Overture vertical descent
+  const WALK_END = 0.785;   // p in [0.130, 0.785] = 5-stop zero-repeat horizontal walk
+  const VAULT_START = 0.855;// p in [0.785, 0.855] = clean ~60vh slight dwell in Room 05 before descending into Briefing Coda!
 
   const roomTitles = [
     '01 · The Threshold',
@@ -4996,8 +4865,6 @@
   let lastSkyP = 0;
   let currentWalkP = 0;
   let lastWalkP = 0;
-  let currentFinaleP = 0;
-  let lastFinaleP = 0;
   let currentVaultP = 0;
   let velocity = 0;
   let rafId = 0;
@@ -5512,12 +5379,7 @@
     currentWalkP = walkP;
     lastWalkP = walkP;
 
-    const finaleP = clamp(0, 1, (p - WALK_END) / (FINALE_END - WALK_END));
-    const dFinale = finaleP - lastFinaleP;
-    currentFinaleP = finaleP;
-    lastFinaleP = finaleP;
-
-    const vaultP = clamp(0, 1, (p - FINALE_END) / (1 - FINALE_END));
+    const vaultP = clamp(0, 1, (p - VAULT_START) / (1 - VAULT_START));
     currentVaultP = vaultP;
 
     // Friendly "Who is Tao?" callouts fade cleanly away once scrolling starts
@@ -5528,34 +5390,13 @@
       taoIntroBadge.classList.toggle('is-visible', skyP > 0.84 && walkP < 0.038);
     }
 
-    // Room 05 Finale Walk: Tao walks across Room 05's floor to the Signal Lift pad while rigY stays 0vh!
-    const finaleEased = finaleP * finaleP * (3 - 2 * finaleP);
-    const maxTaoTravelPx = cw > 900
-      ? Math.max(0, cw - 2 * taoBaseLeft - taoWidthPx * 1.15)
-      : Math.max(0, cw - 36 - taoWidthPx);
-    const finaleX = finaleEased * maxTaoTravelPx;
-    taoStage.style.transform = `translate3d(${finaleX.toFixed(2)}px, 0, 0)`;
-    taoStage.classList.toggle('is-right-side', finaleP > 0.45);
+    velocity = velocity * 0.78 + dWalk * 185;
 
-    if (signalLiftPad) {
-      signalLiftPad.classList.toggle('is-armed', finaleP > 0.78);
-    }
-    if (signalLiftFill) {
-      const liftScale = clamp(0.22, 1, 0.22 + finaleP * 0.88);
-      signalLiftFill.style.transform = `scaleX(${liftScale.toFixed(3)})`;
-    }
-    if (!happyTimer) {
-      taoActor.classList.toggle('is-happy', finaleP > 0.80 && vaultP < 0.12);
-    }
-
-    const combinedStepDelta = dWalk + dFinale * 0.28;
-    velocity = velocity * 0.78 + combinedStepDelta * 185;
-
-    if (skyP > 0.96 && vaultP < 0.04 && (Math.abs(dWalk) > 0.0005 || Math.abs(dFinale) > 0.0018)) {
-      stepEmitCarry += Math.abs(dWalk) * 85 + Math.abs(dFinale) * 24;
+    if (skyP > 0.96 && vaultP < 0.04 && Math.abs(dWalk) > 0.0005) {
+      stepEmitCarry += Math.abs(dWalk) * 85;
       if (stepEmitCarry >= 1) {
         stepEmitCarry = 0;
-        spawnStepParticles(combinedStepDelta >= 0 ? 1 : -1, Math.abs(velocity));
+        spawnStepParticles(dWalk >= 0 ? 1 : -1, Math.abs(velocity));
       }
     }
 
@@ -5595,12 +5436,11 @@
       fgPartitions.style.transform = `translate3d(${(-walkP * 496).toFixed(4)}%, 0, 0)`;
       fgFloorProps.style.transform = `translate3d(${(-walkP * 536).toFixed(4)}%, 0, 0)`;
 
-      const stridePhase = Math.abs(Math.sin((walkP * 24 + finaleP * 7) * Math.PI));
-      const inMotion = (walkP > 0.002 && walkP < 0.998) || (finaleP > 0.005 && finaleP < 0.985);
-      const moveScale = vaultP > 0.02 ? 0 : clamp(0, 1, Math.abs(velocity) * 0.45 + (inMotion ? 0.38 : 0));
+      const stridePhase = Math.abs(Math.sin(walkP * Math.PI * 24));
+      const inMotion = walkP > 0.002 && walkP < 0.998;
+      const moveScale = vaultP > 0.02 ? 0 : clamp(0, 1, Math.abs(velocity) * 0.45 + (inMotion ? 0.35 : 0));
       const bobPx = -stridePhase * 8.5 * moveScale;
-      const finaleNodDeg = (finaleP > 0.80 && vaultP < 0.12) ? 2.4 : 0;
-      const tiltDeg = vaultP > 0.02 ? 0 : clamp(-5.5, 5.5, velocity * 1.65 + finaleNodDeg);
+      const tiltDeg = vaultP > 0.02 ? 0 : clamp(-5.5, 5.5, velocity * 1.65);
       taoStride.style.transform = `translate3d(0, ${bobPx.toFixed(2)}px, 0) rotate(${tiltDeg.toFixed(2)}deg)`;
 
       const shadowScale = 1 - stridePhase * 0.12 * moveScale;
@@ -5624,7 +5464,7 @@
     siteHeader.classList.toggle('theme-signal', inSignalCoda);
 
     // Dynamic Tao room-crossing variant computed from Tao's real live screen center!
-    const taoCenterFrac = clamp(0, 1, (taoBaseLeft + finaleX + taoWidthPx * 0.5) / Math.max(1, cw));
+    const taoCenterFrac = clamp(0, 1, (taoBaseLeft + taoWidthPx * 0.5) / Math.max(1, cw));
     const taoWorldRoom = walkP * 4 + taoCenterFrac;
     taoStage.classList.toggle('on-daylight', taoWorldRoom < 1.0);
     taoStage.classList.toggle('on-neon', taoWorldRoom >= 1.0 && taoWorldRoom < 2.0);
@@ -5632,7 +5472,7 @@
     taoStage.classList.toggle('on-blueprint', taoWorldRoom >= 3.0 && taoWorldRoom < 4.0);
     taoStage.classList.toggle('on-crt', taoWorldRoom >= 4.0);
 
-    const journeyProgress = clamp(0.04, 1, (p - SKY_SPLIT) / (FINALE_END - SKY_SPLIT));
+    const journeyProgress = clamp(0.04, 1, (p - SKY_SPLIT) / (1 - SKY_SPLIT));
     roomNavFill.style.transform = `scaleX(${journeyProgress.toFixed(3)})`;
     if (skyP < 0.82) {
       if (activeRoom !== -1) {
@@ -5711,19 +5551,19 @@
     glideAnimId = window.requestAnimationFrame(stepGlide);
   }
 
-  // Horizontal Trackpad Side-Scroll + Touch Swipe across the 5-Stop Walk + Room 05 Finale Walk!
+  // Horizontal Trackpad Side-Scroll + Touch Swipe across the 5-Stop Walk!
   window.addEventListener('wheel', (e) => {
     if (glideAnimId) {
       window.cancelAnimationFrame(glideAnimId);
       glideAnimId = 0;
     }
     if (currentSkyP > 0.94 && currentVaultP < 0.04 && Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 1.5) {
-      const atStartExit = currentWalkP <= 0.002 && currentFinaleP <= 0.001 && e.deltaX < 0;
-      const atEndExit = currentFinaleP >= 0.998 && e.deltaX > 0;
+      const atStartExit = currentWalkP <= 0.002 && e.deltaX < 0;
+      const atEndExit = currentWalkP >= 0.998 && e.deltaX > 0;
       if (!atStartExit && !atEndExit) {
         e.preventDefault();
-        const horizScrollSpan = (FINALE_END - SKY_SPLIT) * getMaxScroll();
-        const scrollPerPx = horizScrollSpan / Math.max(1, cw * 4.95);
+        const walkScrollSpan = (WALK_END - SKY_SPLIT) * getMaxScroll();
+        const scrollPerPx = walkScrollSpan / Math.max(1, cw * 4);
         window.scrollBy(0, e.deltaX * scrollPerPx * 1.15);
       }
     }
@@ -5737,7 +5577,7 @@
     lastX: 0,
     lastTime: 0,
     vx: 0,
-    startStageU: 0
+    startWalkP: 0
   };
 
   window.addEventListener('touchstart', (e) => {
@@ -5762,7 +5602,7 @@
     touchSwipe.lastX = t0.clientX;
     touchSwipe.lastTime = performance.now();
     touchSwipe.vx = 0;
-    touchSwipe.startStageU = currentWalkP * 4 + currentFinaleP;
+    touchSwipe.startWalkP = currentWalkP;
   }, { passive: true });
 
   window.addEventListener('touchmove', (e) => {
@@ -5784,11 +5624,9 @@
       touchSwipe.lastX = t0.clientX;
       touchSwipe.lastTime = now;
 
-      const deltaU = -dx / Math.max(1, cw * 0.78);
-      const nextU = clamp(0, 5, touchSwipe.startStageU + deltaU);
-      const nextP = nextU <= 4
-        ? SKY_SPLIT + (nextU / 4) * (WALK_END - SKY_SPLIT)
-        : WALK_END + (nextU - 4) * (FINALE_END - WALK_END);
+      const deltaWalkP = -dx / Math.max(1, cw * 3.1);
+      const nextWalkP = clamp(0, 1, touchSwipe.startWalkP + deltaWalkP);
+      const nextP = SKY_SPLIT + nextWalkP * (WALK_END - SKY_SPLIT);
       window.scrollTo(0, nextP * getMaxScroll());
     }
   }, { passive: false });
@@ -5799,20 +5637,17 @@
       touchSwipe.axis = null;
       return;
     }
-    const curU = currentWalkP * 4 + currentFinaleP;
-    const dragDeltaU = curU - touchSwipe.startStageU;
-    const baseStop = Math.round(touchSwipe.startStageU);
-    let targetStop = Math.round(curU);
-    if (dragDeltaU > 0.18 || touchSwipe.vx < -0.35) {
-      targetStop = Math.min(5, baseStop + 1);
-    } else if (dragDeltaU < -0.18 || touchSwipe.vx > 0.35) {
+    const dragWalkDelta = currentWalkP - touchSwipe.startWalkP;
+    const baseStop = Math.round(touchSwipe.startWalkP * 4);
+    let targetStop = Math.round(currentWalkP * 4);
+    if (dragWalkDelta > 0.045 || touchSwipe.vx < -0.35) {
+      targetStop = Math.min(4, baseStop + 1);
+    } else if (dragWalkDelta < -0.045 || touchSwipe.vx > 0.35) {
       targetStop = Math.max(0, baseStop - 1);
     }
     touchSwipe.active = false;
     touchSwipe.axis = null;
-    const snapP = targetStop <= 4
-      ? SKY_SPLIT + (targetStop / 4) * (WALK_END - SKY_SPLIT)
-      : FINALE_END;
+    const snapP = SKY_SPLIT + (targetStop / 4) * (WALK_END - SKY_SPLIT);
     smoothScrollToY(snapP * getMaxScroll(), 440);
   }, { passive: true });
 
@@ -5905,8 +5740,6 @@
       e.preventDefault();
       if (currentP < SKY_SPLIT - 0.02) {
         jumpToRoom(0);
-      } else if (activeRoom === 4 && currentFinaleP < 0.72) {
-        smoothScrollToY(FINALE_END * getMaxScroll(), 780);
       } else {
         jumpToRoom(Math.max(0, activeRoom) + 1);
       }
@@ -5914,8 +5747,6 @@
       e.preventDefault();
       if (currentWalkP < 0.03) {
         smoothScrollToY(0, 880);
-      } else if (activeRoom === 4 && currentFinaleP > 0.25) {
-        jumpToRoom(4);
       } else {
         jumpToRoom(Math.max(0, activeRoom) - 1);
       }
@@ -6113,10 +5944,6 @@
     taoActor.click();
   });
 
-  bindPropAction(signalLiftPad, () => {
-    glideToClosingBrief(true);
-  });
-
   // Sky Overture Easter Egg B: Click Background Clouds -> Gentle Snow Puff!
   document.querySelectorAll('.sky-cloud-hit').forEach((cloudEl) => {
     bindPropAction(cloudEl, () => {
@@ -6164,7 +5991,7 @@
         vy: 1.4 + Math.random() * 2.2,
         gravity: 0.018, drag: 0.99, life: 0, maxLife: 75 + Math.random() * 35,
         r: 2.4 + Math.random() * 1.5, shape: 'dot', glow: false,
-        color: i % 4 === 0 ? '#CBD4DC' : '#FFFFFF'
+        color: i % 4 === 0 ? '#DFEAF3' : '#FFFFFF'
       });
     }
   });
