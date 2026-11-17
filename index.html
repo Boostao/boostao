@@ -385,15 +385,16 @@
   }
 
   /* =========================================================
-     SCROLL TRACK (800vh), STICKY VIEWPORT & 3-PHASE Z-CAMERA RIG
-     Phase 1 (p: 0.00 -> 0.14): Sky Overture vertical descent
-     Phase 2 (p: 0.14 -> 0.84): 5-Stop Zero-Repeat Workshop Walk
-     Phase 3 (p: 0.84 -> 1.00): Signal Briefing Coda descent!
+     SCROLL TRACK (940vh), STICKY VIEWPORT & 4-PHASE CAMERA RIG
+     Phase 1 (p: 0.000 -> 0.120): Sky Overture vertical descent
+     Phase 2 (p: 0.120 -> 0.720): 5-Stop Zero-Repeat Workshop Walk
+     Phase 3 (p: 0.720 -> 0.865): Room 05 Dwell + Tao Finale Walk
+     Phase 4 (p: 0.865 -> 1.000): Signal Briefing Coda descent!
      ========================================================= */
   .scroll-track {
     position: relative;
     width: 100%;
-    height: 800vh;
+    height: 940vh;
   }
 
   .viewport {
@@ -511,15 +512,65 @@
     align-items: center;
   }
 
+  .sky-brand-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
   .sky-brand-lockup {
     display: inline-flex;
     align-items: center;
     gap: 14px;
-    margin-bottom: 20px;
     padding: 8px 18px 8px 12px;
     border-radius: 999px;
     background-color: #FFFFFF;
     border: 2px solid var(--charcoal);
+  }
+
+  .sky-tao-callout {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background-color: #FFFFFF;
+    border: 1.5px solid var(--charcoal);
+    box-shadow: 2px 2px 0 rgba(18, 17, 16, 0.12);
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    cursor: pointer;
+    transition: opacity 220ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1), border-color 160ms ease;
+  }
+
+  .sky-tao-callout:hover {
+    border-color: var(--tao-blue);
+  }
+
+  .sky-tao-callout__arrow {
+    color: var(--tao-blue-ink);
+    font-weight: 700;
+  }
+
+  .sky-tao-callout__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--tao-blue);
+    flex-shrink: 0;
+  }
+
+  .sky-tao-callout.is-dismissed {
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
   }
 
   .sky-brand-lockup svg {
@@ -779,18 +830,21 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 93vw;
+    right: 0;
+    width: 100%;
     bottom: 18vh;
     overflow: hidden;
+    background-color: var(--daylight-sky);
     z-index: 1;
     pointer-events: none;
   }
 
   .outdoor-sky-backdrop {
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
+    height: 82vh;
     display: block;
   }
 
@@ -1248,15 +1302,16 @@
 
   /* =========================================================
      ROOM 01 THRESHOLD FACADE & SWINGING ENTRANCE DOOR
-     Positioned at right of Room 01 (66vw..100vw) so Tao walks
-     straight into the open portal and behind the front jamb!
+     Locked strictly to 490:600 & 122:600 aspect ratio from height
+     so ultra-wide displays never stretch the architecture or type!
      ========================================================= */
   .threshold-facade {
     position: absolute;
     right: 0;
     bottom: 18vh;
-    width: 34%;
-    height: 67vh;
+    height: 68vh;
+    width: calc(68vh * 490 / 600);
+    aspect-ratio: 490 / 600;
     z-index: 12;
     pointer-events: none;
   }
@@ -1289,10 +1344,12 @@
 
   .doorway-front-jamb {
     position: absolute;
-    left: 91.5%;
-    width: 8.5%;
+    right: 0;
+    left: auto;
     bottom: 18vh;
-    height: 67vh;
+    height: 68vh;
+    width: calc(68vh * 122 / 600);
+    aspect-ratio: 122 / 600;
   }
 
   .doorway-front-jamb svg {
@@ -1314,6 +1371,153 @@
     height: 204px;
     z-index: 35;
     pointer-events: none;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* Room 01 Intro Callout Badge above Giant Tao (fades smoothly once walk begins) */
+  .tao-intro-badge {
+    position: absolute;
+    left: 6px;
+    bottom: calc(92% + 8px);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 13px;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    border: 2px solid var(--charcoal);
+    box-shadow: 3px 3px 0 rgba(18, 17, 16, 0.14);
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--charcoal);
+    white-space: nowrap;
+    z-index: 39;
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 220ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .tao-intro-badge::after {
+    content: "";
+    position: absolute;
+    left: 28px;
+    bottom: -7px;
+    width: 10px;
+    height: 10px;
+    background-color: #FFFFFF;
+    border-right: 2px solid var(--charcoal);
+    border-bottom: 2px solid var(--charcoal);
+    transform: rotate(45deg);
+  }
+
+  .tao-intro-badge.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .tao-intro-badge__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--tao-blue);
+    flex-shrink: 0;
+  }
+
+  .tao-intro-badge__accent {
+    color: var(--tao-blue-ink);
+    font-weight: 700;
+  }
+
+  /* Room 05 Right-Floor Signal Lift / Briefing Hatch Threshold Pad */
+  .signal-lift-pad {
+    position: absolute;
+    right: 6vw;
+    bottom: 12.6vh;
+    width: 216px;
+    z-index: 14;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 12px 8px;
+    border-radius: 6px;
+    background-color: #F2EFE9;
+    border: 2px solid var(--charcoal);
+    box-shadow: 0 3px 0 #121110;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+  }
+
+  .signal-lift-pad:hover {
+    background-color: #FFFFFF;
+    border-color: var(--tao-blue);
+    transform: translateY(-1px);
+  }
+
+  .signal-lift-pad:focus-visible {
+    outline: 2px solid var(--tao-blue);
+    outline-offset: 3px;
+  }
+
+  .signal-lift-pad__bar {
+    width: 100%;
+    height: 5px;
+    border-radius: 3px;
+    background-color: #CBD4DC;
+    border: 1px solid var(--charcoal);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .signal-lift-pad__fill {
+    width: 100%;
+    height: 100%;
+    background-color: var(--tao-blue);
+    transform-origin: 0 50%;
+    transform: scaleX(0.22);
+    transition: transform 180ms ease, background-color 180ms ease;
+  }
+
+  .signal-lift-pad.is-armed {
+    background-color: #FFFFFF;
+    border-color: var(--charcoal);
+  }
+
+  .signal-lift-pad.is-armed .signal-lift-pad__fill {
+    transform: scaleX(1);
+    background-color: var(--tao-blue);
+  }
+
+  .signal-lift-pad__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+  }
+
+  .signal-lift-pad__arrow {
+    color: var(--tao-blue-ink);
+    font-weight: 700;
+    display: inline-block;
+    transition: transform 200ms ease, color 200ms ease;
+  }
+
+  .signal-lift-pad.is-armed .signal-lift-pad__arrow {
+    color: var(--tao-blue);
+    transform: translateY(2px);
   }
 
   /* =========================================================
@@ -1803,6 +2007,11 @@
     transform: translate3d(0, 0, 0);
   }
 
+  .tao-stage.is-right-side .tao-status {
+    left: auto;
+    right: 4px;
+  }
+
   @keyframes steam-curl {
     0% {
       opacity: 0;
@@ -2245,8 +2454,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 84px;
-    margin-left: -42px;
+    width: clamp(64px, 7.5vh, 118px);
+    margin-left: calc(clamp(64px, 7.5vh, 118px) * -0.5);
   }
 
   .fg-partition svg {
@@ -2487,40 +2696,407 @@
   }
 
   /* =========================================================
-     RESPONSIVE: SHORTER DESKTOP & MOBILE (<= 900px)
+     DESKTOP FLUID SCALE (~110% MacBook Air -> ~164% Ultra-Wide)
+     & COZY STAGE GROUPING (no CSS zoom; grounds stay 100% full-bleed!)
      ========================================================= */
-  @media (min-width: 901px) and (max-height: 850px) {
+  @media (min-width: 901px) {
+    :root {
+      --cw: 100vw;
+      --u: clamp(1.04px, min(0.0764vw, calc(0.20px + 0.10vh)), 1.74px);
+      --stage-pad-x: max(calc(0.052 * var(--cw)), calc((var(--cw) - (1340 * var(--u))) / 2));
+    }
+
+    .site-header {
+      height: calc(58 * var(--u));
+      padding: 0 var(--stage-pad-x);
+    }
+
+    .brand-link {
+      font-size: calc(18 * var(--u));
+      gap: calc(10 * var(--u));
+    }
+
+    .brand-link svg {
+      width: calc(28 * var(--u));
+      height: calc(28 * var(--u));
+    }
+
+    .brand-sub {
+      font-size: calc(11 * var(--u));
+      padding-left: calc(10 * var(--u));
+    }
+
+    .header-room-status {
+      font-size: calc(12 * var(--u));
+      gap: calc(9 * var(--u));
+    }
+
+    .header-room-dot {
+      width: calc(8 * var(--u));
+      height: calc(8 * var(--u));
+    }
+
+    .header-actions {
+      gap: calc(18 * var(--u));
+    }
+
+    .header-mail {
+      font-size: calc(12.5 * var(--u));
+    }
+
+    .header-cta {
+      padding: calc(8 * var(--u)) calc(16 * var(--u));
+      font-size: calc(13.5 * var(--u));
+      border-radius: calc(6 * var(--u));
+    }
+
+    .sky-overture {
+      padding: calc(74 * var(--u)) var(--stage-pad-x) 11vh;
+    }
+
+    .sky-overture__card {
+      max-width: calc(710 * var(--u));
+    }
+
+    .sky-brand-row {
+      gap: calc(11 * var(--u));
+      margin-bottom: calc(20 * var(--u));
+    }
+
+    .sky-brand-lockup {
+      gap: calc(14 * var(--u));
+      padding: calc(8 * var(--u)) calc(18 * var(--u)) calc(8 * var(--u)) calc(12 * var(--u));
+    }
+
+    .sky-brand-lockup svg {
+      width: calc(40 * var(--u));
+      height: calc(40 * var(--u));
+    }
+
+    .sky-brand-lockup__word {
+      font-size: calc(23 * var(--u));
+    }
+
+    .sky-brand-lockup__tag {
+      font-size: calc(11 * var(--u));
+      padding-left: calc(12 * var(--u));
+    }
+
+    .sky-tao-callout {
+      padding: calc(6 * var(--u)) calc(12 * var(--u));
+      font-size: calc(11 * var(--u));
+      gap: calc(7 * var(--u));
+    }
+
+    .sky-tao-callout__dot {
+      width: calc(6 * var(--u));
+      height: calc(6 * var(--u));
+    }
+
+    .sky-overture__h1 {
+      font-size: calc(58 * var(--u));
+      margin-bottom: calc(16 * var(--u));
+    }
+
+    .sky-overture__deck {
+      font-size: calc(18.5 * var(--u));
+      margin-bottom: calc(26 * var(--u));
+    }
+
+    .sky-overture__actions {
+      gap: calc(14 * var(--u));
+    }
+
+    .btn-explore-sky {
+      padding: calc(13 * var(--u)) calc(24 * var(--u));
+      font-size: calc(16 * var(--u));
+      gap: calc(10 * var(--u));
+      border-radius: calc(6 * var(--u));
+    }
+
+    .btn-sky-secondary {
+      padding: calc(13 * var(--u)) calc(20 * var(--u));
+      font-size: calc(15.5 * var(--u));
+      border-radius: calc(6 * var(--u));
+    }
+
     .room {
-      padding-top: 76px;
+      grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+      gap: calc(34 * var(--u));
+      padding: calc(78 * var(--u)) var(--stage-pad-x) 18vh;
     }
+
+    .blueprint-frame {
+      top: calc(70 * var(--u));
+    }
+
+    .crt-room-bezel {
+      top: calc(68 * var(--u));
+    }
+
+    .outdoor-sun {
+      width: calc(46 * var(--u));
+      height: calc(46 * var(--u));
+    }
+
+    .studio-window {
+      right: var(--stage-pad-x);
+      top: 11.8vh;
+      width: calc(565 * var(--u));
+      max-width: 44vw;
+      height: 24.5vh;
+    }
+
     .room-copy {
-      margin-top: 1.4vh;
+      margin-top: 2.2vh;
+      max-width: calc(548 * var(--u));
     }
+
+    .room--1 .room-copy {
+      margin-top: 0.9vh;
+    }
+
     .room--5 .room-copy {
-      margin-top: 0;
+      margin-top: 0.4vh;
     }
+
+    .eyebrow {
+      font-size: calc(12 * var(--u));
+      gap: calc(10 * var(--u));
+      margin-bottom: calc(11 * var(--u));
+    }
+
+    .eyebrow::before {
+      width: calc(28 * var(--u));
+    }
+
     .room-copy h1,
     .room-copy h2 {
-      font-size: clamp(23px, 2.5vw, 33px);
-      margin-bottom: 8px;
+      font-size: calc(38 * var(--u));
+      margin-bottom: calc(12 * var(--u));
     }
-    .room-copy p,
+
+    .room--5 .room-copy h2 {
+      margin-bottom: calc(10 * var(--u));
+    }
+
+    .hero-lead-deck,
+    .room--1 .room-copy p.hero-lead-deck {
+      font-size: calc(18.5 * var(--u));
+      margin-bottom: calc(9 * var(--u));
+    }
+
+    .room-copy p {
+      font-size: calc(15.8 * var(--u));
+      margin-bottom: calc(10 * var(--u));
+    }
+
     .room--5 .room-copy p {
-      font-size: 14.5px;
-      line-height: 1.44;
-      margin-bottom: 7px;
+      margin-bottom: calc(8 * var(--u));
     }
+
+    .spec-line {
+      margin-top: calc(12 * var(--u));
+      padding-top: calc(10 * var(--u));
+      font-size: calc(11.8 * var(--u));
+    }
+
+    .room-cta-row {
+      margin-top: calc(11 * var(--u));
+      gap: calc(18 * var(--u));
+    }
+
+    .btn-briefing {
+      padding: calc(10 * var(--u)) calc(20 * var(--u));
+      font-size: calc(15 * var(--u));
+      gap: calc(10 * var(--u));
+      border-radius: calc(6 * var(--u));
+    }
+
+    .inline-mail {
+      font-size: calc(13.5 * var(--u));
+    }
+
+    .room-scene {
+      height: 54vh;
+      max-height: calc(505 * var(--u));
+    }
+
+    .room--3 .room-scene {
+      height: 41vh;
+      max-height: calc(385 * var(--u));
+    }
+
+    .room--5 .room-scene {
+      height: 44vh;
+      max-height: calc(425 * var(--u));
+    }
+
+    .fg-partitions {
+      top: calc(58 * var(--u));
+      height: calc(100vh - (58 * var(--u)));
+    }
+
     .tao-stage {
-      width: 170px;
-      height: 170px;
+      left: var(--stage-pad-x);
+      width: calc(204 * var(--u));
+      height: calc(204 * var(--u));
+    }
+
+    .tao-ground-shadow {
+      width: calc(138 * var(--u));
+      height: calc(20 * var(--u));
+      bottom: calc(10 * var(--u));
+    }
+
+    .tao-bp-gauge {
+      width: calc(58 * var(--u));
+      left: calc(100% + (8 * var(--u)));
+    }
+
+    .tao-status {
+      font-size: calc(11.5 * var(--u));
+      padding: calc(4 * var(--u)) calc(10 * var(--u));
+    }
+
+    .tao-intro-badge {
+      padding: calc(7 * var(--u)) calc(13 * var(--u));
+      font-size: calc(13 * var(--u));
+      gap: calc(8 * var(--u));
+      border-radius: calc(6 * var(--u));
+      bottom: calc(92% + (8 * var(--u)));
+    }
+
+    .tao-intro-badge__dot {
+      width: calc(8 * var(--u));
+      height: calc(8 * var(--u));
+    }
+
+    .tao-intro-badge::after {
+      left: calc(28 * var(--u));
+      bottom: calc(-6.5 * var(--u));
+      width: calc(10 * var(--u));
+      height: calc(10 * var(--u));
+    }
+
+    .signal-lift-pad {
+      right: calc(var(--stage-pad-x) + (30 * var(--u)));
+      bottom: 12.6vh;
+      width: calc(216 * var(--u));
+      padding: calc(7 * var(--u)) calc(12 * var(--u)) calc(8 * var(--u));
+      gap: calc(5 * var(--u));
+      border-radius: calc(6 * var(--u));
+    }
+
+    .signal-lift-pad__bar {
+      height: calc(5 * var(--u));
+    }
+
+    .signal-lift-pad__label {
+      font-size: calc(10.5 * var(--u));
+      gap: calc(6 * var(--u));
+    }
+
+    .room-nav {
+      right: max(24px, calc(var(--stage-pad-x) * 0.55));
+      bottom: calc(15 * var(--u));
+      padding: calc(8 * var(--u)) calc(10 * var(--u)) calc(9 * var(--u));
+      gap: calc(6 * var(--u));
+      border-radius: calc(10 * var(--u));
+    }
+
+    .room-nav__btn {
+      padding: calc(6 * var(--u)) calc(10 * var(--u));
+      font-size: calc(11.5 * var(--u));
+      border-radius: calc(6 * var(--u));
+    }
+
+    .briefing-vault {
+      padding: calc(74 * var(--u)) var(--stage-pad-x) calc(28 * var(--u));
+    }
+
+    .vault-coda {
+      max-width: calc(590 * var(--u));
+    }
+
+    .signal-tao-btn {
+      width: calc(54 * var(--u));
+      height: calc(54 * var(--u));
+      margin-bottom: calc(10 * var(--u));
+    }
+
+    .vault-coda__eyebrow {
+      font-size: calc(12 * var(--u));
+      margin-bottom: calc(11 * var(--u));
+    }
+
+    .vault-coda__eyebrow::before,
+    .vault-coda__eyebrow::after {
+      width: calc(24 * var(--u));
+    }
+
+    .vault-coda__h2 {
+      font-size: calc(46 * var(--u));
+      margin-bottom: calc(10 * var(--u));
+    }
+
+    .vault-coda__deck {
+      font-size: calc(16.5 * var(--u));
+      margin-bottom: calc(20 * var(--u));
+    }
+
+    .vault-coda__row {
+      gap: calc(12 * var(--u));
+      margin-bottom: calc(12 * var(--u));
+    }
+
+    .vault-field label {
+      font-size: calc(11 * var(--u));
+      margin-bottom: calc(6 * var(--u));
+    }
+
+    .vault-input,
+    .vault-textarea {
+      padding: calc(11 * var(--u)) calc(14 * var(--u));
+      font-size: calc(15 * var(--u));
+      border-radius: calc(6 * var(--u));
+    }
+
+    .vault-textarea {
+      height: calc(84 * var(--u));
+    }
+
+    .vault-coda__submit-wrap {
+      margin-top: calc(15 * var(--u));
+    }
+
+    .vault-dispatch-btn {
+      padding: calc(13 * var(--u)) calc(28 * var(--u));
+      font-size: calc(16 * var(--u));
+      border-radius: calc(6 * var(--u));
+    }
+
+    .vault-coda__footer {
+      margin-top: calc(16 * var(--u));
+      font-size: calc(12.5 * var(--u));
+    }
+
+    .vault-footer-link {
+      font-size: calc(12.5 * var(--u));
+      padding: calc(5 * var(--u)) calc(10 * var(--u));
     }
   }
 
-  @media (min-width: 901px) and (max-height: 700px) {
+  /* =========================================================
+     RESPONSIVE: VERY SHORT DESKTOP VIEWPORTS (<= 760px tall) & MOBILE
+     ========================================================= */
+  @media (min-width: 901px) and (max-height: 760px) {
     .room {
       padding-top: 66px;
     }
-    .room-copy {
+    .room-copy,
+    .room--1 .room-copy,
+    .room--5 .room-copy {
       margin-top: 0;
     }
     .eyebrow {
@@ -2528,18 +3104,18 @@
     }
     .room-copy h1,
     .room-copy h2 {
-      font-size: clamp(22px, 2.2vw, 28px);
+      font-size: clamp(22px, 2.2vw, 30px);
       margin-bottom: 6px;
     }
     .room--1 .room-copy p.hero-lead-deck {
-      font-size: 15px;
+      font-size: 15.5px;
       margin-bottom: 6px;
     }
     .room-copy p,
     .room--5 .room-copy p {
-      font-size: 13.5px;
-      line-height: 1.38;
-      margin-bottom: 5px;
+      font-size: 14px;
+      line-height: 1.4;
+      margin-bottom: 6px;
     }
     .spec-line {
       margin-top: 7px;
@@ -2547,13 +3123,13 @@
       font-size: 11px;
     }
     .tao-stage {
-      width: 138px;
-      height: 138px;
+      width: 152px;
+      height: 152px;
     }
     .tao-ground-shadow {
-      width: 96px;
-      height: 14px;
-      bottom: 6px;
+      width: 106px;
+      height: 15px;
+      bottom: 7px;
     }
   }
 
@@ -2586,6 +3162,18 @@
     .sky-brand-lockup__tag,
     .sky-overture__clouds {
       display: none;
+    }
+
+    .sky-brand-row {
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .sky-tao-callout {
+      padding: 4px 10px;
+      font-size: 10px;
+      gap: 6px;
     }
 
     .sky-overture {
@@ -2740,16 +3328,20 @@
     }
 
     .threshold-facade {
-      width: 54%;
-      height: 28vh;
+      right: 0;
       bottom: 14vh;
+      height: 28vh;
+      width: calc(28vh * 490 / 600);
+      aspect-ratio: 490 / 600;
     }
 
     .doorway-front-jamb {
-      left: 86%;
-      width: 14%;
-      height: 28vh;
+      right: 0;
+      left: auto;
       bottom: 14vh;
+      height: 28vh;
+      width: calc(28vh * 122 / 600);
+      aspect-ratio: 122 / 600;
     }
 
     .studio-window {
@@ -2807,6 +3399,42 @@
       max-width: calc(100vw - 36px);
       white-space: normal;
       line-height: 1.3;
+    }
+
+    .tao-intro-badge {
+      left: 0;
+      bottom: calc(92% + 6px);
+      max-width: 164px;
+      white-space: normal;
+      padding: 5px 9px;
+      font-size: 10.5px;
+      gap: 6px;
+      line-height: 1.22;
+    }
+
+    .tao-intro-badge::after {
+      left: 20px;
+      bottom: -6px;
+      width: 8px;
+      height: 8px;
+    }
+
+    .signal-lift-pad {
+      right: 12px;
+      bottom: 8.6vh;
+      width: 122px;
+      padding: 4px 8px 5px;
+      gap: 3px;
+    }
+
+    .signal-lift-pad__bar {
+      height: 4px;
+    }
+
+    .signal-lift-pad__label {
+      font-size: 8.8px;
+      gap: 4px;
+      letter-spacing: 0.05em;
     }
 
     .fg-partitions {
@@ -2959,10 +3587,10 @@
              Crisp Québec Winter Sky (#D6EEFC) + Snow-White Clouds (0% Cream!)
              =================================================== -->
         <section class="sky-overture" id="sky-overture" aria-labelledby="sky-hero-title">
-          <svg class="sky-overture__bg" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
-            <rect x="0" y="0" width="1440" height="900" fill="#E2F2FD"/>
-            <polygon points="300,0 542,0 818.4,900 576.6,900" fill="#EDF7FE"/>
-            <polygon points="620,0 788,0 1041.6,900 874.2,900" fill="#EDF7FE"/>
+          <svg class="sky-overture__bg" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+            <rect x="0" y="0" width="1000" height="1000" fill="#E2F2FD"/>
+            <polygon points="210,0 378,0 568,1000 400,1000" fill="#EDF7FE"/>
+            <polygon points="432,0 548,0 738,1000 622,1000" fill="#EDF7FE"/>
           </svg>
 
           <!-- Pure Snow-White Background Clouds in Sky Overture (0% Cream, clickable snow puff Easter egg!) -->
@@ -2988,22 +3616,30 @@
           </div>
 
           <div class="sky-overture__card">
-            <div class="sky-brand-lockup">
-              <button class="sky-brand-emblem" id="sky-tao-emblem" type="button" aria-label="Wink hello from Tao">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M5.4 2.4c-1.38.02-2.48 1.14-2.48 2.52 0 1.12.74 2.11 1.81 2.42C3.37 8.91 2.62 10.91 2.62 12.99c0 4.73 3.83 8.56 8.56 8.56h1.64c4.73 0 8.56-3.83 8.56-8.56 0-2.08-.75-4.08-2.11-5.65 1.07-.31 1.81-1.3 1.81-2.42 0-1.39-1.13-2.52-2.52-2.52s-2.52 1.13-2.52 2.52c0 .04 0 .09 0 .13-1.02-.42-2.11-.63-3.22-.63h-.64c-1.11 0-2.2.21-3.22.63 0-.04 0-.09 0-.13 0-1.39-1.13-2.52-2.52-2.52-.01 0-.02 0-.03 0z" fill="#11AEED"/>
-                  <g class="sky-brand-emblem__open">
-                    <rect x="4.8" y="9.4" width="5.2" height="7.4" rx="2.6" stroke="#ffffff" stroke-width="2"/>
-                    <rect x="14" y="9.4" width="5.2" height="7.4" rx="2.6" stroke="#ffffff" stroke-width="2"/>
-                  </g>
-                  <g class="sky-brand-emblem__wink">
-                    <rect x="4.8" y="9.4" width="5.2" height="7.4" rx="2.6" stroke="#ffffff" stroke-width="2"/>
-                    <polyline points="14.4,13.6 16.6,11.2 18.8,13.6" fill="none" stroke="#ffffff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
-                  </g>
-                </svg>
+            <div class="sky-brand-row">
+              <div class="sky-brand-lockup">
+                <button class="sky-brand-emblem" id="sky-tao-emblem" type="button" aria-label="Wink hello from Tao">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M5.4 2.4c-1.38.02-2.48 1.14-2.48 2.52 0 1.12.74 2.11 1.81 2.42C3.37 8.91 2.62 10.91 2.62 12.99c0 4.73 3.83 8.56 8.56 8.56h1.64c4.73 0 8.56-3.83 8.56-8.56 0-2.08-.75-4.08-2.11-5.65 1.07-.31 1.81-1.3 1.81-2.42 0-1.39-1.13-2.52-2.52-2.52s-2.52 1.13-2.52 2.52c0 .04 0 .09 0 .13-1.02-.42-2.11-.63-3.22-.63h-.64c-1.11 0-2.2.21-3.22.63 0-.04 0-.09 0-.13 0-1.39-1.13-2.52-2.52-2.52-.01 0-.02 0-.03 0z" fill="#11AEED"/>
+                    <g class="sky-brand-emblem__open">
+                      <rect x="4.8" y="9.4" width="5.2" height="7.4" rx="2.6" stroke="#ffffff" stroke-width="2"/>
+                      <rect x="14" y="9.4" width="5.2" height="7.4" rx="2.6" stroke="#ffffff" stroke-width="2"/>
+                    </g>
+                    <g class="sky-brand-emblem__wink">
+                      <rect x="4.8" y="9.4" width="5.2" height="7.4" rx="2.6" stroke="#ffffff" stroke-width="2"/>
+                      <polyline points="14.4,13.6 16.6,11.2 18.8,13.6" fill="none" stroke="#ffffff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                  </svg>
+                </button>
+                <span class="sky-brand-lockup__word">Boostao</span>
+                <span class="sky-brand-lockup__tag">Québec · FR &amp; EN</span>
+              </div>
+
+              <button class="sky-tao-callout" id="sky-tao-callout" type="button" aria-label="Meet Tao, our workshop guide">
+                <span class="sky-tao-callout__arrow" aria-hidden="true">←</span>
+                <span class="sky-tao-callout__dot" aria-hidden="true"></span>
+                <span>Meet Tao · Our Guide</span>
               </button>
-              <span class="sky-brand-lockup__word">Boostao</span>
-              <span class="sky-brand-lockup__tag">Québec · FR &amp; EN</span>
             </div>
 
             <h1 class="sky-overture__h1" id="sky-hero-title">AI Systems &amp; <em>Custom Software</em></h1>
@@ -3036,53 +3672,56 @@
              studio porch glowing with cozy Golden-Amber workshop light!
              =================================================== -->
         <section class="room room--1" aria-labelledby="room-title-1">
-          <!-- Crisp Québec Daylight Sky (#E2F2FD + flat #EDF7FE beams) & Glacier-Blue Laurentian Mountains -->
+          <!-- Crisp Québec Daylight Sky (#E2F2FD + mathematically continuous #EDF7FE sunbeams) & Quiet Snow/Mist/Slate Laurentian Mountains -->
           <div class="outdoor-sky" aria-hidden="true">
-            <svg class="outdoor-sky-backdrop" viewBox="0 0 1440 720" preserveAspectRatio="none">
-              <rect x="0" y="0" width="1440" height="720" fill="#E2F2FD"/>
-              <polygon points="560,0 780,0 910,720 690,720" fill="#EDF7FE"/>
-              <polygon points="860,0 1010,0 1120,720 970,720" fill="#EDF7FE"/>
+            <svg class="outdoor-sky-backdrop" viewBox="0 0 1000 820" preserveAspectRatio="none">
+              <rect x="0" y="0" width="1000" height="820" fill="#E2F2FD"/>
+              <polygon points="400,0 568,0 723.8,820 555.8,820" fill="#EDF7FE"/>
+              <polygon points="622,0 738,0 893.8,820 777.8,820" fill="#EDF7FE"/>
             </svg>
 
             <svg id="prop-outdoor-sun" class="outdoor-sun" viewBox="0 0 88 88" role="button" tabindex="0" aria-label="Pulse crisp Québec winter sun">
-              <circle cx="44" cy="44" r="36" fill="#FFFFFF" fill-opacity="0.72"/>
-              <circle cx="44" cy="44" r="24" fill="#FFFFFF" stroke="#11AEED" stroke-width="2.4"/>
-              <circle cx="44" cy="44" r="9" fill="#5ED0FA"/>
+              <circle cx="44" cy="44" r="36" fill="#FFFFFF" fill-opacity="0.82"/>
+              <circle cx="44" cy="44" r="24" fill="#FFFFFF" stroke="#121110" stroke-width="2"/>
+              <circle cx="44" cy="44" r="14" fill="none" stroke="#CBD4DC" stroke-width="2"/>
             </svg>
 
             <div class="outdoor-mountains" id="outdoor-mountains">
               <svg viewBox="0 0 1800 360" preserveAspectRatio="none">
-                <!-- Far glacier-blue Laurentian peaks (#B8DDF6 + #FFFFFF snow caps) -->
-                <polygon points="0,360 0,224 190,118 390,232 620,88 850,226 1090,104 1320,222 1550,124 1800,236 1800,360" fill="#B8DDF6" stroke="#0974A3" stroke-width="1.6"/>
+                <!-- Far snow-mist Laurentian peaks (#DFEAF3 + #9AA4B0 stroke + #FFFFFF snow caps — 0% electric blue!) -->
+                <polygon points="0,360 0,224 190,118 390,232 620,88 850,226 1090,104 1320,222 1550,124 1800,236 1800,360" fill="#DFEAF3" stroke="#9AA4B0" stroke-width="1.6"/>
                 <polygon points="190,118 145,143 176,150 198,139 232,148" fill="#FFFFFF"/>
                 <polygon points="620,88 564,121 598,131 626,114 668,128" fill="#FFFFFF"/>
                 <polygon points="1090,104 1040,133 1074,142 1102,126 1138,136" fill="#FFFFFF"/>
 
-                <!-- Mid glacier ridge (#5ED0FA / #0B82B5 + #FFFFFF snow caps + #11AEED Summit Flag) -->
-                <polygon points="0,360 0,278 260,162 510,276 790,148 1060,272 1340,166 1610,276 1800,214 1800,360" fill="#5ED0FA" stroke="#092338" stroke-width="1.8"/>
+                <!-- Mid slate-snow ridge (#CBD4DC + #4A515B stroke + #FFFFFF snow caps + #F2EFE9/#121110 Summit Flag) -->
+                <polygon points="0,360 0,278 260,162 510,276 790,148 1060,272 1340,166 1610,276 1800,214 1800,360" fill="#CBD4DC" stroke="#4A515B" stroke-width="1.8"/>
                 <polygon points="260,162 218,184 248,192 272,180 298,187" fill="#FFFFFF"/>
-                <polygon points="790,148 742,175 776,184 802,169 834,179" fill="#FFFFFF"/>
-                <g id="summit-flag" class="summit-flag">
-                  <line x1="790" y1="148" x2="790" y2="108" stroke="#121110" stroke-width="3" stroke-linecap="round"/>
-                  <polygon class="summit-flag__pennant" points="790,110 828,118 790,127" fill="#11AEED" stroke="#121110" stroke-width="1.8" stroke-linejoin="round"/>
+                <g id="prop-summit-peak" class="interactive-prop" role="button" tabindex="0" aria-label="Plant Boostao summit flag on Laurentian peak">
+                  <polygon points="790,148 742,175 776,184 802,169 834,179" fill="#FFFFFF"/>
+                  <g id="summit-flag" class="summit-flag">
+                    <line x1="790" y1="148" x2="790" y2="108" stroke="#121110" stroke-width="3" stroke-linecap="round"/>
+                    <polygon class="summit-flag__pennant" points="790,110 828,118 790,127" fill="#F2EFE9" stroke="#121110" stroke-width="1.8" stroke-linejoin="round"/>
+                  </g>
                 </g>
                 <polygon points="1340,166 1296,191 1326,198 1352,185 1380,194" fill="#FFFFFF"/>
 
-                <!-- Near snow-slate foothills (#0974A3 + #DFEAF3 snow bank) -->
-                <polygon points="0,360 0,312 160,282 350,318 560,274 780,316 1010,276 1230,316 1460,284 1800,318 1800,360" fill="#0974A3" stroke="#092338" stroke-width="1.8"/>
-                <polygon points="0,360 0,334 260,322 560,336 880,320 1200,336 1520,324 1800,336 1800,360" fill="#DFEAF3"/>
+                <!-- Near snow-slate foothills & crisp snowdrift behind Tao (#DFEAF3 / #CBD4DC + #FFFFFF / #F2EFE9 snowbank) -->
+                <polygon points="0,360 0,312 160,282 350,318 560,274 780,316 1010,276 1230,316 1460,284 1800,318 1800,360" fill="#DFEAF3" stroke="#7B8591" stroke-width="1.6"/>
+                <polygon points="0,360 0,334 260,322 560,336 880,320 1200,336 1520,324 1800,336 1800,360" fill="#FFFFFF" stroke="#7B8591" stroke-width="1.3"/>
+                <polygon points="0,360 0,346 340,340 720,348 1120,340 1500,348 1800,344 1800,360" fill="#F2EFE9"/>
 
-                <!-- Snow-dusted Blue/Slate Winter Pines (#092338 / #0974A3 / #DFEAF3 — ZERO GREEN!) -->
-                <g stroke="#092338" stroke-width="1.5" stroke-linejoin="round">
-                  <polygon points="148,290 162,248 176,290" fill="#092338"/>
+                <!-- Quiet Slate & Snow Québec Winter Pines (#2E333A & #4A515B + #FFFFFF/#DFEAF3 snow caps, #121110 strokes — 0% green, 0% electric blue!) -->
+                <g stroke="#121110" stroke-width="1.5" stroke-linejoin="round">
+                  <polygon points="148,290 162,248 176,290" fill="#2E333A"/>
                   <polygon points="153,266 162,248 171,266" fill="#FFFFFF"/>
-                  <polygon points="178,296 190,260 202,296" fill="#0974A3"/>
+                  <polygon points="178,296 190,260 202,296" fill="#4A515B"/>
                   <polygon points="183,274 190,260 197,274" fill="#DFEAF3"/>
-                  <polygon points="542,284 558,238 574,284" fill="#092338"/>
+                  <polygon points="542,284 558,238 574,284" fill="#2E333A"/>
                   <polygon points="548,258 558,238 568,258" fill="#FFFFFF"/>
-                  <polygon points="574,290 586,256 598,290" fill="#0974A3"/>
+                  <polygon points="574,290 586,256 598,290" fill="#4A515B"/>
                   <polygon points="579,269 586,256 593,269" fill="#DFEAF3"/>
-                  <polygon points="992,286 1008,242 1024,286" fill="#092338"/>
+                  <polygon points="992,286 1008,242 1024,286" fill="#2E333A"/>
                   <polygon points="998,260 1008,242 1018,260" fill="#FFFFFF"/>
                 </g>
               </svg>
@@ -3103,7 +3742,7 @@
           <!-- Modest-Scale Architectural Boostao Studio Entrance (#F2EFE9 / #FFFFFF portal, 2px #121110 linework,
                #121110 TAO'S WORKSHOP · QUÉBEC badge with #11AEED dot, and #22252A glazed studio door swinging into #05080F Midnight!) -->
           <div class="threshold-facade" aria-hidden="true">
-            <svg viewBox="0 0 490 600" preserveAspectRatio="none">
+            <svg viewBox="0 0 490 600" preserveAspectRatio="xMaxYMax meet">
               <!-- Architectural stone-cream portal facade (#F2EFE9 / #FFFFFF with crisp 2px #121110 linework) -->
               <rect x="82" y="106" width="408" height="494" fill="#F2EFE9" stroke="#121110" stroke-width="2.2"/>
               <rect x="82" y="106" width="20" height="494" fill="#DFEAF3" stroke="#121110" stroke-width="2"/>
@@ -3903,6 +4542,17 @@
             </svg>
           </div>
 
+          <!-- Right-Floor Signal Lift / Briefing Hatch Threshold Plate where Tao arrives at finaleP -> 1 -->
+          <button class="signal-lift-pad" id="signal-lift-pad" type="button" aria-label="Descend to Briefing Vault">
+            <span class="signal-lift-pad__bar" aria-hidden="true">
+              <span class="signal-lift-pad__fill" id="signal-lift-fill"></span>
+            </span>
+            <span class="signal-lift-pad__label">
+              <span class="signal-lift-pad__arrow" aria-hidden="true">↓</span>
+              <span>Briefing Vault</span>
+            </span>
+          </button>
+
           <!-- Cool Steel-Slate Floor (#CBD4DC / #22252A — zero wood, zero brown!) -->
           <div class="room-floor" aria-hidden="true">
             <svg viewBox="0 0 1440 160" preserveAspectRatio="none">
@@ -4009,6 +4659,10 @@
            ===================================================== -->
       <div class="tao-stage on-daylight" id="tao-stage">
         <div class="tao-ground-shadow" id="tao-shadow" aria-hidden="true"></div>
+        <button class="tao-intro-badge is-visible" id="tao-intro-badge" type="button" aria-label="Hi, I'm Tao — your workshop guide">
+          <span class="tao-intro-badge__dot" aria-hidden="true"></span>
+          <span>Hi, I'm <span class="tao-intro-badge__accent">Tao</span> — your workshop guide →</span>
+        </button>
         <div class="tao-status" id="tao-status" role="status" aria-live="polite">SYSTEMS NOMINAL · WALK ON →</div>
         <!-- Live CAD Height Gauge that materializes beside Tao inside Room 04 Blueprint -->
         <div class="tao-bp-gauge" aria-hidden="true">
@@ -4072,7 +4726,7 @@
            ===================================================== -->
       <div class="fg-strip-lock" id="fg-strip-lock" aria-hidden="true">
         <div class="doorway-front-jamb">
-          <svg viewBox="0 0 122 600" preserveAspectRatio="none">
+          <svg viewBox="0 0 122 600" preserveAspectRatio="xMaxYMax meet">
             <rect x="0" y="90" width="122" height="16" fill="#FFFFFF" stroke="#121110" stroke-width="2.2"/>
             <rect x="0" y="102" width="122" height="4" fill="#11AEED"/>
             <path d="M0 84 Q58 88 122 82 L122 90 L0 90 Z" fill="#FFFFFF" stroke="#121110" stroke-width="1.8"/>
@@ -4129,7 +4783,7 @@
            ZERO wood outside Room 03!)
            ===================================================== -->
       <div class="fg-floor-props" id="fg-floor-props" aria-hidden="true">
-        <!-- 1. 01 -> 02: #22252A / #121110 architectural studio wayfinding post + #092338 / #0974A3 / #DFEAF3 blue winter pine -->
+        <!-- 1. 01 -> 02: #22252A / #121110 architectural studio wayfinding post + #2E333A / #4A515B / #DFEAF3 slate winter pine -->
         <div class="fg-floor-prop fg-floor-prop--tall" style="left: 117%;">
           <svg viewBox="0 0 280 390">
             <g stroke="#121110" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
@@ -4138,16 +4792,16 @@
               <rect x="212" y="156" width="16" height="234" fill="#121110"/>
               <rect x="178" y="148" width="56" height="10" rx="2" fill="#FFFFFF"/>
               <rect x="184" y="182" width="44" height="8" fill="#11AEED"/>
-              <circle cx="200" cy="208" r="5" fill="#7CE3FF"/>
-              <!-- Blue/Slate Québec Winter Pine (#092338 / #0974A3 / #DFEAF3 — ZERO green, ZERO brown!) -->
+              <circle cx="200" cy="208" r="5" fill="#DFEAF3"/>
+              <!-- Slate & Snow Québec Winter Pine (#2E333A & #4A515B + #FFFFFF / #DFEAF3 snow caps — ZERO green, ZERO electric blue!) -->
               <rect x="98" y="236" width="26" height="154" fill="#121110"/>
-              <polygon points="22,268 111,158 202,268" fill="#092338"/>
-              <polygon points="111,158 202,268 158,268" fill="#05080F"/>
+              <polygon points="22,268 111,158 202,268" fill="#2E333A"/>
+              <polygon points="111,158 202,268 158,268" fill="#22252A"/>
               <path d="M46 238 Q82 224 111 196 Q142 224 176 238 L156 220 L111 158 L66 220 Z" fill="#DFEAF3"/>
-              <polygon points="38,194 111,94 184,194" fill="#0974A3"/>
-              <polygon points="111,94 184,194 148,194" fill="#092338"/>
+              <polygon points="38,194 111,94 184,194" fill="#4A515B"/>
+              <polygon points="111,94 184,194 148,194" fill="#2E333A"/>
               <path d="M58 166 Q88 152 111 126 Q136 152 164 166 L146 144 L111 94 L76 144 Z" fill="#FFFFFF"/>
-              <polygon points="58,122 111,34 164,122" fill="#0B82B5"/>
+              <polygon points="58,122 111,34 164,122" fill="#4A515B"/>
               <path d="M74 96 Q94 86 111 66 Q128 86 148 96 L111 34 Z" fill="#FFFFFF"/>
               <path d="M4 390 C28 354 96 352 146 364 C194 374 242 356 276 390 Z" fill="#DFEAF3"/>
             </g>
@@ -4316,11 +4970,16 @@
   const taoShadow = document.getElementById('tao-shadow');
   const taoStatus = document.getElementById('tao-status');
   const taoGlasses = document.getElementById('tao-glasses');
+  const skyTaoCallout = document.getElementById('sky-tao-callout');
+  const taoIntroBadge = document.getElementById('tao-intro-badge');
+  const signalLiftPad = document.getElementById('signal-lift-pad');
+  const signalLiftFill = document.getElementById('signal-lift-fill');
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  const SKY_SPLIT = 0.14;   // p in [0.00, 0.14] = Sky Overture vertical descent
-  const WALK_END = 0.84;    // p in [0.14, 0.84] = 5-stop zero-repeat horizontal walk; p in [0.84, 1.00] = Signal Briefing Coda!
+  const SKY_SPLIT = 0.12;   // p in [0.000, 0.120] = Sky Overture vertical descent
+  const WALK_END = 0.72;    // p in [0.120, 0.720] = 5-stop zero-repeat horizontal walk (0.15 per room transition)
+  const FINALE_END = 0.865; // p in [0.720, 0.865] = Room 05 dwell + Tao walks across floor to Signal Lift; p in [0.865, 1.000] = Briefing Coda!
 
   const roomTitles = [
     '01 · The Threshold',
@@ -4337,11 +4996,16 @@
   let lastSkyP = 0;
   let currentWalkP = 0;
   let lastWalkP = 0;
+  let currentFinaleP = 0;
+  let lastFinaleP = 0;
   let currentVaultP = 0;
   let velocity = 0;
   let rafId = 0;
   let stepEmitCarry = 0;
   let glanceTimer = 0;
+  let happyTimer = 0;
+  let taoBaseLeft = 72;
+  let taoWidthPx = 204;
 
   const pointer = { x: -999, y: -999, vx: 0, vy: 0 };
 
@@ -4368,10 +5032,16 @@
   function resizeFxCanvas() {
     cw = viewportEl ? viewportEl.clientWidth : document.documentElement.clientWidth;
     ch = window.innerHeight;
+    document.documentElement.style.setProperty('--cw', `${cw}px`);
     dpr = Math.min(2, window.devicePixelRatio || 1);
     fxCanvas.width = Math.round(cw * dpr);
     fxCanvas.height = Math.round(ch * dpr);
     fxCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    if (taoStage) {
+      taoBaseLeft = taoStage.offsetLeft || 16;
+      taoWidthPx = taoStage.offsetWidth || 204;
+    }
 
     if (rainWindow && rainOutCanvas && rainGlassCanvas && rainOutCtx && rainGlassCtx) {
       rw = Math.max(80, rainWindow.clientWidth || 420);
@@ -4842,16 +5512,50 @@
     currentWalkP = walkP;
     lastWalkP = walkP;
 
-    const vaultP = clamp(0, 1, (p - WALK_END) / (1 - WALK_END));
+    const finaleP = clamp(0, 1, (p - WALK_END) / (FINALE_END - WALK_END));
+    const dFinale = finaleP - lastFinaleP;
+    currentFinaleP = finaleP;
+    lastFinaleP = finaleP;
+
+    const vaultP = clamp(0, 1, (p - FINALE_END) / (1 - FINALE_END));
     currentVaultP = vaultP;
 
-    velocity = velocity * 0.78 + dWalk * 185;
+    // Friendly "Who is Tao?" callouts fade cleanly away once scrolling starts
+    if (skyTaoCallout) {
+      skyTaoCallout.classList.toggle('is-dismissed', skyP > 0.06);
+    }
+    if (taoIntroBadge) {
+      taoIntroBadge.classList.toggle('is-visible', skyP > 0.84 && walkP < 0.038);
+    }
 
-    if (skyP > 0.96 && vaultP < 0.04 && Math.abs(dWalk) > 0.0005) {
-      stepEmitCarry += Math.abs(dWalk) * 85;
+    // Room 05 Finale Walk: Tao walks across Room 05's floor to the Signal Lift pad while rigY stays 0vh!
+    const finaleEased = finaleP * finaleP * (3 - 2 * finaleP);
+    const maxTaoTravelPx = cw > 900
+      ? Math.max(0, cw - 2 * taoBaseLeft - taoWidthPx * 1.15)
+      : Math.max(0, cw - 36 - taoWidthPx);
+    const finaleX = finaleEased * maxTaoTravelPx;
+    taoStage.style.transform = `translate3d(${finaleX.toFixed(2)}px, 0, 0)`;
+    taoStage.classList.toggle('is-right-side', finaleP > 0.45);
+
+    if (signalLiftPad) {
+      signalLiftPad.classList.toggle('is-armed', finaleP > 0.78);
+    }
+    if (signalLiftFill) {
+      const liftScale = clamp(0.22, 1, 0.22 + finaleP * 0.88);
+      signalLiftFill.style.transform = `scaleX(${liftScale.toFixed(3)})`;
+    }
+    if (!happyTimer) {
+      taoActor.classList.toggle('is-happy', finaleP > 0.80 && vaultP < 0.12);
+    }
+
+    const combinedStepDelta = dWalk + dFinale * 0.28;
+    velocity = velocity * 0.78 + combinedStepDelta * 185;
+
+    if (skyP > 0.96 && vaultP < 0.04 && (Math.abs(dWalk) > 0.0005 || Math.abs(dFinale) > 0.0018)) {
+      stepEmitCarry += Math.abs(dWalk) * 85 + Math.abs(dFinale) * 24;
       if (stepEmitCarry >= 1) {
         stepEmitCarry = 0;
-        spawnStepParticles(dWalk >= 0 ? 1 : -1, Math.abs(velocity));
+        spawnStepParticles(combinedStepDelta >= 0 ? 1 : -1, Math.abs(velocity));
       }
     }
 
@@ -4863,7 +5567,7 @@
     studioStrip.style.transform = `translate3d(${stripPct}%, 0, 0)`;
     fgStripLock.style.transform = `translate3d(${lockPct}%, 0, 0)`;
 
-    const doorOpen = clamp(0, 1, (walkP - 0.004) / 0.12);
+    const doorOpen = clamp(0, 1, (walkP - 0.003) / 0.085);
     const easedDoor = 1 - Math.pow(1 - doorOpen, 2.2);
     setDoorPose(easedDoor);
 
@@ -4891,10 +5595,12 @@
       fgPartitions.style.transform = `translate3d(${(-walkP * 496).toFixed(4)}%, 0, 0)`;
       fgFloorProps.style.transform = `translate3d(${(-walkP * 536).toFixed(4)}%, 0, 0)`;
 
-      const stridePhase = Math.abs(Math.sin(walkP * Math.PI * 24));
-      const moveScale = vaultP > 0.02 ? 0 : clamp(0, 1, Math.abs(velocity) * 0.45 + (walkP > 0.002 && walkP < 0.998 ? 0.35 : 0));
+      const stridePhase = Math.abs(Math.sin((walkP * 24 + finaleP * 7) * Math.PI));
+      const inMotion = (walkP > 0.002 && walkP < 0.998) || (finaleP > 0.005 && finaleP < 0.985);
+      const moveScale = vaultP > 0.02 ? 0 : clamp(0, 1, Math.abs(velocity) * 0.45 + (inMotion ? 0.38 : 0));
       const bobPx = -stridePhase * 8.5 * moveScale;
-      const tiltDeg = vaultP > 0.02 ? 0 : clamp(-5.5, 5.5, velocity * 1.65);
+      const finaleNodDeg = (finaleP > 0.80 && vaultP < 0.12) ? 2.4 : 0;
+      const tiltDeg = vaultP > 0.02 ? 0 : clamp(-5.5, 5.5, velocity * 1.65 + finaleNodDeg);
       taoStride.style.transform = `translate3d(0, ${bobPx.toFixed(2)}px, 0) rotate(${tiltDeg.toFixed(2)}deg)`;
 
       const shadowScale = 1 - stridePhase * 0.12 * moveScale;
@@ -4917,13 +5623,16 @@
     siteHeader.classList.toggle('theme-crt', !inSignalCoda && skyP >= 1 && walkP >= 0.87);
     siteHeader.classList.toggle('theme-signal', inSignalCoda);
 
-    taoStage.classList.toggle('on-daylight', walkP < 0.185);
-    taoStage.classList.toggle('on-neon', walkP >= 0.185 && walkP < 0.42);
-    taoStage.classList.toggle('on-sunlit', walkP >= 0.42 && walkP <= 0.66);
-    taoStage.classList.toggle('on-blueprint', walkP > 0.66 && walkP < 0.90);
-    taoStage.classList.toggle('on-crt', walkP >= 0.90);
+    // Dynamic Tao room-crossing variant computed from Tao's real live screen center!
+    const taoCenterFrac = clamp(0, 1, (taoBaseLeft + finaleX + taoWidthPx * 0.5) / Math.max(1, cw));
+    const taoWorldRoom = walkP * 4 + taoCenterFrac;
+    taoStage.classList.toggle('on-daylight', taoWorldRoom < 1.0);
+    taoStage.classList.toggle('on-neon', taoWorldRoom >= 1.0 && taoWorldRoom < 2.0);
+    taoStage.classList.toggle('on-sunlit', taoWorldRoom >= 2.0 && taoWorldRoom < 3.0);
+    taoStage.classList.toggle('on-blueprint', taoWorldRoom >= 3.0 && taoWorldRoom < 4.0);
+    taoStage.classList.toggle('on-crt', taoWorldRoom >= 4.0);
 
-    const journeyProgress = clamp(0.04, 1, (p - SKY_SPLIT) / (1 - SKY_SPLIT));
+    const journeyProgress = clamp(0.04, 1, (p - SKY_SPLIT) / (FINALE_END - SKY_SPLIT));
     roomNavFill.style.transform = `scaleX(${journeyProgress.toFixed(3)})`;
     if (skyP < 0.82) {
       if (activeRoom !== -1) {
@@ -5002,19 +5711,19 @@
     glideAnimId = window.requestAnimationFrame(stepGlide);
   }
 
-  // Horizontal Trackpad Side-Scroll + Touch Swipe across the 5-Stop Walk!
+  // Horizontal Trackpad Side-Scroll + Touch Swipe across the 5-Stop Walk + Room 05 Finale Walk!
   window.addEventListener('wheel', (e) => {
     if (glideAnimId) {
       window.cancelAnimationFrame(glideAnimId);
       glideAnimId = 0;
     }
-    if (currentSkyP > 0.94 && currentVaultP < 0.06 && Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 1.5) {
-      const atStartExit = currentWalkP <= 0.002 && e.deltaX < 0;
-      const atEndExit = currentWalkP >= 0.998 && e.deltaX > 0;
+    if (currentSkyP > 0.94 && currentVaultP < 0.04 && Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 1.5) {
+      const atStartExit = currentWalkP <= 0.002 && currentFinaleP <= 0.001 && e.deltaX < 0;
+      const atEndExit = currentFinaleP >= 0.998 && e.deltaX > 0;
       if (!atStartExit && !atEndExit) {
         e.preventDefault();
-        const walkScrollSpan = (WALK_END - SKY_SPLIT) * getMaxScroll();
-        const scrollPerPx = walkScrollSpan / Math.max(1, cw * 4);
+        const horizScrollSpan = (FINALE_END - SKY_SPLIT) * getMaxScroll();
+        const scrollPerPx = horizScrollSpan / Math.max(1, cw * 4.95);
         window.scrollBy(0, e.deltaX * scrollPerPx * 1.15);
       }
     }
@@ -5028,7 +5737,7 @@
     lastX: 0,
     lastTime: 0,
     vx: 0,
-    startWalkP: 0
+    startStageU: 0
   };
 
   window.addEventListener('touchstart', (e) => {
@@ -5053,7 +5762,7 @@
     touchSwipe.lastX = t0.clientX;
     touchSwipe.lastTime = performance.now();
     touchSwipe.vx = 0;
-    touchSwipe.startWalkP = currentWalkP;
+    touchSwipe.startStageU = currentWalkP * 4 + currentFinaleP;
   }, { passive: true });
 
   window.addEventListener('touchmove', (e) => {
@@ -5075,9 +5784,11 @@
       touchSwipe.lastX = t0.clientX;
       touchSwipe.lastTime = now;
 
-      const deltaWalkP = -dx / Math.max(1, cw * 3.1);
-      const nextWalkP = clamp(0, 1, touchSwipe.startWalkP + deltaWalkP);
-      const nextP = SKY_SPLIT + nextWalkP * (WALK_END - SKY_SPLIT);
+      const deltaU = -dx / Math.max(1, cw * 0.78);
+      const nextU = clamp(0, 5, touchSwipe.startStageU + deltaU);
+      const nextP = nextU <= 4
+        ? SKY_SPLIT + (nextU / 4) * (WALK_END - SKY_SPLIT)
+        : WALK_END + (nextU - 4) * (FINALE_END - WALK_END);
       window.scrollTo(0, nextP * getMaxScroll());
     }
   }, { passive: false });
@@ -5088,17 +5799,20 @@
       touchSwipe.axis = null;
       return;
     }
-    const dragWalkDelta = currentWalkP - touchSwipe.startWalkP;
-    const baseStop = Math.round(touchSwipe.startWalkP * 4);
-    let targetStop = Math.round(currentWalkP * 4);
-    if (dragWalkDelta > 0.045 || touchSwipe.vx < -0.35) {
-      targetStop = Math.min(4, baseStop + 1);
-    } else if (dragWalkDelta < -0.045 || touchSwipe.vx > 0.35) {
+    const curU = currentWalkP * 4 + currentFinaleP;
+    const dragDeltaU = curU - touchSwipe.startStageU;
+    const baseStop = Math.round(touchSwipe.startStageU);
+    let targetStop = Math.round(curU);
+    if (dragDeltaU > 0.18 || touchSwipe.vx < -0.35) {
+      targetStop = Math.min(5, baseStop + 1);
+    } else if (dragDeltaU < -0.18 || touchSwipe.vx > 0.35) {
       targetStop = Math.max(0, baseStop - 1);
     }
     touchSwipe.active = false;
     touchSwipe.axis = null;
-    const snapP = SKY_SPLIT + (targetStop / 4) * (WALK_END - SKY_SPLIT);
+    const snapP = targetStop <= 4
+      ? SKY_SPLIT + (targetStop / 4) * (WALK_END - SKY_SPLIT)
+      : FINALE_END;
     smoothScrollToY(snapP * getMaxScroll(), 440);
   }, { passive: true });
 
@@ -5191,6 +5905,8 @@
       e.preventDefault();
       if (currentP < SKY_SPLIT - 0.02) {
         jumpToRoom(0);
+      } else if (activeRoom === 4 && currentFinaleP < 0.72) {
+        smoothScrollToY(FINALE_END * getMaxScroll(), 780);
       } else {
         jumpToRoom(Math.max(0, activeRoom) + 1);
       }
@@ -5198,6 +5914,8 @@
       e.preventDefault();
       if (currentWalkP < 0.03) {
         smoothScrollToY(0, 880);
+      } else if (activeRoom === 4 && currentFinaleP > 0.25) {
+        jumpToRoom(4);
       } else {
         jumpToRoom(Math.max(0, activeRoom) - 1);
       }
@@ -5248,7 +5966,6 @@
   ];
   let statusIdx = 0;
   let statusTimer = 0;
-  let happyTimer = 0;
   let taoClickTimes = [];
 
   function showTaoToast(text, duration = 2400) {
@@ -5366,15 +6083,15 @@
     spawnClickBurst(cx, cy);
   });
 
-  // Sky Overture Easter Egg A: Click Tao Emblem -> Friendly Wink + Crisp Snow Burst!
+  // Sky Overture Easter Egg A: Click Tao Emblem or Callout -> Friendly Wink + Crisp Snow Burst!
   const skyTaoEmblem = document.getElementById('sky-tao-emblem');
-  bindPropAction(skyTaoEmblem, () => {
+  const triggerSkyTaoWink = () => {
     if (skyTaoEmblem) {
       skyTaoEmblem.classList.add('is-winking');
       window.setTimeout(() => skyTaoEmblem.classList.remove('is-winking'), 680);
     }
-    const pt = centerOf(skyTaoEmblem);
-    if (!reducedMotion.matches) {
+    if (skyTaoEmblem && !reducedMotion.matches) {
+      const pt = centerOf(skyTaoEmblem);
       spawnClickBurst(pt.x, pt.y);
       for (let i = 0; i < 16; i += 1) {
         const a = (i / 16) * Math.PI * 2;
@@ -5388,6 +6105,16 @@
         });
       }
     }
+  };
+  bindPropAction(skyTaoEmblem, triggerSkyTaoWink);
+  bindPropAction(skyTaoCallout, triggerSkyTaoWink);
+
+  bindPropAction(taoIntroBadge, () => {
+    taoActor.click();
+  });
+
+  bindPropAction(signalLiftPad, () => {
+    glideToClosingBrief(true);
   });
 
   // Sky Overture Easter Egg B: Click Background Clouds -> Gentle Snow Puff!
@@ -5422,7 +6149,7 @@
   });
 
   // Room 01 Easter Egg A: Click Sun Disc -> Québec Snow Flurry Gust!
-  const propSun = document.getElementById('prop-sun');
+  const propSun = document.getElementById('prop-outdoor-sun');
   bindPropAction(propSun, () => {
     triggerClassAnim(propSun, 'is-pulsing', 540);
     showTaoToast('QUÉBEC FLURRY · FRESH POWDER INBOUND ❄');
@@ -5437,26 +6164,22 @@
         vy: 1.4 + Math.random() * 2.2,
         gravity: 0.018, drag: 0.99, life: 0, maxLife: 75 + Math.random() * 35,
         r: 2.4 + Math.random() * 1.5, shape: 'dot', glow: false,
-        color: i % 4 === 0 ? '#82B9DC' : '#FFFFFF'
+        color: i % 4 === 0 ? '#CBD4DC' : '#FFFFFF'
       });
     }
   });
 
-  // Room 01 Easter Egg B: Tap the Architectural Glazed Studio Door!
-  const doorKnockTicks = document.getElementById('door-knock-ticks');
-  let knockTimer = 0;
-  bindPropAction(doorLeafEl, () => {
+  // Room 01 Easter Egg B: Tap the Architectural Glazed Studio Door or Doorbell!
+  const propDoorbell = document.getElementById('prop-doorbell');
+  const handleDoorChime = () => {
     triggerClassAnim(doorLeafEl, 'is-knocking', 400);
-    if (doorKnockTicks) {
-      doorKnockTicks.classList.add('is-visible');
-      window.clearTimeout(knockTimer);
-      knockTimer = window.setTimeout(() => doorKnockTicks.classList.remove('is-visible'), 680);
-    }
-    const pt = centerOf(doorLeafEl);
+    const pt = centerOf(doorLeafEl || propDoorbell);
     glanceTaoAt(pt.x, pt.y);
     showTaoToast('✦ LATCH CHIME · STUDIO UNLOCKED—STEP ON IN →');
     spawnClickBurst(pt.x - 36, pt.y);
-  });
+  };
+  bindPropAction(doorLeafEl, handleDoorChime);
+  bindPropAction(propDoorbell, handleDoorChime);
 
   // Room 02 Easter Egg: Enigma Console Rotor Scramble & Secret Cipher Readout!
   const propEnigma = document.getElementById('prop-enigma');
